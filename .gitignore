@@ -1,6 +1,7 @@
 # dependencies
 /.pnp
 .pnp.js
+/node_modules/
 
 # Exclude all files in .yarn except a few important directories
 /.yarn/*
