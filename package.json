@@ -7,5 +7,14 @@
   "version": "0.0.1",
   "description": "ptory-front project",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.11.1",
+    "prettier": "^3.3.3"
+  },
+  "dependencies": {
+    "@craco/craco": "^7.1.0",
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5"
+  }
 }
