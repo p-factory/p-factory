@@ -3,6 +3,9 @@ module.exports = {
   content: ['src/**/*.{html,js,jsx,ts,tsx,css,scss}', 'public/index.html'],
   theme: {
     extend: {},
+    fontFamily:{
+      JejuDoldam: ['Jeju Doldam'],
+    },
   },
   plugins: [],
 };
