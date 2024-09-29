@@ -1,12 +1,17 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import DevTerminal from './View/devTermial';
 
 const App = () => {
   return (
-    <>
-      <div>기본 폰트</div>
-      <div className="font-JejuDoldam !important">폰트가 적용되었습니다.</div>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" />
+        <Route path="/devTerminal" element={<DevTerminal />} />
+      </Routes>
+    </Router>
   );
 };
+
 export default App;
