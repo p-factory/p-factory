@@ -21,20 +21,23 @@ const DevTerminal = () => {
         제주돌담체 폰트 적용 Light 16px
       </p>
       <hr />
-      <p className="text-xl font-bold font-Pretendard">
-        Pretendard 폰트 적용 Bold 24px
+      <p className="text-xl font-bold text-primaryColor font-Pretendard">
+        Pretendard 폰트 적용 Bold 24px (PrimaryColor)
       </p>
-      <p className="font-semibold text-l font-Pretendard">
-        Pretendard 폰트 적용 SemiBold 22px
+      <p className="font-semibold text-subColor text-l font-Pretendard">
+        Pretendard 폰트 적용 SemiBold 22px (SubColor)
       </p>
-      <p className="font-medium text-m font-Pretendard">
-        Pretendard 폰트 적용 Medium 20px
+      <p className="font-medium text-errorColor text-m font-Pretendard">
+        Pretendard 폰트 적용 Medium 20px (errorColor)
       </p>
-      <p className="font-normal text-s font-Pretendard">
-        Pretendard 폰트 적용 Regular 18px
+      <p className="font-normal text-successColor text-s font-Pretendard">
+        Pretendard 폰트 적용 Regular 18px (sucessColor)
       </p>
-      <p className="text-xs font-light font-Pretendard">
-        Pretendard 폰트 적용 Light 16px
+      <p className="text-xs font-light text-safetyColor font-Pretendard">
+        Pretendard 폰트 적용 Light 16px (safetyColor)
+      </p>
+      <p className="text-xs font-light text-neutralColor font-Pretendard">
+        Pretendard 폰트 적용 Light 16px (neutralColor)
       </p>
     </div>
   );
