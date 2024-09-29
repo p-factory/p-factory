@@ -1,12 +1,12 @@
 import React from 'react';
-import { useEffect } from 'react';
 import './App.css';
 
 const App = () => {
-  useEffect(() => {
-    console.log('test');
-  });
-  return <></>;
+  return (
+    <div>
+      <h1 className="font-JejuDoldam"></h1>
+    </div>
+  );
 };
 
 export default App;
