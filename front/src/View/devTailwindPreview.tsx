@@ -3,8 +3,8 @@ import React from 'react';
 const DevTerminal = () => {
   return (
     <div>
-      <h1>Dev Terminal Page</h1>
-      <p>테스트를 위한 페이지 입니다.</p>
+      <h1>Dev Tailwind Preview</h1>
+      <p>tailwind 적용 확인을 위한 페이지 입니다.</p>
       <p className="text-xl font-bold font-JejuDoldam">
         제주돌담체 폰트 적용 Bold 24px
       </p>
