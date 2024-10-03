@@ -4,41 +4,41 @@ const DevTerminal = () => {
   return (
     <div>
       <h1>Dev Tailwind Preview</h1>
-      <p>tailwind 적용 확인을 위한 페이지 입니다.</p>
-      <p className="text-xl font-bold font-JejuDoldam">
+      <div>tailwind 적용 확인을 위한 페이지 입니다.</div>
+      <div className="font-bold font-xl JejuDoldam">
         제주돌담체 폰트 적용 Bold 24px
-      </p>
-      <p className="font-semibold text-l font-JejuDoldam">
+      </div>
+      <div className="font-semibold font-l JejuDoldam">
         제주돌담체 폰트 적용 SemiBold 22px
-      </p>
-      <p className="font-medium text-m font-JejuDoldam">
+      </div>
+      <div className="font-medium font-m JejuDoldam">
         제주돌담체 폰트 적용 Medium 20px
-      </p>
-      <p className="font-normal text-s font-JejuDoldam">
+      </div>
+      <div className="font-normal font-s JejuDoldam">
         제주돌담체 폰트 적용 Regular 18px
-      </p>
-      <p className="text-xs font-light font-JejuDoldam">
+      </div>
+      <div className="font-light font-xs JejuDoldam">
         제주돌담체 폰트 적용 Light 16px
-      </p>
+      </div>
       <hr />
-      <p className="text-xl font-bold text-primaryColor font-Pretendard">
+      <div className="font-bold font-xl text-primaryColor Pretendard">
         Pretendard 폰트 적용 Bold 24px (PrimaryColor)
-      </p>
-      <p className="font-semibold text-subColor text-l font-Pretendard">
+      </div>
+      <div className="font-semibold text-subColor font-l Pretendard">
         Pretendard 폰트 적용 SemiBold 22px (SubColor)
-      </p>
-      <p className="font-medium text-errorColor text-m font-Pretendard">
+      </div>
+      <div className="font-medium text-errorColor font-m Pretendard">
         Pretendard 폰트 적용 Medium 20px (errorColor)
-      </p>
-      <p className="font-normal text-successColor text-s font-Pretendard">
+      </div>
+      <div className="font-normal text-successColor font-s Pretendard">
         Pretendard 폰트 적용 Regular 18px (sucessColor)
-      </p>
-      <p className="text-xs font-light text-safetyColor font-Pretendard">
+      </div>
+      <div className="font-light font-xs text-safetyColor Pretendard">
         Pretendard 폰트 적용 Light 16px (safetyColor)
-      </p>
-      <p className="text-xs font-light text-neutralColor font-Pretendard">
+      </div>
+      <div className="font-light font-xs text-neutralColor Pretendard">
         Pretendard 폰트 적용 Light 16px (neutralColor)
-      </p>
+      </div>
     </div>
   );
 };
