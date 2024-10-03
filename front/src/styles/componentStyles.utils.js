@@ -12,8 +12,8 @@ const buttonComponents = {
 // display 관련된 custom styles
 //row
 const displayFlexComponents = {
-  '.flex': {
-    '@apply text-center': {},
+  '.--flex': {
+    '@apply flex': {},
   },
 };
 //colum

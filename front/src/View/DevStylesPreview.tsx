@@ -1,46 +1,46 @@
 import React from 'react';
 
-const DevTerminal = () => {
+const DevStylesPreview = () => {
   return (
-    <div>
+    <div className="--flex">
       <h1>Dev Tailwind Preview</h1>
       <div>tailwind 적용 확인을 위한 페이지 입니다.</div>
-      <div className="font-bold font-xl JejuDoldam">
+      <div className="--font-xl bold JejuDoldam --flex">
         제주돌담체 폰트 적용 Bold 24px
       </div>
-      <div className="font-semibold font-l JejuDoldam">
+      <div className="--font-l semibold JejuDoldam">
         제주돌담체 폰트 적용 SemiBold 22px
       </div>
-      <div className="font-medium font-m JejuDoldam">
+      <div className="--font-m medium JejuDoldam">
         제주돌담체 폰트 적용 Medium 20px
       </div>
-      <div className="font-normal font-s JejuDoldam">
+      <div className="--font-s normal JejuDoldam">
         제주돌담체 폰트 적용 Regular 18px
       </div>
-      <div className="font-light font-xs JejuDoldam">
+      <div className="--font-xs light JejuDoldam">
         제주돌담체 폰트 적용 Light 16px
       </div>
       <hr />
-      <div className="font-bold font-xl text-primaryColor Pretendard">
+      <div className="--font-xl bold text-primaryColor Pretendard">
         Pretendard 폰트 적용 Bold 24px (PrimaryColor)
       </div>
-      <div className="font-semibold text-subColor font-l Pretendard">
+      <div className="text-subColor --font-l semibold Pretendard">
         Pretendard 폰트 적용 SemiBold 22px (SubColor)
       </div>
-      <div className="font-medium text-errorColor font-m Pretendard">
+      <div className="text-errorColor --font-m medium Pretendard">
         Pretendard 폰트 적용 Medium 20px (errorColor)
       </div>
-      <div className="font-normal text-successColor font-s Pretendard">
+      <div className="text-successColor --font-s normal Pretendard">
         Pretendard 폰트 적용 Regular 18px (sucessColor)
       </div>
-      <div className="font-light font-xs text-safetyColor Pretendard">
+      <div className="--font-xs light text-safetyColor Pretendard">
         Pretendard 폰트 적용 Light 16px (safetyColor)
       </div>
-      <div className="font-light font-xs text-neutralColor Pretendard">
+      <div className="--font-xs light text-neutralColor Pretendard">
         Pretendard 폰트 적용 Light 16px (neutralColor)
       </div>
     </div>
   );
 };
 
-export default DevTerminal;
+export default DevStylesPreview;
