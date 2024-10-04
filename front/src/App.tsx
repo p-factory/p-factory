@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import DevTailwindPreview from './View/devTailwindPreview';
+import DevStylesPreview from './View/DevStylesPreview';
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" />
-        <Route path="/devTailwindPreview" element={<DevTailwindPreview />} />
+        <Route path="/DevStylesPreview" element={<DevStylesPreview />} />
       </Routes>
     </Router>
   );

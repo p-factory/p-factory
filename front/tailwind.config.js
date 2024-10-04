@@ -1,9 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+const customStylesPlugin = require("./src/styles/styles.plugin");
+
 module.exports = {
+  mode: "jit",
   content: ['src/**/*.{html,js,jsx,ts,tsx,css,scss}', 'public/index.html'],
   theme: {
     extend: {
-      /* font-size */
+      /** 
+      // font-size
       fontSize: {
         'xl': '24px',
         'l': '22px',
@@ -11,12 +15,12 @@ module.exports = {
         's': '18px',
         'xs': '16px',
       },
-      /* font */
+      // font
       fontFamily: {
         JejuDoldam: ['Jeju Doldam'],
         Pretendard: ['Pretendard'],
       },
-      /* font-color */
+      // font-color
       colors: {
         'primaryColor': '#BAFF4A',
         'subColor': '#000000',
@@ -35,7 +39,10 @@ module.exports = {
         'safetyColor': '#32BF00',
         'neutralColor': '#656565',
       },
+      */
     },
   },
-  plugins: [],
+  plugins: [
+    customStylesPlugin,
+  ],
 };

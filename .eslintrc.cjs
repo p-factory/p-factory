@@ -111,7 +111,7 @@ module.exports = {
         vars: 'all',
         args: 'after-used',
         ignoreRestSiblings: true,
-        varsIgnorePattern: '^(is|set)[A-Z].*$', // 여기에서 변수 이름 패턴을 지정
+        //varsIgnorePattern: '^(is|set)[A-Z].*$', // 여기에서 변수 이름 패턴을 지정
       },
     ],
 
