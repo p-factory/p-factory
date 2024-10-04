@@ -2,6 +2,7 @@
 const customStylesPlugin = require("./src/styles/styles.plugin");
 
 module.exports = {
+  mode: "jit",
   content: ['src/**/*.{html,js,jsx,ts,tsx,css,scss}', 'public/index.html'],
   theme: {
     extend: {
