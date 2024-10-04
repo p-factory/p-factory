@@ -3,14 +3,14 @@ import plugin from 'tailwindcss/plugin';
 import rootUtils from './root.utils';
 import colorUtils from './colorStyles.utils';
 import fontUtils from './fontStyles.utils';
-import componentStylesUtils from './componentStyles.utils';
+import mainStylesComponents from './mainStyles.components';
 
 const rootVariables = rootUtils;
 const colorStyles = colorUtils;
 const fontStyles = fontUtils.fontStyles;
 const fontSizes = fontUtils.fontSizes;
 const fontWeight = fontUtils.fontWeight;
-const displayComponents = componentStylesUtils.displayFlexComponents;
+const displayComponents = mainStylesComponents.primaryFlexComponents;
 
 const stylesPlugin = plugin(({ addUtilities, addComponents }) => {
   //, theme : theme은 extend를 사용해서 확장하기 위해 존재하는 매개변수

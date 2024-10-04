@@ -2,7 +2,7 @@ import React from 'react';
 
 const DevStylesPreview = () => {
   return (
-    <div className="--flex-col">
+    <div className="--primary-flex-col">
       <h1>Dev Tailwind Preview</h1>
       <div>tailwind 적용 확인을 위한 페이지 입니다.</div>
       <div className="--font-xl bold JejuDoldam --flex">
