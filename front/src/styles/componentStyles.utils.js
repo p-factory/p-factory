@@ -15,8 +15,11 @@ const displayFlexComponents = {
   '.--flex': {
     '@apply flex': {},
   },
+  //colum
+  '--felx-col': {
+    '@apply flex flex-col': {},
+  },
 };
-//colum
 
 // margin 관련된 custom styles
 

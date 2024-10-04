@@ -1,7 +1,7 @@
 import plugin from 'tailwindcss/plugin';
 
 import rootUtils from './root.utils';
-import colorUtils from './colorStyles.plugin';
+import colorUtils from './colorStyles.utils';
 import fontUtils from './fontStyles.utils';
 import componentStylesUtils from './componentStyles.utils';
 
