@@ -16,8 +16,15 @@ const displayFlexComponents = {
     '@apply flex': {},
   },
   //colum
-  '--felx-col': {
-    '@apply flex flex-col': {},
+  '.--flex-col': {
+    '@apply flex flex-col items-center justify-center': {},
+    width: '100%',
+    height: '100vh',
+    backgroundColor: '#2333',
+  },
+  '.custom-width': {
+    width: '1597px',
+    backgroundColor: '#2222',
   },
 };
 
