@@ -1,4 +1,5 @@
 import React from 'react';
+import spannerIcon from '../../global/Img/spannerIcon.svg';
 
 const MainPage = () => {
   return (
@@ -6,7 +7,14 @@ const MainPage = () => {
       <div className="--primary-flex-col w-1500">
         <div>
           {/* 로고와 설명부분 */}
-          <div className="--font-main JejuDoldam bold --flex">ㅍ토리</div>
+          <div className="--font-main JejuDoldam bold --primary-flex">
+            ㅍ토리
+            <img
+              src={spannerIcon}
+              alt="Spanner Icon"
+              className="h-[54px] w-[54px]"
+            />
+          </div>
           <div className="--font-xl Pretendard text-statusColor-05 ">
             {/* #b7b7b7 없어서 임의로 05로 지정 */}
             토리와 함께 내가 만들어가는
