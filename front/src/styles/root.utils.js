@@ -24,6 +24,9 @@ const rootUtils = {
     '--font-m': '20px',
     '--font-s': '18px',
     '--font-xs': '16px',
+
+    // width
+    '--standard-width': '1500px',
   },
 };
 

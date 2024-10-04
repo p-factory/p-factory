@@ -56,14 +56,14 @@ a {
 }
 
 body {
-  background-color: black;
+  background-color: #2323;
   /* font-family: "Pretendard Variable"; */
   /* color: var(--white-color); */
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100vh;
-  /* min-height: auto; */
-  /* max-width: 450px; */
+  min-height: auto;
+  max-width: 100%;
   margin: 0 auto;
 }

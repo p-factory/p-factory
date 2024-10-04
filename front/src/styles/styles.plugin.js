@@ -4,6 +4,7 @@ import rootUtils from './root.utils';
 import colorUtils from './colorStyles.utils';
 import fontUtils from './fontStyles.utils';
 import mainStylesComponents from './mainStyles.components';
+import widthUtils from './widthStyles.utils';
 
 const rootVariables = rootUtils;
 const colorStyles = colorUtils;
@@ -11,6 +12,7 @@ const fontStyles = fontUtils.fontStyles;
 const fontSizes = fontUtils.fontSizes;
 const fontWeight = fontUtils.fontWeight;
 const displayComponents = mainStylesComponents.primaryFlexComponents;
+const widthStyles = widthUtils;
 
 const stylesPlugin = plugin(({ addUtilities, addComponents }) => {
   //, theme : theme은 extend를 사용해서 확장하기 위해 존재하는 매개변수
@@ -22,7 +24,7 @@ const stylesPlugin = plugin(({ addUtilities, addComponents }) => {
   addUtilities(fontSizes); // 커스텀 폰트 크기 추가, 폰트 크기 정의
   addUtilities(fontWeight);
   addUtilities(colorStyles); // 색상 스타일 추가, 텍스트와 배경색에 같은 CSS 변수를 사용하는 유틸리티 스타일 정의
-
+  addUtilities(widthStyles);
   // addComponents(buttonComponents); 버튼 컴포넌트 스타일 추가, 버튼 스타일 정의
   addComponents(displayComponents);
 });

@@ -11,9 +11,15 @@ const buttonComponents = {
 
 // display 관련된 custom styles
 const primaryFlexComponents = {
+  //root
+  '.--root-flex': {
+    '@apply flex flex-col items-center justify-center h-screen': {},
+  },
   //primary-row
   '.--primary-flex': {
     '@apply flex items-center justify-center': {},
+    boxSizing: 'border-box',
+    // width: '1500px',
     // width: '100%',
     // height: '100vh',
     backgroundColor: 'white',
@@ -21,7 +27,8 @@ const primaryFlexComponents = {
   //primary-colum
   '.--primary-flex-col': {
     '@apply flex flex-col items-center justify-center': {},
-    // width: '1597px',
+    boxSizing: 'border-box',
+    // width: '1500px',
     // width: '100%',
     // height: '100vh',
     backgroundColor: 'white',
