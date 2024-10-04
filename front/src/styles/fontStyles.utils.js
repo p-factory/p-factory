@@ -4,6 +4,7 @@ const fontStyles = {
 };
 
 const fontSizes = {
+  '.--font-main': { fontSize: 'var(--font-main)' },
   '.--font-xl': { fontSize: 'var(--font-xl)' },
   '.--font-l': { fontSize: 'var(--font-l)' },
   '.--font-m': { fontSize: 'var(--font-m)' },

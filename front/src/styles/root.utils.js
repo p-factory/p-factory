@@ -19,6 +19,7 @@ const rootUtils = {
     '--status-color-08': '#FFFFFF',
 
     // font-size
+    '--font-main': '83px', // 83.3 -> 83
     '--font-xl': '24px',
     '--font-l': '22px',
     '--font-m': '20px',
