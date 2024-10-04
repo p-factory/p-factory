@@ -14,17 +14,17 @@ const primaryFlexComponents = {
   //primary-row
   '.--primary-flex': {
     '@apply flex items-center justify-center': {},
-    width: '100%',
-    height: '100vh',
-    backgroundColor: '#2333',
+    // width: '100%',
+    // height: '100vh',
+    backgroundColor: 'white',
   },
   //primary-colum
   '.--primary-flex-col': {
     '@apply flex flex-col items-center justify-center': {},
     // width: '1597px',
-    width: '100%',
-    height: '100vh',
-    backgroundColor: '#2333',
+    // width: '100%',
+    // height: '100vh',
+    backgroundColor: 'white',
   },
 };
 
