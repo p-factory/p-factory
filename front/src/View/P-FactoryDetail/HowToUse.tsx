@@ -1,5 +1,7 @@
 import React from 'react';
 import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
+import sparkleIcon from '../../global/Img/sparkleIcon.svg';
+import closeIcon from '../../global/Img/closeIcon.svg';
 
 const HowToUse = () => {
   return (
@@ -23,6 +25,21 @@ const HowToUse = () => {
             <div className="w-[1139px] h-[414px] border-[1px] bg-white border-black border-solid rounded-[43px] relative z-10">
               <div className="w-[38px] h-[38px] bg-black rounded-full absolute z-10 top-[30px] left-[36px]" />
               <div className="w-[26px] h-[26px] bg-primaryColor rounded-full absolute z-10 top-[23px] left-[78px]" />
+              <img
+                src={sparkleIcon}
+                alt="Sparkle Icon"
+                className="w-[75px] h-[88px] absolute z-20 top-[69px] right-[139px]"
+              />
+              <img
+                src={sparkleIcon}
+                alt="Sparkle Icon"
+                className="w-[49px] h-[57px] absolute z-20 top-[68px] right-[109px]"
+              />
+              <img
+                src={closeIcon}
+                alt="X"
+                className="w-[34px] h-[34px] absolute z-10 top-[34px] right-[55px]"
+              />
               <div className="--font-xl medium mt-[33px] ml-[122px]">
                 어디서든 <br />
                 <span className="bold">편리하고 재밌게!</span>
