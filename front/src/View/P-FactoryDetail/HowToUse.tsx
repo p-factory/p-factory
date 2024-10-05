@@ -7,17 +7,20 @@ const HowToUse = () => {
   return (
     <div className="h-auto --root-flex Pretendard">
       <div className="--primary-flex-col w-1500">
-        <div className="text-[60px] JejuDoldam mt-[202px] mb-[130px]">
-          ㅍ토리 사용법
+        <div className="relative mt-[202px] mb-[130px]">
+          <div className="text-[60px] JejuDoldam z-10 relative h-[67px] w-[436px] flex items-center">
+            ㅍ토리 사용법
+          </div>
+          <div className="bg-primaryColor w-[465px] h-[33px] rounded-[13px] absolute z-0 top-[34px] left-[-22px]" />
         </div>
-        <div>
+        <div className="relative mb-[40px] w-[513px] h-[57px]">
           <div className="--font-m medium">
             나<span className="bold bg-primaryColor"> 토리!</span> 이 공장의
             초절정 귀염둥이 마스코트지
           </div>
-          <div className="--font-xs medium text-statusColor-05 mb-[40px]">
-            ㅍ토리를 어떻게 사용하는지 모르겠다고? 이래서 MZ란.. 한 번만
-            알려준다 따라와!!!
+          <div className="--font-xs medium text-statusColor-05 absolute top-[29px]">
+            ㅍ토리를 어떻게 사용하는지 모르겠다고? 이래서 MZ란.. 한번만 알려준다
+            따라와!!!
           </div>
         </div>
         <div>
