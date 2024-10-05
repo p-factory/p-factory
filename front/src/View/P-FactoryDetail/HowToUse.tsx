@@ -40,7 +40,8 @@ const HowToUse = () => {
                 alt="X"
                 className="w-[34px] h-[34px] absolute z-10 top-[34px] right-[55px]"
               />
-              <div className="--font-xl medium mt-[33px] ml-[122px]">
+              <div className="bg-primaryColor w-[196px] h-[21px] absolute z-[15] top-[90px] left-[122px]" />
+              <div className="--font-xl medium mt-[33px] ml-[122px] relative z-20">
                 어디서든 <br />
                 <span className="bold">편리하고 재밌게!</span>
               </div>
