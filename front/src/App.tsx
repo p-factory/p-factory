@@ -3,15 +3,17 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DevStylesPreview from './View/DevStylesPreview';
 import MainPage from './View/Main/MainPage';
+import HowToUse from './View/P-FactoryDetail/HowToUse';
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" />
         <Route path="/DevStylesPreview" element={<DevStylesPreview />} />
         {/* Main */}
-        <Route path="/MainPage" element={<MainPage />} />
+        <Route path="/" element={<MainPage />} />
+        {/* P-FactoryDetail */}
+        <Route path="/HowToUse" element={<HowToUse />} />
       </Routes>
     </Router>
   );
