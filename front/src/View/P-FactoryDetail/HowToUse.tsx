@@ -1,4 +1,5 @@
 import React from 'react';
+import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
 
 const HowToUse = () => {
   return (
@@ -49,7 +50,18 @@ const HowToUse = () => {
               </div>
             </div>
           </div>
-          <div className="btn-secondary">단어 공장 작업 시작하기</div>
+          <div className="bold items-center btn-secondary Pretendard h-[102px] w-[682px]">
+            <div className="flex items-center">
+              <div className="w-[212px] h-[26px] --font-l flex items-center">
+                단어 공장 작업 시작하기
+              </div>
+              <img
+                src={spannerIconWhite}
+                alt="Spanner Icon"
+                className="h-[26px] w-[26px] ml-[5px]"
+              />
+            </div>
+          </div>
           <div className="text-statusColor-05 medium --font-xs">
             Click me!!! 당신만의 단어 공장, 지금 바로 작업해 보세요!
           </div>
