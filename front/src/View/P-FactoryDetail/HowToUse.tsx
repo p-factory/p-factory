@@ -41,16 +41,16 @@ const HowToUse = () => {
                 className="w-[34px] h-[34px] absolute z-10 top-[34px] right-[55px]"
               />
               <div className="bg-primaryColor w-[196px] h-[21px] absolute z-[15] top-[90px] left-[122px]" />
-              <div className="--font-xl medium mt-[33px] ml-[122px] relative z-20">
+              <div className="--font-xl medium mt-[33px] ml-[122px] relative z-20 leading-[150%]">
                 어디서든 <br />
                 <span className="bold">편리하고 재밌게!</span>
               </div>
               <div className="flex --font-xs medium mt-[26px] h-[222px]">
-                <div className="rounded-[36px] border shadow-[0_0_16px_rgba(0,0,0,0.25)] w-[443px] ml-[96px] mr-[47px] pt-[26px] pl-[43px]">
+                <div className="rounded-[36px] border shadow-[0_0_16px_rgba(0,0,0,0.25)] w-[443px] ml-[96px] mr-[47px] pt-[26px] pl-[43px] leading-[175%]">
                   월요일 아침 <br />
                   지옥철 안에서도!
                 </div>
-                <div className="rounded-[36px] border shadow-[0_0_16px_rgba(0,0,0,0.25)] w-[443px] pt-[26px] pl-[35px]">
+                <div className="rounded-[36px] border shadow-[0_0_16px_rgba(0,0,0,0.25)] w-[443px] pt-[26px] pl-[35px] leading-[175%]">
                   인터넷 안되는 <br />
                   장거리 비행 속에서도!
                 </div>
@@ -78,16 +78,16 @@ const HowToUse = () => {
                 className="w-[34px] h-[34px] absolute z-10 top-[34px] right-[55px]"
               />
               <div className="bg-primaryColor w-[196px] h-[21px] absolute z-[15] top-[90px] left-[122px]" />
-              <div className="--font-xl medium mt-[33px] ml-[122px] relative z-20">
+              <div className="--font-xl medium mt-[33px] ml-[122px] relative z-20 leading-[150%]">
                 다양한 단어장을 통한 <br />
                 <span className="bold">학습효과 극대화!</span>
               </div>
               <div className="flex --font-xs medium mt-[26px] h-[222px]">
-                <div className="rounded-[36px] border shadow-[0_0_16px_rgba(0,0,0,0.25)] w-[443px] ml-[96px] mr-[47px] pt-[26px] pl-[43px]">
+                <div className="rounded-[36px] border shadow-[0_0_16px_rgba(0,0,0,0.25)] w-[443px] ml-[96px] mr-[47px] pt-[26px] pl-[43px] leading-[175%]">
                   친구네 공장에 <br />
                   구경갈 수도 있어요!
                 </div>
-                <div className="rounded-[36px] border shadow-[0_0_16px_rgba(0,0,0,0.25)] w-[443px] pt-[26px] pl-[35px]">
+                <div className="rounded-[36px] border shadow-[0_0_16px_rgba(0,0,0,0.25)] w-[443px] pt-[26px] pl-[35px] leading-[175%]">
                   여러 카테고리의 <br />
                   단어장을 통해 <br />
                   학습목표에 맞추어 공부하세요!
