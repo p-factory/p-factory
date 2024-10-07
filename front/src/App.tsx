@@ -3,7 +3,8 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DevStylesPreview from './View/DevStylesPreview';
 import MainPage from './View/Main/MainPage';
-import HowToUse from './View/P-FactoryDetail/HowToUse';
+import Manual from './View/Main/ManualPage';
+import VocabularyBookPage from './View/VocabularyBook/VocabularyBookPage';
 
 const App = () => {
   return (
@@ -12,8 +13,9 @@ const App = () => {
         <Route path="/DevStylesPreview" element={<DevStylesPreview />} />
         {/* Main */}
         <Route path="/" element={<MainPage />} />
-        {/* P-FactoryDetail */}
-        <Route path="/HowToUse" element={<HowToUse />} />
+        <Route path="/Manual" element={<Manual />} />
+        {/* VocabularyBook */}
+        <Route path="/VocabularyBook" element={<VocabularyBookPage />} />
       </Routes>
     </Router>
   );
