@@ -5,11 +5,13 @@ import DevStylesPreview from './View/DevStylesPreview';
 import MainPage from './View/Main/MainPage';
 import Manual from './View/Main/ManualPage';
 import VocabularyBookPage from './View/VocabularyBook/VocabularyBookPage';
+import DevDesignSystem from './View/DevDesignSystem';
 
 const App = () => {
   return (
     <Router>
       <Routes>
+        <Route path="/Dev" element={<DevDesignSystem />} />
         <Route path="/DevStylesPreview" element={<DevStylesPreview />} />
         {/* Main */}
         <Route path="/" element={<MainPage />} />
