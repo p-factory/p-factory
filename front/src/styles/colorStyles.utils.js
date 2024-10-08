@@ -1,38 +1,38 @@
 const colorUtils = {
-  // text Colors
-  '.text-primaryColor': { color: 'var(--primary-color)' },
-  '.text-subColor': { color: 'var(--sub-color)' },
-  '.text-errorColor': { color: 'var(--error-color)' },
-  '.text-successColor': { color: 'var(--success-color)' },
-  '.text-safetyColor': { color: 'var(--safety-color)' },
-  '.text-neutralColor': { color: 'var(--neutral-color)' },
-  // text-Status Colors
-  '.text-statusColor-01': { color: 'var(--status-color-01)' },
-  '.text-statusColor-02': { color: 'var(--status-color-02)' },
-  '.text-statusColor-03': { color: 'var(--status-color-03)' },
-  '.text-statusColor-04': { color: 'var(--status-color-04)' },
-  '.text-statusColor-05': { color: 'var(--status-color-05)' },
-  '.text-statusColor-06': { color: 'var(--status-color-06)' },
-  '.text-statusColor-07': { color: 'var(--status-color-07)' },
-  '.text-statusColor-08': { color: 'var(--status-color-08)' },
+  // Colors
+  '.--primary-font-Color': { color: 'var(--primary-color)' },
+  '.--sub-font-Color': { color: 'var(--sub-color)' },
+  '.--error-font-Color': { color: 'var(--error-color)' },
+  '.--success-font-Color': { color: 'var(--success-color)' },
+  '.--safety-font-Color': { color: 'var(--safety-color)' },
+  '.--neutral-font-Color': { color: 'var(--neutral-color)' },
+  // Status Colors
+  '.--status-font-Color-01': { color: 'var(--status-color-01)' },
+  '.--status-font-Color-02': { color: 'var(--status-color-02)' },
+  '.--status-font-Color-03': { color: 'var(--status-color-03)' },
+  '.--status-font-Color-04': { color: 'var(--status-color-04)' },
+  '.--status-font-Color-05': { color: 'var(--status-color-05)' },
+  '.--status-font-Color-06': { color: 'var(--status-color-06)' },
+  '.--status-font-Color-07': { color: 'var(--status-color-07)' },
+  '.--status-font-Color-08': { color: 'var(--status-color-08)' },
 
   //bg Colors
-  '.bg-primaryColor': { backgroundColor: 'var(--primary-color)' },
-  '.bg-subColor': { backgroundColor: 'var(--sub-color)' },
-  '.bg-errorColor': { backgroundColor: 'var(--error-color)' },
-  '.bg-successColor': { backgroundColor: 'var(--success-color)' },
-  '.bg-safetyColor': { backgroundColor: 'var(--safety-color)' },
-  '.bg-neutralColor': { backgroundColor: 'var(--neutral-color)' },
+  '.--primary-bg-Color': { backgroundColor: 'var(--primary-color)' },
+  '.--sub-bg-Color': { backgroundColor: 'var(--sub-color)' },
+  '.--error-bg-Color': { backgroundColor: 'var(--error-color)' },
+  '.--success-bg-Color': { backgroundColor: 'var(--success-color)' },
+  '.--safety-bg-Color': { backgroundColor: 'var(--safety-color)' },
+  '.--neutral-bg-Color': { backgroundColor: 'var(--neutral-color)' },
 
   // bg-Status Colors
-  '.bg-statusColor-01': { backgroundColor: 'var(--status-color-01)' },
-  '.bg-statusColor-02': { backgroundColor: 'var(--status-color-02)' },
-  '.bg-statusColor-03': { backgroundColor: 'var(--status-color-03)' },
-  '.bg-statusColor-04': { backgroundColor: 'var(--status-color-04)' },
-  '.bg-statusColor-05': { backgroundColor: 'var(--status-color-05)' },
-  '.bg-statusColor-06': { backgroundColor: 'var(--status-color-06)' },
-  '.bg-statusColor-07': { backgroundColor: 'var(--status-color-07)' },
-  '.bg-statusColor-08': { backgroundColor: 'var(--status-color-08)' },
+  '.--status-bg-Color-01': { backgroundColor: 'var(--status-color-01)' },
+  '.--status-bg-Color-02': { backgroundColor: 'var(--status-color-02)' },
+  '.--status-bg-Color-03': { backgroundColor: 'var(--status-color-03)' },
+  '.--status-bg-Color-04': { backgroundColor: 'var(--status-color-04)' },
+  '.--status-bg-Color-05': { backgroundColor: 'var(--status-color-05)' },
+  '.--status-bg-Color-06': { backgroundColor: 'var(--status-color-06)' },
+  '.--status-bg-Color-07': { backgroundColor: 'var(--status-color-07)' },
+  '.--status-bg-Color-08': { backgroundColor: 'var(--status-color-08)' },
 };
 
 export default colorUtils;
