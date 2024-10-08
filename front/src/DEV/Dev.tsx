@@ -4,19 +4,23 @@ const devCalculator = Dev.devCalculator;
 
 export const DevTool = () => {
   // useRef의 초기값을 명시적으로 `HTMLInputElement | null`로 설정
-  const inputRef = useRef<HTMLInputElement | null>(null);
+  const targetRef = useRef<HTMLInputElement | null>(null);
+  const widthRef = useRef<HTMLInputElement | null>(null);
 
   // 상태로 result 값 관리
   const [result, setResult] = useState<number>(0);
 
   // 계산 핸들러 함수
   const handleCalculate = () => {
-    // `inputRef.current`가 `null`이 아니면 처리
-    if (inputRef.current !== null) {
-      const inputValue = inputRef.current.value;
-      const calcResult = devCalculator(Number(inputValue)); // 값을 숫자로 변환하여 전달
+    // `targetRef.current`가 `null`이 아니면 처리
+    if (targetRef.current !== null && widthRef.current !== null) {
+      const targetValue = targetRef.current.value;
+      const widthValue = widthRef.current.value;
+      const calcResult = devCalculator(Number(targetValue), Number(widthValue)); // 값을 숫자로 변환하여 전달
       setResult(calcResult); // 상태로 업데이트하여 UI 리렌더링
-      console.log(`입력 값: ${inputValue}, 계산 결과: ${calcResult}`);
+      console.log(
+        `기준 값: ${widthValue} /n 입력 값: ${targetValue}, 계산 결과: ${calcResult}`,
+      );
     }
   };
 
@@ -38,12 +42,19 @@ export const DevTool = () => {
       {/* input 값의 배경을 흰색으로 설정 */}
       <input
         type="number"
-        ref={inputRef}
+        ref={widthRef}
         style={{ backgroundColor: 'white', width: '100px' }}
-        placeholder="input px"
+        placeholder="std 1920px"
+        // value={1920}
+      />
+      <input
+        type="number"
+        ref={targetRef}
+        style={{ backgroundColor: 'white', width: '100px' }}
+        placeholder="width px"
       />
       {/* 버튼을 클릭하여 devCalculator 호출 및 결과 출력 */}
-      <button onClick={handleCalculate}>결과</button>
+      <button onClick={handleCalculate}>실행</button>
       {/* 상태로 관리된 result 값을 UI에 표시 */}
       <div>결과: {result}%</div>
     </div>

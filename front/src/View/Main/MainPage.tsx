@@ -1,50 +1,48 @@
 import React from 'react';
 import spannerIconBlack from '../../global/Img/spannerIconBlack.svg';
 import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
+import DevTool from '../../DEV/Dev';
+
+const DEV = DevTool.ToolButton;
 
 const MainPage = () => {
   return (
-    <div className="--root-flex">
-      <div className="items-start w-1500 h-[596px] --primary-flex-col">
-        <div className="ml-[289px]">
-          <div>
-            {/* 로고와 설명부분 */}
-            <div className="text-[83px] JejuDoldam bold flex items-center mb-[27px]">
+    <div className="h-screen --root-flex">
+      <DEV />
+      <div className="items-start w-full h-screen --primary-flex-col">
+        <div className="ml-[15.05%] h-[39.72%] w-[19.69%] mt-[29.26%] mb-[30.93%]">
+          <div className="flex items-center w-[73.02%] h-[18.88%] mb-[2.5%]">
+            <div className="text-[83px] w-[75.36%] h-[100%] JejuDoldam bold flex items-center whitespace-nowrap">
               ㅍ토리
               <img
                 src={spannerIconBlack}
                 alt="Spanner Icon"
-                className="h-[54px] w-[54px] ml-[14px]"
-              />
-            </div>
-            <div className="--font-xl Pretendard text-statusColor-05 medium mb-[67px]">
-              {/* #b7b7b7 없어서 임의로 05로 지정 */}
-              토리와 함께 내가 만들어가는
-              <br />
-              나만의 <span className="text-statusColor-01">단어 공장</span>
-            </div>
-          </div>
-          <div className="--font-m Pretendard bold w-[346px] mb-[10px]">
-            {/* 346.53 -> 346*/}
-            <div className="items-center bold btn-secondary Pretendard h-[61px] mb-[20px]">
-              ㅍ토리 사용법
-              <img
-                src={spannerIconWhite}
-                alt="Spanner Icon"
-                className="h-[23px] w-[23px] ml-[5px]"
-              />
-            </div>
-            <div className="items-center bold btn-primary Pretendard h-[61px]">
-              단어 공장 작업 시작하기
-              <img
-                src={spannerIconBlack}
-                alt="Spanner Icon"
-                className="h-[23px] w-[23px] ml-[5px]"
+                className="ml-[0.73%] h-full w-auto object-contain"
               />
             </div>
           </div>
-          <div className="--font-xs medium Pretendard text-statusColor-05 ml-[21px]">
-            {/* 15.84 -> font-xs */}
+          <div className="h-[16.78%] w-[70.63%] whitespace-nowrap --font-xl Pretendard text-statusColor-05 medium mb-[6.2%]">
+            토리와 함께 내가 만들어가는
+            <br />
+            나만의 <span className="text-statusColor-01">단어 공장</span>
+          </div>
+          <div className="--font-m Pretendard bold btn-secondary flex items-center w-[91.53%] h-[14.22%] whitespace-nowrap">
+            ㅍ토리 사용법
+            <img
+              src={spannerIconWhite}
+              alt="Spanner Icon"
+              className="ml-[0.26%] h-full w-auto object-contain"
+            />
+          </div>
+          <div className="--font-m Pretendard bold btn-primary flex items-center w-[91.53%] h-[14.22%] whitespace-nowrap">
+            단어 공장 작업 시작하기
+            <img
+              src={spannerIconBlack}
+              alt="Spanner Icon"
+              className="ml-[0.26%] h-full w-auto object-contain"
+            />
+          </div>
+          <div className="h-[6.53%] w-[94.44%] --font-xs medium Pretendard text-statusColor-05 mt-[0.93%] ml-[1.09%] mb-[30.93%] whitespace-nowrap">
             Click me!!! 당신만의 단어 공장, 지금 바로 작업해 보세요!
           </div>
         </div>
