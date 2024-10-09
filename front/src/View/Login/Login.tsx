@@ -3,34 +3,42 @@ import Dev from '../../DEV/Dev';
 const DEV = Dev.ToolButton;
 const Login = () => {
   return (
-    <div className="relative --root-flex">
+    <div className="relative flex items-center justify-center w-full h-screen">
       <DEV />
-      <div className="relative z-10 --primary-flex-col bg-statusColor-08 w-[39.48%] h-[75.83%] rounded-[36px]">
-        <div className="fixed top-[8vh] left-[30.30vw] bg-statusColor-08 w-[5%] h-[20%] rounded-[37px]"></div>
-        <div className="--font-xl JejuDoldam text-neutralColor mb-[27px]">
-          &apos;나만의 단어공장&apos;
+      {/* h설정은 임시 */}
+      <div className="w-[clamp(0px,41.25%,792px)] h-[clamp(0px,67.17%,847px)]">
+        {/* 컨탠츠 영역 */}
+        <div>
+          <div className="bg-white w-[72px] h-[63px]" />
+          <div className="w-[clamp(0px,95.71%,758px)] bg-white pt-[clamp(0px,122px,122px)] pr-[clamp(0px,42px,42px)] pb-[clamp(0px,157px,157px)] pl-[clamp(0px,76px,76px)]">
+            <div className="flex flex-col items-center justify-center w-full bg-yellow-300">
+              <div>&apos;나만의 단어공장&apos;</div>
+              <div>ㅍ토리</div>
+              <div>&apos;나만의 단어공장&apos;</div>
+              <div>ㅍ토리</div>
+              <div>&apos;나만의 단어공장&apos;</div>
+              <div>ㅍ토리</div>
+              <div>&apos;나만의 단어공장&apos;</div>
+              <div>ㅍ토리</div>
+              <div>&apos;나만의 단어공장&apos;</div>
+              <div>ㅍ토리</div>
+            </div>
+            <div className="flex flex-col items-center justify-center w-full"></div>
+            {/* <div className="w-full">
+              <div className="flex flex-col items-center justify-center w-[clamp(0px,95.71%,758px)] mr-2 bg-white">
+                <div>&apos;나만의 단어공장&apos;</div>
+                <div>ㅍ토리</div>
+              </div>
+            </div> */}
+          </div>
         </div>
-        <div className="--font-xxl JejuDoldam mb-[54px]">ㅍ토리</div>
-        <div className="flex flex-col" style={{ display: 'contents' }}>
-          {/* "flex flex-col" style={{ display: 'contents' }} */}
-          <div className="--font-xl Pretendard semibold bg-primaryColor --primary-flex w-[84.43%] h-[11.23%] rounded-[30px] mb-[15px]">
-            {/* w-[84.43%] h-[11.23%] rounded-[30px] */}
-            나의 공장 들어가기
-            <img src="#" alt="img" />
-          </div>
-          <div className="--font-xxs Pretendard text-neutralColor mb-[45px]">
-            <u>공장 열쇠를 잊어버렸나요?</u>
-          </div>
-          <div className="--font-xl Pretendard semibold bg-statusColor-01 text-statusColor-08 --primary-flex w-[84.43%] h-[11.23%] rounded-[30px] mb-[15px]">
-            공장 새로 만들기
-          </div>
-          <div className="--font-xxs Pretendard text-neutralColor">
-            <u>몇 초만에 가능한 회원가입으로 ㅍ토리를 사용해보세요!</u>
+        {/* 뒷 배경 영역 */}
+        <div className="fixed top-[12vh] left-[31.5vw] z-[-1] w-[clamp(0px,41.25%,792px)] h-[clamp(0px,67.17%,847px)]">
+          <div className="bg-slate-400 w-[72px] h-[63px]" />
+          <div className="w-[clamp(0px,95.71%,758px)] h-full bg-slate-400 pt-[clamp(0px,122px,122px)] pr-[clamp(0px,42px,42px)] pb-[clamp(0px,157px,157px)] pl-[clamp(0px,76px,76px)]">
+            {/* <div className="w-full h-full">뒷 배경</div> */} 뒷 배경
           </div>
         </div>
-      </div>
-      <div className="fixed top-[9vh] left-[32vw] z-[-1] --primary-flex-col bg-statusColor-01 w-[39.48%] h-[75.83%] rounded-[36px]">
-        <div className="fixed top-[5vh] left-[32.30vw] bg-statusColor-01 w-[5%] h-[20%] rounded-[37px]"></div>
       </div>
     </div>
   );
