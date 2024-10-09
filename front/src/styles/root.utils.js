@@ -19,11 +19,13 @@ const rootUtils = {
     '--status-color-08': '#FFFFFF',
 
     // font-size
+    '--font-xxl': '64px',
     '--font-xl': '24px',
     '--font-l': '22px',
     '--font-m': '20px',
     '--font-s': '18px',
     '--font-xs': '16px',
+    '--font-xxs': '13px',
 
     // width
     '--standard-width': '1500px',

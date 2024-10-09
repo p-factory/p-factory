@@ -1,6 +1,6 @@
 import React from 'react';
 // import './test/style.test.scss';
-import DevTool from '../DEV/Dev';
+import DevTool from '../../DEV/Dev';
 
 const DEV = DevTool.ToolButton;
 const DevDesignSystem = () => {
