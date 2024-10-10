@@ -1,10 +1,12 @@
 import React from 'react';
 import Dev from '../../DEV/Dev';
 import loginImage from '../DEV/img/Vector.svg';
+// import LoginTest from './Login.component';
+
 const DEV = Dev.ToolButton;
 const Login = () => {
   return (
-    <div className="relative flex items-center justify-center w-full h-screen">
+    <div className="container relative flex items-center justify-center h-screen mx-auto my-auto">
       <DEV />
       {/* h설정은 임시 */}
       {/* h-[clamp(0px,67.17%,847px)] */}
@@ -50,10 +52,12 @@ const Login = () => {
               </div>
             </div> */}
           </div>
+          {/* 왜 LoginTest를 활성화하면 over가 되는가 이유는 clamp의 문제 즉, height 값의 문제이다. 해당 height로 설정한 100%가 2개가 되기 때문에 over가 발생하는 것 */}
+          {/* <LoginTest></LoginTest> */}
         </div>
         {/* 뒷 배경 영역 */}
         {/* h값 다시 계산 필요 */}
-        <div className="absolute flex flex-col top-[-15px] left-[30px] z-[-1] w-full h-full">
+        <div className="absolute flex flex-col top-[-15px] left-[20px] z-[-1] w-full h-full">
           {/* 아직 의문 */}
           {/* h-[clamp(0px,67.17%,847px)] */}
           <div className="bg-slate-400 w-[72px] h-[63px] rounded-tl-[30px] rounded-tr-[30px]" />
