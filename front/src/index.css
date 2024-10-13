@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *,
 ::before,
 ::after {
@@ -66,4 +70,9 @@ body {
   min-height: auto;
   max-width: 100%;
   margin: 0 auto;
+}
+
+.custom-curve {
+  clip-path: path("M 0 0 H 100 Q 50 20 80 30 V 80 H 0 Z");
+  /* background-color: red; 예시로 배경색을 설정 */
 }
