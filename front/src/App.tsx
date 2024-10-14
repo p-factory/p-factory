@@ -7,10 +7,12 @@ import VocabularyBookPage from './View/VocabularyBook/VocabularyBookPage';
 import DevStylesPreview from './View/DEV/DevStylesPreview';
 import DevDesignSystem from './View/DEV/DevDesignSystem';
 import DevDesignSystemWH from './View/DEV/DevDesignSystem-wh.test';
-import DevPositionLogin from './View/DEV/Position/DevPositionLogin.test';
+import DevPositionLogin from './View/DEV/Position/DevPositionLogin';
+import DevPositionLoginTest from './View/DEV/Position/DevPositionLogin.test';
 import DevPositionViewport from './View/DEV/Position/DevPositionViewport.test';
 import DevPositionPx from './View/DEV/Position/DevPositionPx.test';
 import Login from './View/Login/Login';
+
 const App = () => {
   return (
     <Router>
@@ -23,6 +25,11 @@ const App = () => {
         <Route path="/DevPosition/Login" element={<DevPositionLogin />} />
         <Route path="/DevPosition/Viewport" element={<DevPositionViewport />} />
         <Route path="/DevPosition/Px" element={<DevPositionPx />} />
+        <Route
+          path="/DevPosition/Login/Test"
+          element={<DevPositionLoginTest />}
+        />
+
         {/* Main */}
         <Route path="/" element={<MainPage />} />
         <Route path="/Manual" element={<Manual />} />
