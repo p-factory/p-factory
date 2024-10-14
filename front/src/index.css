@@ -73,6 +73,8 @@ body {
 }
 
 .custom-curve {
-  clip-path: path("M 0 0 H 100 Q 50 20 80 30 V 80 H 0 Z");
+  clip-path: path("M 0 0 Q 50 0 50 0 H 60 Q 80 0 200 150 V 60 H 0 Z");
+  /* path("M 0 0 Q 50 0 50 0 H 60 Q 80 10 200 150 V 60 H 0 Z") */
+  /* path("M 0 0 Q 50 0 50 0 H 60 Q 90 0 200 150 V 60 H 0 Z") */
   /* background-color: red; 예시로 배경색을 설정 */
 }
