@@ -9,9 +9,9 @@ const Manual = () => {
   return (
     <div className="flex flex-col w-full h-screen">
       <DEV />
-      <div className="flex flex-col bg-white pt-[clamp(0px,19.81vh,214px)] pl-[clamp(0px,30.39%,392px)] pb-[clamp(0px,33.06vh,357px)] pr-[clamp(0px,19.11%,367px)]">
+      <div className="flex flex-col">
         {/* 위 박스 */}
-        <div className="relative mr-[clamp(0px,1.09%,21px)] mb-[clamp(0px,8.7%,94px)]">
+        <div className="relative">
           <img
             src={sparkleIcon}
             alt="Sparkle Icon"
