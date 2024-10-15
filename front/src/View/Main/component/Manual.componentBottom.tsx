@@ -1,6 +1,5 @@
 import React from 'react';
 import sparkleIcon from '../../../global/Img/sparkleIcon.svg';
-import closeIcon from '../../../global/Img/closeIcon.svg';
 import circleIcon from '../../../global/Img/circleIcon.svg';
 import DevTool from '../../../DEV/Dev';
 
@@ -29,11 +28,6 @@ const Manual = () => {
                   </span>
                 </div>
               </div>
-              <img
-                src={closeIcon}
-                alt="X"
-                className="pt-[clamp(0px,2.42%,10px)]"
-              />
             </div>
             <div className="flex justify-between w-full pl-[clamp(0px,9.48%,108px)] pr-[clamp(0px,7.99%,91px)] pb-[clamp(0px,5.61%,60.58px)] --Pretendard">
               <div className="pl-[clamp(0px,3.69%,42px)] pt-[clamp(0px,1.94%,21px)] pb-[clamp(0px,13.33%,144px)] pr-[clamp(0px,24.76%,282px)] rounded-[36px] border shadow-[0_0_16px_rgba(0,0,0,0.25)] leading-[175%]">
