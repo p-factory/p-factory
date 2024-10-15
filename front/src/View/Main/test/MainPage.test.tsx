@@ -1,7 +1,7 @@
 import React from 'react';
 import spannerIconBlack from '../../global/Img/spannerIconBlack.svg';
 import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
-import DevTool from '../../DEV/Dev';
+import DevTool from '../../../DEV/Dev';
 
 const DEV = DevTool.ToolButton;
 
