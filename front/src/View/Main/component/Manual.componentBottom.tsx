@@ -1,14 +1,10 @@
 import React from 'react';
 import sparkleIcon from '../../../global/Img/sparkleIcon.svg';
 import circleIcon from '../../../global/Img/circleIcon.svg';
-import DevTool from '../../../DEV/Dev';
-
-const DEV = DevTool.ToolButton;
 
 const Manual = () => {
   return (
     <div className="flex flex-col w-full h-screen">
-      <DEV />
       <div className="flex flex-col">
         {/* 아래 박스 */}
         <div className="relative">
