@@ -1,3 +1,5 @@
-function test(): void { 
+const test = () => {
   console.log('test');
-}
+};
+
+test();

@@ -1,3 +1,3 @@
-function test(): void { 
+function test(): void {
   console.log('test');
-};
+}
