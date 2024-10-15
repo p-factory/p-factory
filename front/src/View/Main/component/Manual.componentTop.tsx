@@ -4,7 +4,7 @@ import circleIcon from '../../../global/Img/circleIcon.svg';
 
 const Manual = () => {
   return (
-    <div className="flex flex-col w-full h-screen">
+    <div className="flex flex-col w-full bg-orange-500">
       <div className="flex flex-col">
         {/* 위 박스 */}
         <div className="relative">

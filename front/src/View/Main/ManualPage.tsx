@@ -1,5 +1,5 @@
 import React from 'react';
-import Template from '../../global/components/Template';
+import Template from '../../global/components/Template.test';
 import ManualComponentTop from './component/Manual.componentTop';
 import ManualComponentBottom from './component/Manual.componentBottom';
 import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
@@ -26,8 +26,16 @@ const ManualPage = () => {
           따라와!!!
         </div>
       </div>
-      <Template component={ManualComponentTop} />
-      <Template component={ManualComponentBottom} />
+      <Template
+        component={ManualComponentTop}
+        width="w-[clamp(0px, 86.66%, 994px)]"
+        background={false}
+      />
+      <Template
+        component={ManualComponentBottom}
+        width="w-[clamp(0px, 86.66%, 994px)]"
+        background={false}
+      />
       {/* 버튼 부분 */}
       <div className="pt-[clamp(0px,18.52%,200px)] pl-[clamp(0px,11.93%,229px)] pr-[clamp(0px,12.97%,249px)]">
         <div className="--bold btn-secondary --Pretendard pt-[clamp(0px,3.33%,36px)] pb-[clamp(0px,3.61%,39px)] pl-[clamp(0px,10.83%,208px)] pr-[clamp(0px,13.59%,261px)]">
