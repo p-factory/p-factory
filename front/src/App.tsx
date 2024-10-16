@@ -15,6 +15,9 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        {/* Main */}
+        <Route path="/" element={<MainPage />} />
+        <Route path="/Manual" element={<Manual />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Dev" element={<DevDesignSystem />} />
         <Route path="/DevWH" element={<DevDesignSystemWH />} />
@@ -23,9 +26,6 @@ const App = () => {
         <Route path="/DevPosition/Login" element={<DevPositionLogin />} />
         <Route path="/DevPosition/Viewport" element={<DevPositionViewport />} />
         <Route path="/DevPosition/Px" element={<DevPositionPx />} />
-        {/* Main */}
-        <Route path="/" element={<MainPage />} />
-        <Route path="/Manual" element={<Manual />} />
         {/* VocabularyBook */}
         <Route path="/VocabularyBook" element={<VocabularyBookPage />} />
       </Routes>
