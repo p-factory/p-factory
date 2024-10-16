@@ -1,10 +1,12 @@
 const buttonComponents = {
   '.btn-primary': {
-    '@apply text-white font-bold py-2 px-4 rounded': {},
+    '@apply text-black font-medium py-2 px-4 rounded-2xl flex justify-center':
+      {}, //rounded 2xl로 통일 버튼 글씨 가운데 정렬, textcolor black으로 변경
     backgroundColor: 'var(--primary-color)', // primaryColor 사용
   },
   '.btn-secondary': {
-    '@apply text-white font-medium py-2 px-4 rounded': {},
+    '@apply text-white font-medium py-2 px-4 rounded-2xl flex justify-center':
+      {}, //rounded 2xl로 통일 버튼 글씨 가운데 정렬
     backgroundColor: 'var(--sub-color)', // subColor 사용
   },
 };

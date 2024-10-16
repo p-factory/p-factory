@@ -12,6 +12,7 @@ const fontStyles = fontUtils.fontStyles;
 const fontSizes = fontUtils.fontSizes;
 const fontWeight = fontUtils.fontWeight;
 const displayComponents = mainStylesComponents.primaryFlexComponents;
+const buttonComponents = mainStylesComponents.buttonComponents;
 const widthStyles = widthUtils;
 
 const stylesPlugin = plugin(({ addUtilities, addComponents }) => {
@@ -25,7 +26,7 @@ const stylesPlugin = plugin(({ addUtilities, addComponents }) => {
   addUtilities(fontWeight);
   addUtilities(colorStyles); // 색상 스타일 추가, 텍스트와 배경색에 같은 CSS 변수를 사용하는 유틸리티 스타일 정의
   addUtilities(widthStyles);
-  // addComponents(buttonComponents); 버튼 컴포넌트 스타일 추가, 버튼 스타일 정의
+  addComponents(buttonComponents); // 버튼 컴포넌트 스타일 추가, 버튼 스타일 정의
   addComponents(displayComponents);
 });
 
