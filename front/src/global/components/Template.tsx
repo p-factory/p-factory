@@ -37,11 +37,12 @@ const Template = ({
   }
 
   return (
-    <div className="flex items-center justify-center h-[clamp(0px,89.49%,758px)]">
+    <div className="flex items-center justify-center h-screen">
       {/* <DEV /> */}
-      <div className="relative flex w-[clamp(0px,41.25%,792px)]">
+      <div className="relative flex w-[clamp(0px,41.25%,792px)] h-[clamp(0px,89.49%,758px)]">
         {/* 컨탠츠 영역 */}
         <div className="flex flex-col justify-center w-full">
+          {/* 귀 영역을 뺀 height 값을 주면 정상적을 동작할 예정 */}
           <div className="bg-white w-[108.91px] h-[40.58px] rounded-tl-[30px] rounded-tr-[30px]" />
           <div
             className={`flex ${width} bg-white pr-[clamp(0px,5.54%,42px)] pl-[clamp(0px,10.03%,76px)] rounded-tr-[36px] rounded-br-[36px] rounded-bl-[36px]`}
