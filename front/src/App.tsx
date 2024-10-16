@@ -12,6 +12,7 @@ import DevPositionViewport from './View/DEV/Position/DevPositionViewport.test';
 import DevPositionPx from './View/DEV/Position/DevPositionPx.test';
 import Login from './View/Login/Login';
 import LoginIn from './View/Login/Login.in';
+import SignUp from './View/Login/SignUp';
 const App = () => {
   return (
     <Router>
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/Manual" element={<Manual />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/LoginIn" element={<LoginIn />} />
+        <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Dev" element={<DevDesignSystem />} />
         <Route path="/DevWH" element={<DevDesignSystemWH />} />
         <Route path="/DevStylesPreview" element={<DevStylesPreview />} />
