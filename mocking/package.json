@@ -6,16 +6,15 @@
   "scripts": {
     "setting": "powershell.exe -File ./use-nvmrc.ps1 ; node -v",
     "return": "powershell.exe -File ./use-nvmrc-front.ps1 ; node -v",
-    "dev": "node mocking.server.js",
+    "dev": "nodemon mocking.server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "mocking": "json-server --watch db/db.multi.json --port 3001"
+    "mocking": "json-server --watch db/temp/db.multi.json --port 3001"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "dotenv": "^16.4.5",
     "nodemon": "^3.1.7"
   },
   "devDependencies": {
