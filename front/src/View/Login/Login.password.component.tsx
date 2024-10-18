@@ -1,7 +1,7 @@
 import React from 'react';
 import loginImage from '../DEV/img/Vector.svg';
 
-const LoginNickName = () => {
+const LoginPassWord = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full pt-[12.01%] pb-[clamp(0px,10.39%,56px)] bg-yellow-300">
       <div className="flex flex-col justify-center items-center bg-orange-500 mb-[49px]">
@@ -14,12 +14,26 @@ const LoginNickName = () => {
       {/* 컨텐츠 영역 */}
       <div className="flex flex-col items-center justify-center w-full pt-[] pb-[] bg-yellow-100 mb-[clamp(0px,9.1%,69.45px)]">
         <div className="flex flex-col justify-start items-start w-full --Pretendard text-[33px] --bold mb-[clamp(0px,17.94%,136px)]">
-          <span>마지막 단계에요!</span>
-          <span>공장을 위한 닉네임이 필요해요!</span>
+          <span>토리가 만나기 위한</span>
+          <span>준비를 하고 있어요!</span>
         </div>
         <div className="flex flex-col w-full --Pretendard">
           <div className="--bold --font-m mb-[15px]">
-            공장을 위한 아이디가 필요해요!
+            공장을 위한 비밀번호가 필요해요!
+            <span className="--error-font-Color">*</span>
+          </div>
+          <div className="bg-white border-[1px] py-[3.69%] px-[3.96%] border-black rounded-[22px]">
+            <input type="text" className="bg-red-200 w-[100%]" />
+          </div>
+          <div className="mt-[10px] mb-[15px]">
+            <span className="--error-font-Color --Pretendard --medium text-[14px] mt-[10px] mb-[15px]">
+              *영문, 숫자를 포함한 8~20자리 이내로 입력해주세요.
+            </span>
+          </div>
+        </div>
+        <div className="flex flex-col w-full --Pretendard">
+          <div className="--bold --font-m mb-[15px]">
+            비밀번호를 다시한번 확인할게요!
             <span className="--error-font-Color">*</span>
           </div>
           <div className="bg-white border-[1px] py-[3.69%] px-[3.96%] border-black rounded-[22px]">
@@ -27,7 +41,7 @@ const LoginNickName = () => {
           </div>
           <div className="mt-[10px]">
             <span className="--error-font-Color --Pretendard --medium text-[14px]">
-              *너무 길어요! 올바르게 작성해주세요.
+              *비밀번호가 일치하지 않아요!
             </span>
           </div>
         </div>
@@ -45,4 +59,4 @@ const LoginNickName = () => {
   );
 };
 
-export default LoginNickName;
+export default LoginPassWord;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Template from '../../global/components/Template';
-import LoginNicName from './Login.nickname.component';
+import LoginNickNameComponent from './Login.nickname.component';
 // import LoginIdComponent from './Login.id.component';
 const LoginNickName = () => {
   return (
@@ -8,7 +8,7 @@ const LoginNickName = () => {
       <Template
         height={'h-[clamp(0px,100%,960px)]'}
         backgroundHeight={'h-[clamp(0px,100%,960px)]'}
-        component={LoginNicName}
+        component={LoginNickNameComponent}
       />
     </div>
   );

@@ -25,8 +25,8 @@ const LoginId = () => {
           <div className="bg-white border-[1px] py-[3.69%] px-[3.96%] border-black rounded-[22px]">
             <input type="text" className="bg-red-200 w-[100%]" />
           </div>
-          <div className="mt-[clamp(0px,2.24%,17px)]">
-            <span className="--error-font-Color --Pretendard --medium text-[14px] mt-[10px]">
+          <div className="mt-[10px]">
+            <span className="--error-font-Color --Pretendard --medium text-[14px]">
               *올바르게 작성해주세요.
             </span>
           </div>
