@@ -7,6 +7,9 @@ module.exports = {
     es2021: true,
     node: true,  // Node.js 환경을 설정하여 require 사용 허용
   },
+  "compilerOptions": {
+    "module": "commonjs",
+  },
   extends: [
     'eslint:recommended',  // 기본 ESLint 규칙
     'plugin:@typescript-eslint/recommended',  // TypeScript 린팅 규칙

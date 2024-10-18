@@ -2,15 +2,22 @@
   "name": "mocking",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "setting": "powershell.exe -File ./use-nvmrc.ps1 ; node -v",
+    "return": "powershell.exe -File ./use-nvmrc-front.ps1 ; node -v",
+    "dev": "nodemon mocking.server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "mocking": "json-server --watch db/db.test.json --port 3001"
+    "mocking": "json-server --watch db/temp/db.multi.json --port 3001"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "json-server": "^1.0.0-beta.3"
+    "nodemon": "^3.1.7"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.4"
   }
 }
