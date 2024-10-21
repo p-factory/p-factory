@@ -9,7 +9,7 @@ const ComponentSchema = Z.object({
   width: Z.string().optional(),
   height: Z.string().optional(),
   widthBackground: Z.string().optional(),
-  heightBackground: Z.string().optional(),
+  backgroundHeight: Z.string().optional(),
 });
 
 type ComponentProps = Z.infer<typeof ComponentSchema>;
@@ -19,7 +19,7 @@ const Template = ({
   width = 'w-[clamp(0px,95.71%,758px)]',
   height = 'h-[clamp(0px,89.49%,758px)]',
   widthBackground = 'w-[clamp(0px,95.71%,758px)]',
-  heightBackground = 'h-[clamp(0px,89.49%,847px)]',
+  backgroundHeight = 'h-[clamp(0px,89.49%,847px)]',
 }: ComponentProps) => {
   // const { component: Component, width = 'w-[clamp(0px,95.71%,758px)]', height = 'h-[clamp(0px,89.49%,758px)]' } = props;
   try {
@@ -29,7 +29,7 @@ const Template = ({
   }
 
   return (
-    <div className="relative flex items-center justify-center h-screen mx-auto my-auto">
+    <div className="relative flex items-center justify-center mx-auto my-auto">
       <DEV />
       <div className="relative flex w-[clamp(0px,41.25%,792px)]">
         {/* 컨탠츠 영역 */}
@@ -46,7 +46,7 @@ const Template = ({
         <div className="absolute flex flex-col top-[10px] left-[25px] z-[-1] w-full h-full">
           <div className="bg-slate-400 w-[108.91px] h-[40.58px] rounded-tl-[30px] rounded-tr-[30px]" />
           <div
-            className={`flex ${widthBackground} ${heightBackground} bg-slate-400 rounded-tr-[36px] rounded-br-[36px] rounded-bl-[36px]`}
+            className={`flex ${widthBackground} ${backgroundHeight} bg-slate-400 rounded-tr-[36px] rounded-br-[36px] rounded-bl-[36px]`}
           ></div>
           {/* w-[clamp(0px,95.71%,758px)] h-[clamp(0px,89.49%,847px)] */}
         </div>
