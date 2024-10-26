@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'; // QueryClient 관련 추가
 import MainPage from './View/Main/MainPage';
 import Manual from './View/Main/ManualPage';
 import VocabularyBookPage from './View/VocabularyBook/VocabularyBookPage';
@@ -13,8 +14,13 @@ import DevPositionPx from './View/DEV/Position/DevPositionPx.test';
 import Login from './View/Login/Login';
 import LoginIn from './View/Login/Login.in';
 import SignUp from './View/Login/SignUp';
+
+// queryClient 생성
+const queryClient = new QueryClient();
+
 const App = () => {
   return (
+    <QueryClientProvider client={queryClient}> {/* QueryClientProvider로 전체 앱 감싸기 */}
     <Router>
       <Routes>
         {/* Main */}
@@ -33,7 +39,8 @@ const App = () => {
         {/* VocabularyBook */}
         <Route path="/VocabularyBook" element={<VocabularyBookPage />} />
       </Routes>
-    </Router>
+      </Router>
+      </QueryClientProvider>
   );
 };
 
