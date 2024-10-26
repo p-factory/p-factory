@@ -1,6 +1,6 @@
-// src/api.js
 import axios from 'axios';
-const API = 'https://localhost:3001';
+
+const API = process.env.REACT_APP_API_MOCKING;
 
 const fetchInstance = (baseURL = API) => {
   return axios.create({
