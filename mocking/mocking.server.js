@@ -30,7 +30,7 @@ createRoute(app, '/api/user/signup', userDbPath);  // 회원가입 처리
 createRoute(app, '/api/user/login', userDbPath);   // 로그인 처리
 
 // 서버 실행
-const PORT = 3000;
+const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`Express Server is running on http://localhost:${PORT}`);
   console.log(`Test API: http://localhost:${PORT}/api/test`);
