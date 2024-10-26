@@ -6,7 +6,7 @@ const DEV = Dev.ToolButton;
 
 const Login = () => {
   return (
-    <div className="flex items-center justify-center h-screen mx-auto">
+    <div className="relative flex items-center justify-center w-full h-screen">
       <DEV />
       {/* h설정은 임시 */}
       {/* relative로 부모 요소 수정 */}
