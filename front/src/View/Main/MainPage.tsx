@@ -24,7 +24,7 @@ const MainPage = () => {
           나만의 <span className="--status-font-Color-01">단어 공장</span>
         </div>
         <div className="pr-[clamp(0px,66.88%,1284px)]">
-          <div className="flex items-center justify-center --font-m --bold --Pretendard btn-secondary pt-[clamp(0px,1.67%,18px)] pb-[clamp(0px,1.57%,17px)] pl-[clamp(0px,5.94%,114px)] pr-[clamp(0px,4.79%,92px)]">
+          <div className="flex items-center justify-center --font-m --bold --Pretendard btn-secondary h-[61px] pl-[clamp(0px,5.94%,114px)] pr-[clamp(0px,4.79%,92px)]">
             ㅍ토리 사용법
             <img
               src={spannerIconWhite}
@@ -33,7 +33,7 @@ const MainPage = () => {
             />
           </div>
           <div className="pt-[clamp(0px,1.85%,20px)]" />
-          <div className="flex items-center justify-center --font-m --bold --Pretendard btn-primary pt-[clamp(0px,1.67%,18px)] pb-[clamp(0px,1.48%,16px)] pl-[clamp(0px,3.85%,74px)] pr-[clamp(0px,2.81%,54px)]">
+          <div className="flex items-center justify-center --font-m --bold --Pretendard btn-primary h-[61px] pl-[clamp(0px,3.85%,74px)] pr-[clamp(0px,2.81%,54px)]">
             단어 공장 작업 시작하기
             <img
               src={spannerIconBlack}
