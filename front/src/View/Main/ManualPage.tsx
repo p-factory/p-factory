@@ -28,11 +28,14 @@ const ManualPage = () => {
       </div>
       <Template
         component={ManualComponentTop}
+        containerWidth="w-[clamp(0px,59.74%,1142px)]"
         width="w-[clamp(0px, 86.66%, 994px)]"
         background={false}
       />
+      <div className="mt-[36px]" />
       <Template
         component={ManualComponentBottom}
+        containerWidth="w-[clamp(0px,59.74%,1142px)]"
         width="w-[clamp(0px, 86.66%, 994px)]"
         background={false}
       />

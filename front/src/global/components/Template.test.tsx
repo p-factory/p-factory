@@ -6,6 +6,7 @@ const DEV = Dev.ToolButton;
 // Zod 스키마 정의
 const ComponentSchema = Z.object({
   component: Z.custom<ComponentType>(),
+  containerWidth: Z.string().optional(), // 전체 width값 옵션 추가
   width: Z.string().optional(),
   height: Z.string().optional(),
   widthBackground: Z.string().optional(),
@@ -17,29 +18,24 @@ type ComponentProps = Z.infer<typeof ComponentSchema>;
 
 const Template = ({
   component: Component,
+  containerWidth = 'w-[clamp(0px,41.25%,792px)]',
   width = 'w-[clamp(0px,95.71%,758px)]',
   height = 'h-[clamp(0px,89.49%,758px)]',
   widthBackground = 'w-[clamp(0px,95.71%,758px)]',
   heightBackground = 'h-[clamp(0px,89.49%,847px)]',
   background = true, // 기본값 true
 }: ComponentProps) => {
+  // const { component: Component, width = 'w-[clamp(0px,95.71%,758px)]', height = 'h-[clamp(0px,89.49%,758px)]' } = props;
   try {
-    ComponentSchema.parse({
-      component: Component,
-      width,
-      height,
-      widthBackground,
-      heightBackground,
-      background,
-    });
+    ComponentSchema.parse(Component);
   } catch (error) {
     console.error('Props validation failed', error);
   }
 
   return (
-    <div className="relative flex items-center justify-center h-screen mx-auto my-auto">
+    <div className="relative flex items-center justify-center mx-auto my-auto">
       <DEV />
-      <div className="relative flex w-[clamp(0px,59.74%,1142px)]">
+      <div className={`relative flex ${containerWidth}`}>
         {/* 컨탠츠 영역 */}
         <div className="flex flex-col justify-end w-full">
           <div className="bg-white w-[108.91px] h-[40.58px] rounded-tl-[30px] rounded-tr-[30px]" />
@@ -49,7 +45,7 @@ const Template = ({
             <Component />
           </div>
         </div>
-        {/* 뒷 배경 영역, background가 true일 때만 렌더링 */}
+        {/* 뒷 배경 영역, background가 true일 때만 적용 */}
         {background && (
           <div className="absolute flex flex-col top-[10px] left-[25px] z-[-1] w-full h-full">
             <div className="bg-slate-400 w-[108.91px] h-[40.58px] rounded-tl-[30px] rounded-tr-[30px]" />
