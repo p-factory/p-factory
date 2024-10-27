@@ -3,20 +3,24 @@ import Template from '../../global/components/Template.test';
 import ManualComponentTop from './component/Manual.componentTop';
 import ManualComponentBottom from './component/Manual.componentBottom';
 import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
+import toryTop from '../../global/Img/toryTop.svg';
 
 const ManualPage = () => {
   return (
     <div>
       {/* 제목 부분 */}
-      <div className="relative pl-[clamp(0px,18.59%,357px)] pr-[clamp(0px,18.02%,346px)]">
+      <div className="relative flex flex-col items-center justify-end">
         <div className="text-[60px] --JejuDoldam font-bold relative z-10">
           ㅍ토리 사용법
         </div>
-        <div className="--primary-bg-Color rounded-[13px] absolute z-0 top-[34px] pl-[clamp(0px,28.88%,335px)] pr-[clamp(0px,31.03%,360px)] h-[clamp(0px,49.25%,33px)]" />
+        <div className="--primary-bg-Color absolute z-0 w-[387px] h-[clamp(0px,49.25%,33px)]" />
       </div>
       <div className="pt-[clamp(0px,10.93%,118px)] pb-[clamp(0px,2.08%,40px)]" />
       {/* 토리가 말하는 부분 */}
       <div className="--medium pl-[clamp(0px,15.99%,307px)] pr-[clamp(0px,17.71%,340px)] pb-[clamp(0px,3.7%,40px)] --Pretendard">
+        <div>
+          <img src={toryTop} alt="" />
+        </div>
         <div className="--font-m">
           나<span className="--bold --primary-bg-Color"> 토리!</span> 이 공장의
           초절정 귀염둥이 마스코트지
