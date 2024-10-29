@@ -59,9 +59,9 @@ const VocabularyBookPage = () => {
       <div className="relative flex flex-col items-center w-full">
         <div className="relative flex justify-center w-[clamp(0px,83.18%,1597px)]">
           {/* 뒷배경 */}
-          <div className="absolute w-full top-[138px] left-[clamp(0px,1.77%,34px)] bottom-[-52px] z-[-1] flex-grow bg-[#8f8f8f] pt-[73px] pb-[163px] rounded-[53px]" />
+          <div className="absolute w-full top-[138px] left-[clamp(0px,1.77%,34px)] bottom-[-52px] z-[-1] bg-[#8f8f8f] pt-[73px] pb-[163px] rounded-[53px]" />
           {/* 콘텐츠 */}
-          <div className="flex-grow flex flex-col items-center bg-white pt-[73px] pb-[163px] rounded-[53px] shadow-[0_0_24px_4px_rgba(0,0,0,0.24)]">
+          <div className="flex flex-col items-center bg-white pt-[73px] pb-[163px] rounded-[53px] shadow-[0_0_24px_4px_rgba(0,0,0,0.24)]">
             {/* 단어장 header */}
             <div className="flex w-[clamp(0px,74.51%,1190px)] justify-between">
               <div className="flex">
@@ -207,7 +207,7 @@ const VocabularyBookPage = () => {
                 </div>
               </div>
             </div>
-            {/* 단어장 bottom */}
+            {/* 단어장 footer */}
             <div className="flex justify-center w-[clamp(0px,60.8%,971px)] h-[82px] gap-[95px] --Pretendard --semi-bold --font-l mt-[66px]">
               <div className="flex items-center justify-center w-full relative bg-white border-[0.9px] border-black border-solid rounded-[18px] shadow-[0_3.58px_3.58px_0_rgba(0,0,0,0.25)]">
                 <div className="flex">전체 단어 숨김</div>
