@@ -1,5 +1,5 @@
 import React from 'react';
-// import pencilIcon from '../../global/Img/pencilIcon.svg';
+import pencilIcon from '../../global/Img/pencilIcon.svg';
 import trashCanIcon from '../../global/Img/trashCanIcon.svg';
 import highlighterIcon from '../../global/Img/highlighterIcon.svg';
 import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
@@ -84,16 +84,71 @@ const VocabularyBookPage = () => {
               </div>
             </div>
           </div>
+          {/* 전체 단어장 */}
           <div className="pt-[100px] w-[clamp(0px,74.51%,1190px)]">
             <div className="flex justify-between gap-[clamp(0px,3.78%,45px)]">
-              <div className="w-full h-[76px] border-[1px] border-black border-solid rounded-[18px]"></div>
-              <div className="w-full h-[76px] border-[1px] border-black border-solid rounded-[18px]"></div>
+              {/* 왼쪽 단어장 */}
+              <div className="flex flex-col w-full gap-[38px]">
+                {/* 단어 1줄 */}
+                <div className="items-center relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[1px] border-black border-solid rounded-[18px]">
+                  <div className="pl-[clamp(0px,28.97%,84px)] flex">내용1</div>
+                  <div className="h-full border-l-2 border-gray-50"></div>
+                  <div className="flex justify-center">내용2</div>
+                  <img
+                    src={pencilIcon}
+                    alt="Pencil Icon"
+                    className="absolute right-[40px] w-[22px] h-[22px]"
+                  />
+                </div>
+                {/* 단어 2줄 */}
+                <div className="items-center relative grid grid-cols-[1fr_auto_1fr] h-[188px] border-[1px] border-black border-solid rounded-[18px]">
+                  <div className="pl-[clamp(0px,28.97%,84px)] flex">내용1</div>
+                  <div className="h-full border-l-2 border-gray-50"></div>
+                  <div className="flex justify-center">내용2</div>
+                  <img
+                    src={pencilIcon}
+                    alt="Pencil Icon"
+                    className="absolute right-[40px] w-[22px] h-[22px]"
+                  />
+                </div>
+              </div>
+              {/* 오른쪽 단어장 */}
+              <div className="flex flex-col w-full gap-[38px]">
+                {/* 단어 1줄 */}
+                <div className="items-center relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[1px] border-black border-solid rounded-[18px]">
+                  <div className="pl-[clamp(0px,28.97%,84px)] flex">내용1</div>
+                  <div className="h-full border-l-2 border-gray-50"></div>
+                  <div className="flex justify-center">내용2</div>
+                  <img
+                    src={pencilIcon}
+                    alt="Pencil Icon"
+                    className="absolute right-[40px] w-[22px] h-[22px]"
+                  />
+                </div>
+                {/* 단어 1줄 */}
+                <div className="items-center relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[1px] border-black border-solid rounded-[18px]">
+                  <div className="pl-[clamp(0px,28.97%,84px)] flex">내용1</div>
+                  <div className="h-full border-l-2 border-gray-50"></div>
+                  <div className="flex justify-center">내용2</div>
+                  <img
+                    src={pencilIcon}
+                    alt="Pencil Icon"
+                    className="absolute right-[40px] w-[22px] h-[22px]"
+                  />
+                </div>
+                {/* 단어 1줄 */}
+                <div className="items-center relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[1px] border-black border-solid rounded-[18px]">
+                  <div className="pl-[clamp(0px,28.97%,84px)] flex">내용1</div>
+                  <div className="h-full border-l-2 border-gray-50"></div>
+                  <div className="flex justify-center">내용2</div>
+                  <img
+                    src={pencilIcon}
+                    alt="Pencil Icon"
+                    className="absolute right-[40px] w-[22px] h-[22px]"
+                  />
+                </div>
+              </div>
             </div>
-            {/* <img
-              src={pencilIcon}
-              alt="Pencil Icon"
-              className="w-[22px] h-[22px]"
-            /> */}
           </div>
         </div>
       </div>
