@@ -16,36 +16,42 @@ const VocabularyBookPage = () => {
     <div className="flex flex-col item-center --Pretendard">
       <DEV />
       {/* 제목 부분 */}
-      <div className="relative flex flex-col items-center justify-end">
+      <div className="relative flex flex-col items-center justify-end mb-[66px] mt-[172px]">
         <div className="text-[60px] --JejuDoldam font-bold relative z-10">
           토익 단어
         </div>
       </div>
       {/* 토리가 말하는 부분 */}
-      <div className="relative flex justify-center">
-        <div>
-          <img src={toryTop} alt="" />
-        </div>
-        <img
-          src={speechBubbleBg}
-          alt=""
-          className="w-[727px] h-[135px] relative z-0 mb-[53px]"
-        />
-        <div className="absolute z-10 flex flex-col text-white">
-          <div className="">
-            <div className="--font-xl medium --Pretendard">재료생성 버튼</div>
-            <div className="flex items-end gap-2 --font-m normal leading-[175%]">
-              <span className="opacity-50">오른쪽</span>
-              <div className="--primary-flex bg-white w-[38px] h-[37px] rounded-[9px]">
-                <img
-                  src={spannerIconBlack}
-                  alt="Spanner Icon"
-                  className="w-[13px] h-[13px]"
-                />
+      <div className="relative flex justify-center w-full">
+        <div className="relative flex justify-start w-[clamp(0px,83.18%,1597px)]">
+          <div className="relative flex items-end mr-[clamp(0px,2.24%,43px)] ml-[clamp(0px,10.9%,174px)]">
+            <img src={toryTop} alt="" />
+          </div>
+          <div className="relative flex items-start mb-[43.99px]">
+            <img
+              src={speechBubbleBg}
+              alt=""
+              className="w-[727px] h-[135px] relative z-[-10]"
+            />
+            <div className="absolute flex flex-col text-white pt-[21px] pl-[67px]">
+              <div className="">
+                <div className="--font-xl medium --Pretendard">
+                  재료생성 버튼
+                </div>
+                <div className="flex items-end gap-2 --font-m normal leading-[175%]">
+                  <span className="opacity-50">오른쪽</span>
+                  <div className="--primary-flex bg-white w-[38px] h-[37px] rounded-[9px]">
+                    <img
+                      src={spannerIconBlack}
+                      alt="Spanner Icon"
+                      className="w-[13px] h-[13px]"
+                    />
+                  </div>
+                  <span className="opacity-50">
+                    아이콘을 누를 시 단어 작성 페이지로 바로 이동 할 수 있다구~~
+                  </span>
+                </div>
               </div>
-              <span className="opacity-50">
-                아이콘을 누를 시 단어 작성 페이지로 바로 이동 할 수 있다구~~
-              </span>
             </div>
           </div>
         </div>
