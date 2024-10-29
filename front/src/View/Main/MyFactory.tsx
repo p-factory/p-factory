@@ -1,36 +1,28 @@
 import React from 'react';
 import Template from '../../global/components/Template.test';
 import ManualComponentTop from './component/Manual.componentTop';
-import ManualComponentBottom from './component/Manual.componentBottom';
 import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
 import toryTop from '../../global/Img/toryTop.svg';
-import toryLeft from '../../global/Img/toryLeft.svg';
 
-const ManualPage = () => {
+const MyFactory = () => {
   return (
     <div className="mt-[200px] mb-[200px]">
       {/* 제목 부분 */}
       <div className="relative flex flex-col items-center justify-end">
         <div className="text-[60px] --JejuDoldam font-bold relative z-10">
-          ㅍ토리 사용법
+          나만의 단어공장
         </div>
-        <div className="--primary-bg-Color absolute z-0 w-[387px] h-[clamp(0px,49.25%,33px)]" />
+        <div className="--primary-bg-Color absolute z-0 w-[450px] h-[clamp(0px,49.25%,33px)]" />
       </div>
       {/* 토리가 말하는 부분 */}
-      <div className="relative flex items-end justify-center">
-        <div className="relative flex items-end justify-start pl-[108.91px] --medium --Pretendard bottom-[-50.58px] w-[clamp(0px,59.74%,1142px)]">
-          <div>
-            <img src={toryTop} alt="" />
-          </div>
-          <div className="mb-[18px]">
-            <div className="--font-m">
-              나<span className="--bold --primary-bg-Color"> 토리!</span> 이
-              공장의 초절정 귀염둥이 마스코트지
-            </div>
-            <div className="--font-xs --status-font-Color-05 whitespace-nowrap">
-              ㅍ토리를 어떻게 사용하는지 모르겠다고? 이래서 MZ란.. 한번만
-              알려준다. 따라와!!!
-            </div>
+      <div className="relative flex items-end justify-center --medium --Pretendard bottom-[-50.58px]">
+        <div>
+          <img src={toryTop} alt="" />
+        </div>
+        <div className="mb-[18px]">
+          <div className="--font-m">내가 직접 작성하는 단어 공장</div>
+          <div className="--font-xs --status-font-Color-05 whitespace-nowrap">
+            아 좀 작성하라고!!
           </div>
         </div>
       </div>
@@ -40,20 +32,6 @@ const ManualPage = () => {
         width="w-[clamp(0px, 86.66%, 994px)]"
         background={false}
       />
-      <div className="mt-[36px]" />
-      <Template
-        component={ManualComponentBottom}
-        containerWidth="w-[clamp(0px,59.74%,1142px)]"
-        width="w-[clamp(0px, 86.66%, 994px)]"
-        background={false}
-      />
-      <div className="relative flex items-end justify-center">
-        <div className="w-[clamp(0px,59.74%,1142px)]">
-          <div className="flex relative top-[-78px] justify-end left-[77px]">
-            <img src={toryLeft} alt="" />
-          </div>
-        </div>
-      </div>
       {/* 버튼 부분 */}
       <div className="flex flex-col items-center w-full">
         <div className="w-[clamp(0px,35.52%,682px)] h-[102px]">
@@ -78,4 +56,4 @@ const ManualPage = () => {
   );
 };
 
-export default ManualPage;
+export default MyFactory;
