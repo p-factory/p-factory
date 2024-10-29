@@ -69,7 +69,7 @@ const VocabularyBookPage = () => {
                   className="w-[29px] h-[29px]"
                 />
               </div>
-              <div className="--primary-flex bg-primaryColor w-[57px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)]">
+              <div className="--primary-flex --primary-bg-Color w-[57px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)]">
                 <img
                   src={highlighterIcon}
                   alt="Highlighter Icon"
@@ -92,8 +92,10 @@ const VocabularyBookPage = () => {
               <div className="flex flex-col w-full gap-[38px]">
                 {/* 단어 1줄 */}
                 <div className="relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
-                  <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex">
-                    내용1
+                  <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
+                    <div className="w-full break-all">
+                      <span className="--primary-bg-Color">내용 1</span>
+                    </div>
                   </div>
                   <div className="h-full border-l-[0.9px] border-[#959595]"></div>
                   <div className="flex justify-center pt-[23px]">내용2</div>
@@ -105,8 +107,12 @@ const VocabularyBookPage = () => {
                 </div>
                 {/* 단어 2줄 */}
                 <div className="relative grid grid-cols-[1fr_auto_1fr] h-[188px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
-                  <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex">
-                    내용1
+                  <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
+                    <div className="w-full break-all">
+                      <span className="--primary-bg-Color">
+                        pneumonoultramicroscopicsilicovolcanoconiosis
+                      </span>
+                    </div>
                   </div>
                   <div className="h-full border-l-[0.9px] border-[#959595]"></div>
                   <div className="flex justify-center pt-[23px]">내용2</div>
@@ -121,8 +127,10 @@ const VocabularyBookPage = () => {
               <div className="flex flex-col w-full gap-[38px]">
                 {/* 단어 1줄 */}
                 <div className="relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
-                  <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex">
-                    내용1
+                  <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
+                    <div className="w-full break-all">
+                      <span className="">내용 1</span>
+                    </div>
                   </div>
                   <div className="h-full border-l-[0.9px] border-[#959595]"></div>
                   <div className="flex justify-center pt-[23px]">내용2</div>
@@ -134,8 +142,10 @@ const VocabularyBookPage = () => {
                 </div>
                 {/* 단어 1줄 */}
                 <div className="relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
-                  <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex">
-                    내용1
+                  <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
+                    <div className="w-full break-all">
+                      <span className="">내용 1</span>
+                    </div>
                   </div>
                   <div className="h-full border-l-[0.9px] border-[#959595]"></div>
                   <div className="flex justify-center pt-[23px]">내용2</div>
@@ -147,8 +157,10 @@ const VocabularyBookPage = () => {
                 </div>
                 {/* 단어 1줄 */}
                 <div className="relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
-                  <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex">
-                    내용1
+                  <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
+                    <div className="w-full break-all">
+                      <span className="">내용 1</span>
+                    </div>
                   </div>
                   <div className="h-full border-l-[0.9px] border-[#959595]"></div>
                   <div className="flex justify-center pt-[23px]">내용2</div>
@@ -169,6 +181,24 @@ const VocabularyBookPage = () => {
             <div className="flex items-center justify-center w-full relative bg-white border-[0.9px] border-black border-solid rounded-[18px] shadow-[0_3.58px_3.58px_0_rgba(0,0,0,0.25)]">
               <div className="flex">전체 뜻 숨김</div>
             </div>
+          </div>
+        </div>
+      </div>
+      {/* 버튼 부분 */}
+      <div className="flex flex-col items-center w-full mb-[212px] mt-[143px]">
+        <div className="w-[clamp(0px,35.52%,682px)] h-[102px]">
+          <div className="--bold btn-secondary --Pretendard pt-[clamp(0px,3.33%,36px)] pb-[clamp(0px,3.61%,39px)] pl-[clamp(0px,10.83%,208px)] pr-[clamp(0px,13.59%,261px)]">
+            <div className="flex items-center">
+              <div className="--font-l whitespace-nowrap">재료 생성하기</div>
+              <img
+                src={spannerIconWhite}
+                alt="Spanner Icon"
+                className="pl-[clamp(0px,0.26%,5px)]"
+              />
+            </div>
+          </div>
+          <div className="--Pretendard flex flex-col items-center --status-font-Color-05 --medium --font-xs pt-[clamp(0px,2.59%,28px)] pl-[clamp(0px,8.44%,162px)] pr-[clamp(0px,7.4%,142px)] underline">
+            설명이 필요하신가요?
           </div>
         </div>
       </div>
