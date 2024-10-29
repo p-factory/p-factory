@@ -1,5 +1,6 @@
 import React from 'react';
 import pencilIcon from '../../global/Img/pencilIcon.svg';
+import pencilIconGrey from '../../global/Img/pencilIconGrey.svg';
 import trashCanIcon from '../../global/Img/trashCanIcon.svg';
 import highlighterIcon from '../../global/Img/highlighterIcon.svg';
 import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
@@ -49,137 +50,165 @@ const VocabularyBookPage = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center w-full">
-        <div className="flex flex-col items-center w-[clamp(0px,83.18%,1597px)] bg-white pt-[73px] pb-[163px] rounded-[53px] shadow-[0_0_24px_4px_rgba(0,0,0,0.24)]">
-          {/* 단어장 header */}
-          <div className="flex w-[clamp(0px,74.51%,1190px)] justify-between">
-            <div className="flex">
-              <div className="--primary-flex-col normal w-[126px] h-[57px] mr-[19px] border-[1px] border-black border-solid rounded-[17px] bg-white --font-m shadow-[0_3px_3px_rgba(0,0,0,0.25)]">
-                최신순▼
-              </div>
-              <div className="--primary-flex-col normal w-[126px] h-[57px] border-[1px] border-black border-solid rounded-[17px] bg-white --font-m shadow-[0_3px_3px_rgba(0,0,0,0.25)]">
-                전체보기▼
-              </div>
-            </div>
-            <div className="flex gap-[25px]">
-              <div className="--primary-flex bg-white w-[57px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)]">
-                <img
-                  src={trashCanIcon}
-                  alt="Trash Can Icon"
-                  className="w-[29px] h-[29px]"
-                />
-              </div>
-              <div className="--primary-flex --primary-bg-Color w-[57px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)]">
-                <img
-                  src={highlighterIcon}
-                  alt="Highlighter Icon"
-                  className="w-[40px] h-[40px]"
-                />
-              </div>
-              <div className="--primary-flex bg-black w-[58px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)]">
-                <img
-                  src={spannerIconWhite}
-                  alt="Spanner Icon"
-                  className="w-[20px] h-[20px]"
-                />
-              </div>
-            </div>
-          </div>
-          {/* 전체 단어장 */}
-          <div className="pt-[100px] w-[clamp(0px,74.51%,1190px)]">
-            <div className="flex justify-between gap-[clamp(0px,3.78%,45px)]">
-              {/* 왼쪽 단어장 */}
-              <div className="flex flex-col w-full gap-[38px]">
-                {/* 단어 1줄 */}
-                <div className="relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
-                  <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
-                    <div className="w-full break-all">
-                      <span className="--primary-bg-Color">내용 1</span>
-                    </div>
-                  </div>
-                  <div className="h-full border-l-[0.9px] border-[#959595]"></div>
-                  <div className="flex justify-center pt-[23px]">내용2</div>
-                  <img
-                    src={pencilIcon}
-                    alt="Pencil Icon"
-                    className="absolute top-[23px] right-[40px] w-[22px] h-[22px]"
-                  />
+      <div className="relative flex flex-col items-center w-full">
+        <div className="relative flex justify-center w-[clamp(0px,83.18%,1597px)]">
+          {/* 뒷배경 */}
+          <div className="absolute w-full top-[138px] left-[clamp(0px,1.77%,34px)] bottom-[-52px] z-[-1] flex-grow bg-[#8f8f8f] pt-[73px] pb-[163px] rounded-[53px]" />
+          {/* 콘텐츠 */}
+          <div className="flex-grow flex flex-col items-center bg-white pt-[73px] pb-[163px] rounded-[53px] shadow-[0_0_24px_4px_rgba(0,0,0,0.24)]">
+            {/* 단어장 header */}
+            <div className="flex w-[clamp(0px,74.51%,1190px)] justify-between">
+              <div className="flex">
+                <div className="--primary-flex-col normal w-[126px] h-[57px] mr-[19px] border-[1px] border-black border-solid rounded-[17px] bg-white --font-m shadow-[0_3px_3px_rgba(0,0,0,0.25)]">
+                  최신순▼
                 </div>
-                {/* 단어 2줄 */}
-                <div className="relative grid grid-cols-[1fr_auto_1fr] h-[188px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
-                  <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
-                    <div className="w-full break-all">
-                      <span className="--primary-bg-Color">
-                        pneumonoultramicroscopicsilicovolcanoconiosis
-                      </span>
-                    </div>
-                  </div>
-                  <div className="h-full border-l-[0.9px] border-[#959595]"></div>
-                  <div className="flex justify-center pt-[23px]">내용2</div>
-                  <img
-                    src={pencilIcon}
-                    alt="Pencil Icon"
-                    className="absolute top-[23px] right-[40px] w-[22px] h-[22px]"
-                  />
+                <div className="--primary-flex-col normal w-[126px] h-[57px] border-[1px] border-black border-solid rounded-[17px] bg-white --font-m shadow-[0_3px_3px_rgba(0,0,0,0.25)]">
+                  전체보기▼
                 </div>
               </div>
-              {/* 오른쪽 단어장 */}
-              <div className="flex flex-col w-full gap-[38px]">
-                {/* 단어 1줄 */}
-                <div className="relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
-                  <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
-                    <div className="w-full break-all">
-                      <span className="">내용 1</span>
-                    </div>
-                  </div>
-                  <div className="h-full border-l-[0.9px] border-[#959595]"></div>
-                  <div className="flex justify-center pt-[23px]">내용2</div>
+              <div className="flex gap-[25px]">
+                <div className="--primary-flex bg-white w-[57px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)]">
                   <img
-                    src={pencilIcon}
-                    alt="Pencil Icon"
-                    className="absolute top-[23px] right-[40px] w-[22px] h-[22px]"
+                    src={trashCanIcon}
+                    alt="Trash Can Icon"
+                    className="w-[29px] h-[29px]"
                   />
                 </div>
-                {/* 단어 1줄 */}
-                <div className="relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
-                  <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
-                    <div className="w-full break-all">
-                      <span className="">내용 1</span>
-                    </div>
-                  </div>
-                  <div className="h-full border-l-[0.9px] border-[#959595]"></div>
-                  <div className="flex justify-center pt-[23px]">내용2</div>
+                <div className="--primary-flex --primary-bg-Color w-[57px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)]">
                   <img
-                    src={pencilIcon}
-                    alt="Pencil Icon"
-                    className="absolute top-[23px] right-[40px] w-[22px] h-[22px]"
+                    src={highlighterIcon}
+                    alt="Highlighter Icon"
+                    className="w-[40px] h-[40px]"
                   />
                 </div>
-                {/* 단어 1줄 */}
-                <div className="relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
-                  <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
-                    <div className="w-full break-all">
-                      <span className="">내용 1</span>
-                    </div>
-                  </div>
-                  <div className="h-full border-l-[0.9px] border-[#959595]"></div>
-                  <div className="flex justify-center pt-[23px]">내용2</div>
+                <div className="--primary-flex bg-black w-[58px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)]">
                   <img
-                    src={pencilIcon}
-                    alt="Pencil Icon"
-                    className="absolute top-[23px] right-[40px] w-[22px] h-[22px]"
+                    src={spannerIconWhite}
+                    alt="Spanner Icon"
+                    className="w-[20px] h-[20px]"
                   />
                 </div>
               </div>
             </div>
-          </div>
-          {/* 단어장 bottom */}
-          <div className="flex justify-center w-[clamp(0px,60.8%,971px)] h-[82px] gap-[95px] --Pretendard --semi-bold --font-l mt-[66px]">
-            <div className="flex items-center justify-center w-full relative bg-white border-[0.9px] border-black border-solid rounded-[18px] shadow-[0_3.58px_3.58px_0_rgba(0,0,0,0.25)]">
-              <div className="flex">전체 단어 숨김</div>
+            {/* 전체 단어장 */}
+            <div className="pt-[100px] w-[clamp(0px,74.51%,1190px)]">
+              <div className="flex justify-between gap-[clamp(0px,3.78%,45px)]">
+                {/* 왼쪽 단어장 */}
+                <div className="flex flex-col w-full gap-[38px]">
+                  {/* 단어 1칸 하이라이트 */}
+                  <div className="relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
+                    <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
+                      <div className="w-full break-all">
+                        <span className="--primary-bg-Color">내용 1</span>
+                      </div>
+                    </div>
+                    <div className="h-full border-l-[0.9px] border-[#959595]"></div>
+                    <div className="flex justify-center pt-[23px]">내용2</div>
+                    <img
+                      src={pencilIcon}
+                      alt="Pencil Icon"
+                      className="absolute top-[23px] right-[40px] w-[22px] h-[22px]"
+                    />
+                  </div>
+                  {/* 단어 2칸 하이라이트 */}
+                  <div className="relative grid grid-cols-[1fr_auto_1fr] h-[188px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
+                    <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
+                      <div className="w-full break-all">
+                        <span className="--primary-bg-Color">
+                          pneumonoultramicroscopicsilicovolcanoconiosis
+                        </span>
+                      </div>
+                    </div>
+                    <div className="h-full border-l-[0.9px] border-[#959595]"></div>
+                    <div className="flex justify-center pt-[23px]">내용2</div>
+                    <img
+                      src={pencilIcon}
+                      alt="Pencil Icon"
+                      className="absolute top-[23px] right-[40px] w-[22px] h-[22px]"
+                    />
+                  </div>
+                </div>
+                {/* 오른쪽 단어장 */}
+                <div className="flex flex-col w-full gap-[38px]">
+                  {/* 단어 1칸 삭제 */}
+                  <div className="text-[#e8e8e8] relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[0.9px] border-[#e8e8e8] border-solid rounded-[18px]">
+                    <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
+                      <div className="w-full break-all">
+                        <span className="">내용 1</span>
+                      </div>
+                    </div>
+                    <div className="h-full border-l-[0.9px] border-[#e8e8e8]"></div>
+                    <div className="flex justify-center pt-[23px]">내용2</div>
+                    <img
+                      src={pencilIconGrey}
+                      alt="Pencil Icon"
+                      className="absolute top-[23px] right-[40px] w-[22px] h-[22px]"
+                    />
+                    <div className="absolute flex items-center justify-center w-full">
+                      <hr className="flex absolute w-4/5 top-[35px] border-black" />
+                    </div>
+                  </div>
+                  {/* 단어 1칸 */}
+                  <div className="relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
+                    <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
+                      <div className="w-full break-all">
+                        <span className="">내용 1</span>
+                      </div>
+                    </div>
+                    <div className="h-full border-l-[0.9px] border-[#959595]"></div>
+                    <div className="flex justify-center pt-[23px]">내용2</div>
+                    <img
+                      src={pencilIcon}
+                      alt="Pencil Icon"
+                      className="absolute top-[23px] right-[40px] w-[22px] h-[22px]"
+                    />
+                  </div>
+                  {/* 단어 1칸 */}
+                  <div className="relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
+                    <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
+                      <div className="w-full break-all">
+                        <span className="">내용 1</span>
+                      </div>
+                    </div>
+                    <div className="h-full border-l-[0.9px] border-[#959595]"></div>
+                    <div className="flex justify-center pt-[23px]">내용2</div>
+                    <img
+                      src={pencilIcon}
+                      alt="Pencil Icon"
+                      className="absolute top-[23px] right-[40px] w-[22px] h-[22px]"
+                    />
+                  </div>
+                  {/* 단어 2칸 삭제 */}
+                  <div className="text-[#e8e8e8] relative grid grid-cols-[1fr_auto_1fr] h-[188px] border-[0.9px] border-[#e8e8e8] border-solid rounded-[18px]">
+                    <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
+                      <div className="w-full break-all">
+                        <span className="--primary-bg-Color">
+                          pneumonoultramicroscopicsilicovolcanoconiosis
+                        </span>
+                      </div>
+                    </div>
+                    <div className="h-full border-l-[0.9px] border-[#e8e8e8]"></div>
+                    <div className="flex justify-center pt-[23px]">내용2</div>
+                    <img
+                      src={pencilIconGrey}
+                      alt="Pencil Icon"
+                      className="absolute top-[23px] right-[40px] w-[22px] h-[22px]"
+                    />
+                    <div className="absolute flex items-center justify-center w-full">
+                      <hr className="flex absolute w-4/5 top-[35px] border-black" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center justify-center w-full relative bg-white border-[0.9px] border-black border-solid rounded-[18px] shadow-[0_3.58px_3.58px_0_rgba(0,0,0,0.25)]">
-              <div className="flex">전체 뜻 숨김</div>
+            {/* 단어장 bottom */}
+            <div className="flex justify-center w-[clamp(0px,60.8%,971px)] h-[82px] gap-[95px] --Pretendard --semi-bold --font-l mt-[66px]">
+              <div className="flex items-center justify-center w-full relative bg-white border-[0.9px] border-black border-solid rounded-[18px] shadow-[0_3.58px_3.58px_0_rgba(0,0,0,0.25)]">
+                <div className="flex">전체 단어 숨김</div>
+              </div>
+              <div className="flex items-center justify-center w-full relative bg-white border-[0.9px] border-black border-solid rounded-[18px] shadow-[0_3.58px_3.58px_0_rgba(0,0,0,0.25)]">
+                <div className="flex">전체 뜻 숨김</div>
+              </div>
             </div>
           </div>
         </div>
