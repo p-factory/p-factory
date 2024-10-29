@@ -50,7 +50,8 @@ const VocabularyBookPage = () => {
         </div>
       </div>
       <div className="flex justify-center w-full">
-        <div className="flex flex-col items-center w-[clamp(0px,83.18%,1597px)] h-[1934px] bg-slate-600 pt-[73px] rounded-[53px] shadow-[0_0_24px_4px_rgba(0,0,0,0.24)]">
+        <div className="flex flex-col items-center w-[clamp(0px,83.18%,1597px)] bg-white pt-[73px] pb-[163px] rounded-[53px] shadow-[0_0_24px_4px_rgba(0,0,0,0.24)]">
+          {/* 단어장 header */}
           <div className="flex w-[clamp(0px,74.51%,1190px)] justify-between">
             <div className="flex">
               <div className="--primary-flex-col normal w-[126px] h-[57px] mr-[19px] border-[1px] border-black border-solid rounded-[17px] bg-white --font-m shadow-[0_3px_3px_rgba(0,0,0,0.25)]">
@@ -90,9 +91,9 @@ const VocabularyBookPage = () => {
               {/* 왼쪽 단어장 */}
               <div className="flex flex-col w-full gap-[38px]">
                 {/* 단어 1줄 */}
-                <div className="items-center relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[1px] border-black border-solid rounded-[18px]">
+                <div className="items-center relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
                   <div className="pl-[clamp(0px,28.97%,84px)] flex">내용1</div>
-                  <div className="h-full border-l-2 border-gray-50"></div>
+                  <div className="h-full border-l-[0.9px] border-[#959595]"></div>
                   <div className="flex justify-center">내용2</div>
                   <img
                     src={pencilIcon}
@@ -101,9 +102,9 @@ const VocabularyBookPage = () => {
                   />
                 </div>
                 {/* 단어 2줄 */}
-                <div className="items-center relative grid grid-cols-[1fr_auto_1fr] h-[188px] border-[1px] border-black border-solid rounded-[18px]">
+                <div className="items-center relative grid grid-cols-[1fr_auto_1fr] h-[188px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
                   <div className="pl-[clamp(0px,28.97%,84px)] flex">내용1</div>
-                  <div className="h-full border-l-2 border-gray-50"></div>
+                  <div className="h-full border-l-[0.9px] border-[#959595]"></div>
                   <div className="flex justify-center">내용2</div>
                   <img
                     src={pencilIcon}
@@ -115,9 +116,9 @@ const VocabularyBookPage = () => {
               {/* 오른쪽 단어장 */}
               <div className="flex flex-col w-full gap-[38px]">
                 {/* 단어 1줄 */}
-                <div className="items-center relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[1px] border-black border-solid rounded-[18px]">
+                <div className="items-center relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
                   <div className="pl-[clamp(0px,28.97%,84px)] flex">내용1</div>
-                  <div className="h-full border-l-2 border-gray-50"></div>
+                  <div className="h-full border-l-[0.9px] border-[#959595]"></div>
                   <div className="flex justify-center">내용2</div>
                   <img
                     src={pencilIcon}
@@ -126,9 +127,9 @@ const VocabularyBookPage = () => {
                   />
                 </div>
                 {/* 단어 1줄 */}
-                <div className="items-center relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[1px] border-black border-solid rounded-[18px]">
+                <div className="items-center relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
                   <div className="pl-[clamp(0px,28.97%,84px)] flex">내용1</div>
-                  <div className="h-full border-l-2 border-gray-50"></div>
+                  <div className="h-full border-l-[0.9px] border-[#959595]"></div>
                   <div className="flex justify-center">내용2</div>
                   <img
                     src={pencilIcon}
@@ -137,9 +138,9 @@ const VocabularyBookPage = () => {
                   />
                 </div>
                 {/* 단어 1줄 */}
-                <div className="items-center relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[1px] border-black border-solid rounded-[18px]">
+                <div className="items-center relative grid grid-cols-[1fr_auto_1fr] h-[76px] border-[0.9px] border-[#959595] border-solid rounded-[18px]">
                   <div className="pl-[clamp(0px,28.97%,84px)] flex">내용1</div>
-                  <div className="h-full border-l-2 border-gray-50"></div>
+                  <div className="h-full border-l-[0.9px] border-[#959595]"></div>
                   <div className="flex justify-center">내용2</div>
                   <img
                     src={pencilIcon}
@@ -148,6 +149,15 @@ const VocabularyBookPage = () => {
                   />
                 </div>
               </div>
+            </div>
+          </div>
+          {/* 단어장 bottom */}
+          <div className="flex justify-center w-[clamp(0px,60.8%,971px)] h-[82px] gap-[95px] --Pretendard --semi-bold --font-l mt-[66px]">
+            <div className="flex items-center justify-center w-full relative bg-white border-[0.9px] border-black border-solid rounded-[18px] shadow-[0_3.58px_3.58px_0_rgba(0,0,0,0.25)]">
+              <div className="flex">전체 단어 숨김</div>
+            </div>
+            <div className="flex items-center justify-center w-full relative bg-white border-[0.9px] border-black border-solid rounded-[18px] shadow-[0_3.58px_3.58px_0_rgba(0,0,0,0.25)]">
+              <div className="flex">전체 뜻 숨김</div>
             </div>
           </div>
         </div>
