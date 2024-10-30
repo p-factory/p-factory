@@ -20,27 +20,31 @@ const queryClient = new QueryClient();
 
 const App = () => {
   return (
-    <QueryClientProvider client={queryClient}> {/* QueryClientProvider로 전체 앱 감싸기 */}
-    <Router>
-      <Routes>
-        {/* Main */}
-        <Route path="/" element={<MainPage />} />
-        <Route path="/Manual" element={<Manual />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/LoginIn" element={<LoginIn />} />
-        <Route path="/SignUp" element={<SignUp />} />
-        <Route path="/Dev" element={<DevDesignSystem />} />
-        <Route path="/DevWH" element={<DevDesignSystemWH />} />
-        <Route path="/DevStylesPreview" element={<DevStylesPreview />} />
-        {/* DEVPosition */}
-        <Route path="/DevPosition/Login" element={<DevPositionLogin />} />
-        <Route path="/DevPosition/Viewport" element={<DevPositionViewport />} />
-        <Route path="/DevPosition/Px" element={<DevPositionPx />} />
-        {/* VocabularyBook */}
-        <Route path="/VocabularyBook" element={<VocabularyBookPage />} />
-      </Routes>
+    <QueryClientProvider client={queryClient}>
+      {/* QueryClientProvider로 전체 앱 감싸기 */}
+      <Router>
+        <Routes>
+          {/* Main */}
+          <Route path="/" element={<MainPage />} />
+          <Route path="/Manual" element={<Manual />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/LoginIn" element={<LoginIn />} />
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/Dev" element={<DevDesignSystem />} />
+          <Route path="/DevWH" element={<DevDesignSystemWH />} />
+          <Route path="/DevStylesPreview" element={<DevStylesPreview />} />
+          {/* DEVPosition */}
+          <Route path="/DevPosition/Login" element={<DevPositionLogin />} />
+          <Route
+            path="/DevPosition/Viewport"
+            element={<DevPositionViewport />}
+          />
+          <Route path="/DevPosition/Px" element={<DevPositionPx />} />
+          {/* VocabularyBook */}
+          <Route path="/VocabularyBook" element={<VocabularyBookPage />} />
+        </Routes>
       </Router>
-      </QueryClientProvider>
+    </QueryClientProvider>
   );
 };
 
