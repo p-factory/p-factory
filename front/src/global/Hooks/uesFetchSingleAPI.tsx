@@ -1,4 +1,3 @@
-// src/useFetchQueryAPI.tsx
 import {
   useQuery,
   useMutation,

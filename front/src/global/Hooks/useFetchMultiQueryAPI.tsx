@@ -10,8 +10,7 @@ interface UseFetchQueryAPIProps {
 
 export const useFetchMultipleQueries = (configs: UseFetchQueryAPIProps[]) => {
   const queries = configs.map((config) => ({
-    queryKey: [config.url], //?
-    //?
+    queryKey: [config.url],
     queryFn: async () => {
       const api = fetchInstance();
       switch (config.method) {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   useFetchQuery,
   useFetchMutation,
-} from '../../global/Hooks/uesFetchQueryAPI';
+} from '../../global/Hooks/uesFetchSingleAPI';
 
 const DevFetch = () => {
   const [postData, setPostData] = useState({
