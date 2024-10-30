@@ -1,5 +1,5 @@
 import express from 'express';
-import fs from 'fs';
+// import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { getHyperLink } from './Routes/HyperLink.js'; // 홈 링크 HTML 반환
@@ -18,16 +18,17 @@ const userDbPath = path.join(__dirname, 'db', 'db.user.json');
 const app = express();
 app.use(express.json()); // 요청 body를 JSON으로 파싱하는 미들웨어
 
+// 루트 경로 정의
 // 홈 페이지에 링크 추가
-app.get('/link', (req, res) => {
+app.get('/', (req, res) => {
   res.send(getHyperLink());
 });
 
 // 각각의 JSON 파일을 라우터로 설정
-createRoute(app, '/api/test', testDbPath);   // GET 처리
-createRoute(app, '/api/name', nameDbPath);   // GET 처리
-createRoute(app, '/api/user/signup', userDbPath);  // 회원가입 처리
-createRoute(app, '/api/user/login', userDbPath);   // 로그인 처리
+createRoute(app, '/api/test', testDbPath); // GET 처리
+createRoute(app, '/api/name', nameDbPath); // GET 처리
+createRoute(app, '/api/user/signup', userDbPath); // 회원가입 처리
+createRoute(app, '/api/user/login', userDbPath); // 로그인 처리
 
 // 서버 실행
 const PORT = 3001;
