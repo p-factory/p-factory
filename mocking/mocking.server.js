@@ -1,5 +1,6 @@
 import express from 'express';
 // import fs from 'fs';
+import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { getHyperLink } from './Routes/HyperLink.js'; // 홈 링크 HTML 반환
@@ -17,6 +18,9 @@ const userDbPath = path.join(__dirname, 'db', 'db.user.json');
 // Express 설정
 const app = express();
 app.use(express.json()); // 요청 body를 JSON으로 파싱하는 미들웨어
+
+// CORS 설정 추가
+app.use(cors({ origin: 'http://localhost:3000' })); // 클라이언트 URL을 허용
 
 // 루트 경로 정의
 // 홈 페이지에 링크 추가

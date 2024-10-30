@@ -1,20 +1,41 @@
-import React, { useState } from 'react';
-import useFetchMultiQueryAPI from '../../global/Hooks/useFetchMultiQueryAPI';
+import React, { useState, useEffect } from 'react';
+import {
+  useFetchQuery,
+  useFetchMutation,
+} from '../../global/Hooks/uesFetchQueryAPI';
 
 const DevFetch = () => {
-  // POST 요청 데이터 상태 관리
   const [postData, setPostData] = useState({
-    id: 1,
     username: '',
     email: '',
     password: '',
   });
 
-  // FetchMultiQueryAPI를 호출해 GET과 POST 요청을 동시에 처리
-  const { data, isLoading, isError } = useFetchMultiQueryAPI([
-    { method: 'GET', url: '/test', postData: {} },
-    { method: 'POST', url: '/user/signup', postData },
-  ]);
+  const [loadingMessage, setLoadingMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [isData, setIsData] = useState(false);
+
+  // GET 요청을 위한 훅 사용
+  const {
+    data: getData,
+    isLoading: isGetLoading,
+    isError: isGetError,
+    isSuccess: isGetSuccess,
+  } = useFetchQuery({
+    url: '/comments',
+  });
+
+  // POST 요청을 위한 훅 사용
+  const {
+    mutation: postMutation,
+    isLoading: isPostLoading,
+    isError: isPostError,
+    isSuccess: isPostSuccess,
+  } = useFetchMutation('POST', {
+    url: '/posts',
+    postData,
+  });
 
   // input 변경 핸들러
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,24 +45,69 @@ const DevFetch = () => {
 
   // POST 요청 전송 핸들러
   const handleSubmit = () => {
-    // data 배열에서 POST 요청의 데이터를 확인하고 POST 요청을 수행
-    const postQuery = data.find((query) => query.method === 'POST');
-    if (postQuery) {
-      postQuery.mutate(postData);
-    }
+    postMutation.mutate(postData); // POST 요청 수동 실행
   };
+
+  // GET 요청 상태 추적
+  useEffect(() => {
+    if (isGetLoading) {
+      setLoadingMessage('Loading data...');
+      setErrorMessage('');
+      setSuccessMessage('');
+      setIsData(false);
+    } else if (isGetError) {
+      setLoadingMessage('');
+      setErrorMessage('Error occurred while fetching data.');
+      setSuccessMessage('');
+      setIsData(false);
+    } else if (isGetSuccess && getData) {
+      setLoadingMessage('');
+      setErrorMessage('');
+      setSuccessMessage('Data fetched successfully!');
+      setIsData(true);
+      console.log('Fetched GET data:', getData);
+    }
+  }, [isGetLoading, isGetError, isGetSuccess, getData]);
+
+  // POST 요청 상태 추적
+  useEffect(() => {
+    if (isPostLoading) {
+      setLoadingMessage('Sending data...');
+      setErrorMessage('');
+      setSuccessMessage('');
+    } else if (isPostError) {
+      setLoadingMessage('');
+      setErrorMessage('Error occurred while sending data.');
+      setSuccessMessage('');
+    } else if (isPostSuccess) {
+      setLoadingMessage('');
+      setErrorMessage('');
+      setSuccessMessage('POST 요청 성공!');
+      console.log('POST request successful with data:', postData);
+    }
+  }, [isPostLoading, isPostError, isPostSuccess, postData]);
 
   return (
     <div>
       {/* GET 요청 결과 표시 */}
       <div>
         <h3>GET 요청 결과:</h3>
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : isError ? (
-          <p>Error occurred while fetching data.</p>
+        {loadingMessage && <p>{loadingMessage}</p>}
+        {errorMessage && <p>{errorMessage}</p>}
+        {successMessage && isData ? (
+          <div>
+            <h4>Comments:</h4>
+            {getData &&
+              getData.map((item: any, index: number) => (
+                <div key={index}>
+                  <p>ID: {item.id}</p>
+                  <p>Post ID: {item.postId}</p>
+                  <p>Comment: {item.comment}</p>
+                </div>
+              ))}
+          </div>
         ) : (
-          data[0] && <p>{JSON.stringify(data[0])}</p>
+          <p>No data available</p>
         )}
       </div>
 
@@ -83,12 +149,12 @@ const DevFetch = () => {
         <br />
         <button onClick={handleSubmit}>Send POST Request</button>
 
-        {isLoading ? (
+        {isPostLoading ? (
           <p>Sending data...</p>
-        ) : isError ? (
+        ) : isPostError ? (
           <p>Error occurred while sending data.</p>
         ) : (
-          <p>POST 요청 성공!</p>
+          <p>{successMessage}</p>
         )}
       </div>
     </div>
