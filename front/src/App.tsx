@@ -14,6 +14,7 @@ import DevPositionPx from './View/DEV/Position/DevPositionPx.test';
 import Login from './View/Login/Login';
 import LoginIn from './View/Login/Login.in';
 import SignUp from './View/Login/SignUp';
+import DevFetch from './View/DEV/DevFetch';
 
 // queryClient 생성
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => {
             element={<DevPositionViewport />}
           />
           <Route path="/DevPosition/Px" element={<DevPositionPx />} />
+          <Route path="/DevFetch" element={<DevFetch />} />
           {/* VocabularyBook */}
           <Route path="/VocabularyBook" element={<VocabularyBookPage />} />
         </Routes>
