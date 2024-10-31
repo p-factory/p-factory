@@ -39,6 +39,7 @@ const ManualPage = () => {
         containerWidth="w-[clamp(0px,59.74%,1142px)]"
         width="w-[clamp(0px, 86.66%, 994px)]"
         background={false}
+        hScreen=""
       />
       <div className="mt-[36px]" />
       <Template
@@ -46,6 +47,7 @@ const ManualPage = () => {
         containerWidth="w-[clamp(0px,59.74%,1142px)]"
         width="w-[clamp(0px, 86.66%, 994px)]"
         background={false}
+        hScreen=""
       />
       <div className="relative flex items-end justify-center">
         <div className="w-[clamp(0px,59.74%,1142px)]">

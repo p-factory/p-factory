@@ -12,6 +12,7 @@ const ComponentSchema = Z.object({
   backgroundWidth: Z.string().optional(),
   backgroundHeight: Z.string().optional(),
   background: Z.boolean().optional(), // background 옵션 추가
+  hScreen: Z.string().optional(), // 템플릿의 hscreen에 대한 옵션 추가
 });
 
 type ComponentProps = Z.infer<typeof ComponentSchema>;
@@ -24,6 +25,7 @@ const Template = ({
   backgroundWidth = 'w-[clamp(0px,95.71%,758px)]',
   backgroundHeight = 'h-[clamp(0px,89.49%,847px)]',
   background = true, // 기본값 true
+  hScreen = 'min-h-screen',
 }: ComponentProps) => {
   // const { component: Component, width = 'w-[clamp(0px,95.71%,758px)]', height = 'h-[clamp(0px,89.49%,758px)]' } = props;
   try {
@@ -35,13 +37,14 @@ const Template = ({
       backgroundWidth,
       backgroundHeight,
       background,
+      hScreen,
     });
   } catch (error) {
     console.error('Props validation failed', error);
   }
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen">
+    <div className={`relative flex items-center justify-center ${hScreen}`}>
       {/* <DEV /> */}
       <div className={`relative flex ${containerWidth}`}>
         {/* 컨탠츠 영역 */}
