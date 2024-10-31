@@ -6,7 +6,9 @@ export const createRoute = (app, apiPath, filePath) => {
   app.get(apiPath, (req, res) => {
     fs.readFile(filePath, 'utf8', (err, data) => {
       if (err) {
-        return res.status(500).json({ error: `Failed to read file: ${filePath}`, details: err });
+        return res
+          .status(500)
+          .json({ error: `Failed to read file: ${filePath}`, details: err });
       }
       res.json(JSON.parse(data));
     });
@@ -19,7 +21,9 @@ export const createRoute = (app, apiPath, filePath) => {
 
       // 필수 필드가 있는지 검증
       if (!username || !email || !password) {
-        return res.status(400).json({ error: 'username, email, and password are required' });
+        return res
+          .status(400)
+          .json({ error: 'username, email, and password are required' });
       }
 
       // 기존 데이터 읽기
@@ -42,13 +46,19 @@ export const createRoute = (app, apiPath, filePath) => {
         users.push(newUser);
 
         // 업데이트된 users 목록을 파일에 저장
-        fs.writeFile(filePath, JSON.stringify({ users }, null, 2), (writeErr) => {
-          if (writeErr) {
-            return res.status(500).json({ error: 'Failed to save user' });
-          }
+        fs.writeFile(
+          filePath,
+          JSON.stringify({ users }, null, 2),
+          (writeErr) => {
+            if (writeErr) {
+              return res.status(500).json({ error: 'Failed to save user' });
+            }
 
-          res.status(201).json({ message: 'User added successfully', user: newUser });
-        });
+            res
+              .status(201)
+              .json({ message: 'User added successfully', user: newUser });
+          },
+        );
       });
     });
   } else if (apiPath.includes('/api/user/login')) {
@@ -57,7 +67,9 @@ export const createRoute = (app, apiPath, filePath) => {
 
       // 필드 검증
       if (!email || !password) {
-        return res.status(400).json({ error: 'email and password are required' });
+        return res
+          .status(400)
+          .json({ error: 'email and password are required' });
       }
 
       // 데이터베이스에서 사용자 찾기
@@ -69,13 +81,18 @@ export const createRoute = (app, apiPath, filePath) => {
         const db = JSON.parse(data);
         const users = db.users || [];
 
-        const user = users.find(u => u.email === email && u.password === password);
+        const user = users.find(
+          (u) => u.email === email && u.password === password,
+        );
         if (!user) {
           return res.status(401).json({ error: 'Invalid email or password' });
         }
 
         // 성공적으로 로그인, 임시 JWT 토큰 발행 (예시)
-        const token = Buffer.from(`${user.email}:${Date.now()}`).toString('base64');
+        // eslint-disable-next-line no-undef
+        const token = Buffer.from(`${user.email}:${Date.now()}`).toString(
+          'base64',
+        );
         res.status(200).json({ message: 'Login successful', token });
       });
     });
