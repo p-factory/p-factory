@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainPage from './View/Main/MainPage';
 import Manual from './View/Main/ManualPage';
+import MyFactory from './View/Main/MyFactory';
 import VocabularyBookPage from './View/VocabularyBook/VocabularyBookPage';
 import DevStylesPreview from './View/DEV/DevStylesPreview';
 import DevDesignSystem from './View/DEV/DevDesignSystem';
@@ -23,6 +24,7 @@ const App = () => {
         {/* Main */}
         <Route path="/" element={<MainPage />} />
         <Route path="/Manual" element={<Manual />} />
+        <Route path="/MyFactory" element={<MyFactory />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/LoginIn" element={<LoginIn />} />
         <Route path="/LoginId" element={<LoginId />} />
