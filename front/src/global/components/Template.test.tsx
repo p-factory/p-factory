@@ -41,7 +41,7 @@ const Template = ({
   }
 
   return (
-    <div className="relative flex items-center justify-center">
+    <div className="relative flex items-center justify-center min-h-screen">
       {/* <DEV /> */}
       <div className={`relative flex ${containerWidth}`}>
         {/* 컨탠츠 영역 */}
