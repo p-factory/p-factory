@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'; // QueryClient 관련 추가
 import MainPage from './View/Main/MainPage';
 import Manual from './View/Main/ManualPage';
 import MyFactory from './View/Main/MyFactory';
@@ -17,31 +18,42 @@ import LoginId from './View/Login/Login.id';
 import LoginNickName from './View/Login/Login.nickname';
 import LoginPassWord from './View/Login/Login.password';
 import SignUp from './View/Login/SignUp';
+import DevFetch from './View/DEV/DevFetch';
+
+// queryClient 생성
+const queryClient = new QueryClient();
+
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        {/* Main */}
-        <Route path="/" element={<MainPage />} />
-        <Route path="/Manual" element={<Manual />} />
-        <Route path="/MyFactory" element={<MyFactory />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/LoginIn" element={<LoginIn />} />
-        <Route path="/LoginId" element={<LoginId />} />
-        <Route path="/LoginNickName" element={<LoginNickName />} />
-        <Route path="/LoginPassWord" element={<LoginPassWord />} />
-        <Route path="/SignUp" element={<SignUp />} />
-        <Route path="/Dev" element={<DevDesignSystem />} />
-        <Route path="/DevWH" element={<DevDesignSystemWH />} />
-        <Route path="/DevStylesPreview" element={<DevStylesPreview />} />
-        {/* DEVPosition */}
-        <Route path="/DevPosition/Login" element={<DevPositionLogin />} />
-        <Route path="/DevPosition/Viewport" element={<DevPositionViewport />} />
-        <Route path="/DevPosition/Px" element={<DevPositionPx />} />
-        {/* VocabularyBook */}
-        <Route path="/VocabularyBook" element={<VocabularyBookPage />} />
-      </Routes>
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      {/* QueryClientProvider로 전체 감싸야 동작 */}
+      {/* Recoil도 추가 예정 */}
+      <Router>
+        <Routes>
+          {/* Main */}
+          <Route path="/" element={<MainPage />} />
+          <Route path="/Manual" element={<Manual />} />
+          <Route path="/MyFactory" element={<MyFactory />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/LoginIn" element={<LoginIn />} />
+          <Route path="/LoginId" element={<LoginId />} />
+          <Route path="/LoginNickName" element={<LoginNickName />} />
+          <Route path="/LoginPassWord" element={<LoginPassWord />} />
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/Dev" element={<DevDesignSystem />} />
+          <Route path="/DevWH" element={<DevDesignSystemWH />} />
+          <Route path="/DevStylesPreview" element={<DevStylesPreview />} />
+          {/* DEVPosition */}
+          <Route path="/DevPosition/Login" element={<DevPositionLogin />} />
+          <Route path="/DevPosition/Viewport" element={<DevPositionViewport />} />
+          <Route path="/DevPosition/Px" element={<DevPositionPx />} />
+          {/* DEVFetch */}
+          <Route path="/DevFetch" element={<DevFetch />} />
+          {/* VocabularyBook */}
+          <Route path="/VocabularyBook" element={<VocabularyBookPage />} />
+        </Routes>
+      </Router>
+    </QueryClientProvider>
   );
 };
 
