@@ -7,7 +7,7 @@ module.exports = {
     es2021: true,
     node: true,  // Node.js 환경을 설정하여 require 사용 허용
   },
-  // "compilerOptions": {
+  // "compilerOptions": { // 에러로 인한 주석처리
   //   "module": "commonjs",
   // },
   extends: [

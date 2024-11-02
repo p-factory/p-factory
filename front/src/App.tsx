@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'; // QueryClient 관련 추가
 import MainPage from './View/Main/MainPage';
 import Manual from './View/Main/ManualPage';
+import MyFactory from './View/Main/MyFactory';
 import VocabularyBookPage from './View/VocabularyBook/VocabularyBookPage';
 import DevStylesPreview from './View/DEV/DevStylesPreview';
 import DevDesignSystem from './View/DEV/DevDesignSystem';
