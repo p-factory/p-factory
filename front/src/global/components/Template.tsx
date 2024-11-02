@@ -33,7 +33,7 @@ const Template = ({
       <DEV />
       <div className="relative flex w-[clamp(0px,41.25%,792px)]">
         {/* 컨탠츠 영역 */}
-        <div className="flex flex-col justify-end w-full">
+        <div className="flex flex-col justify-center w-full">
           <div className="bg-white w-[108.91px] h-[40.58px] rounded-tl-[30px] rounded-tr-[30px]" />
           <div
             className={`flex ${width} ${height} bg-white pr-[clamp(0px,42px,42px)] pl-[clamp(0px,76px,76px)] rounded-tr-[36px] rounded-br-[36px] rounded-bl-[36px]`}
