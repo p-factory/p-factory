@@ -9,6 +9,12 @@
       "id": 2,
       "title": "Post 2",
       "content": "Content 2"
+    },
+    {
+      "username": "test",
+      "email": "test",
+      "password": "test",
+      "id": 3
     }
   ],
   "comments": [
