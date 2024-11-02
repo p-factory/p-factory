@@ -1,5 +1,5 @@
 import React from 'react';
-import Template from '../../global/components/Template';
+import Template from '../../global/components/Template.test';
 import LoginComponent from './Login.component';
 
 const Login = () => {

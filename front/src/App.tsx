@@ -33,6 +33,7 @@ const App = () => {
           {/* Main */}
           <Route path="/" element={<MainPage />} />
           <Route path="/Manual" element={<Manual />} />
+          <Route path="/MyFactory" element={<MyFactory />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/LoginIn" element={<LoginIn />} />
           <Route path="/LoginId" element={<LoginId />} />
