@@ -6,7 +6,7 @@ const LoginPassWord = () => {
     <div className="h-screen">
       <Template
         height={'h-[clamp(0px,100%,1149px)]'}
-        backgroundHeight={'h-[clamp(0px,100%,1149px)]'}
+        shadowHeight={'h-[clamp(0px,100%,1149px)]'}
         component={LoginPassWordComponent}
       />
     </div>
