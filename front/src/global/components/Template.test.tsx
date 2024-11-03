@@ -44,10 +44,8 @@ const Template = ({
   }
 
   return (
-    <div className={`relative flex items-center justify-center ${hScreen}`}>
+    <div className={`flex items-center justify-center ${hScreen}`}>
       {/* <DEV /> */}
-    <div className="relative flex items-center justify-center mx-auto my-auto">
-      <DEV />
       <div className={`relative flex ${containerWidth}`}>
         {/* 컨탠츠 영역 */}
         <div className="flex flex-col justify-end w-full">
@@ -62,7 +60,7 @@ const Template = ({
         {background && (
           <div className="absolute flex flex-col top-[10px] left-[25px] z-[-1] w-full h-full">
             <div className="bg-slate-400 w-[108.91px] h-[40.58px] rounded-tl-[30px] rounded-tr-[30px]" />
-            <div>
+            <div
               className={`flex ${backgroundWidth} ${backgroundHeight} bg-slate-400 rounded-tr-[36px] rounded-br-[36px] rounded-bl-[36px]`}
             ></div>
           </div>
