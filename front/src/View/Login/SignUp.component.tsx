@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import check from '../../global/Img/check.svg';
 import uncheck from '../../global/Img/unCheck.svg';
 import about from '../../global/Img/details.svg';
+import { useNavigate } from 'react-router-dom';
 const SignUp = () => {
   const [isChecked, setIsChecked] = useState({
     all: false,
@@ -10,6 +11,8 @@ const SignUp = () => {
     position: false,
     marketing: false,
   });
+  const [isButtonState, setButtonState] = useState(false);
+  const navigate = useNavigate();
 
   // 구 버전 all을 클릭후 수동으로 다른 토글을 해지 시 두 번째 토글 클릭시 all 토글이 해지가 된다.
   // const handleCheckboxChange = (checked: keyof typeof isChecked) => {
@@ -66,6 +69,14 @@ const SignUp = () => {
       return updatedState;
     });
   };
+
+  useEffect(() => {
+    if (isChecked.service && isChecked.private && isChecked.position) {
+      setButtonState(true);
+    } else {
+      setButtonState(false);
+    }
+  }, [isChecked.service, isChecked.private, isChecked.position]);
 
   return (
     <div className="flex flex-col items-center justify-center w-full pt-[clamp(0px,8.31%,63px)] pb-[clamp(0px,9.63%,73px)] --Pretendard bg-yellow-300">
@@ -126,7 +137,12 @@ const SignUp = () => {
                 <span className="--error-font-Color --font-l">(필수) </span>
                 <span className="--font-l">서비스 이용약관</span>
               </div>
-              <div className="flex items-center justify-center">
+              <div
+                className="flex items-center justify-center cursor-pointer"
+                onClick={() => {
+                  alert('준비 중입니다.');
+                }}
+              >
                 <img src={about} alt="" />
               </div>
             </div>
@@ -151,7 +167,12 @@ const SignUp = () => {
                 <span className="--error-font-Color --font-l">(필수) </span>
                 <span className="--font-l">개인정보 처리방침</span>
               </div>
-              <div className="flex items-center justify-center">
+              <div
+                className="flex items-center justify-center cursor-pointer"
+                onClick={() => {
+                  alert('준비 중입니다.');
+                }}
+              >
                 <img src={about} alt="" />
               </div>
             </div>
@@ -176,7 +197,12 @@ const SignUp = () => {
                 <span className="--error-font-Color --font-l">(필수) </span>
                 <span className="--font-l">위치기반서비스 이용약관</span>
               </div>
-              <div className="flex items-center justify-center">
+              <div
+                className="flex items-center justify-center cursor-pointer"
+                onClick={() => {
+                  alert('준비 중입니다.');
+                }}
+              >
                 <img src={about} alt="" />
               </div>
             </div>
@@ -201,7 +227,12 @@ const SignUp = () => {
                 <span className="--font-l">(선택) </span>
                 <span className="--font-l">마케팅 활용동의</span>
               </div>
-              <div className="flex items-center justify-center">
+              <div
+                className="flex items-center justify-center cursor-pointer"
+                onClick={() => {
+                  alert('준비 중입니다.');
+                }}
+              >
                 <img src={about} alt="" />
               </div>
             </div>
@@ -209,10 +240,24 @@ const SignUp = () => {
         </div>
       </div>
       <div className="flex flex-col items-center justify-center w-full">
-        <div className="flex items-center justify-center w-full --Pretendard --semi-bold --font-xl --status-bg-Color-07 py-[clamp(0px,3.3%,25px)] rounded-[30px] mb-[clamp(0px,1.98%,15px)]">
+        <div
+          className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isButtonState ? '--primary-bg-Color' : '--status-bg-Color-07'} py-[clamp(0px,3.3%,25px)] rounded-[30px] mb-[clamp(0px,1.98%,15px)] cursor-pointer`}
+          onClick={() => {
+            if (isButtonState) {
+              navigate('/LoginId');
+            } else {
+              console.log('필수 조건을 승인해주세요.');
+            }
+          }}
+        >
           다음으로
         </div>
-        <div className="--status-font-Color-04 border-[--status-font-Color-04] border-b-[1px] --Pretendard --medium --font-xs">
+        <div
+          className="--status-font-Color-04 border-[--status-font-Color-04] border-b-[1px] --Pretendard --medium --font-xs cursor-pointer"
+          onClick={() => {
+            navigate('/Login');
+          }}
+        >
           이미 만들어진 공장이 있어요?
         </div>
       </div>
