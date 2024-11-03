@@ -46,27 +46,28 @@ const Template = ({
   return (
     <div className={`relative flex items-center justify-center ${hScreen}`}>
       {/* <DEV /> */}
-    <div className="relative flex items-center justify-center mx-auto my-auto">
-      <DEV />
-      <div className={`relative flex ${containerWidth}`}>
-        {/* 컨탠츠 영역 */}
-        <div className="flex flex-col justify-end w-full">
-          <div className="bg-white w-[108.91px] h-[40.58px] rounded-tl-[30px] rounded-tr-[30px]" />
-          <div
-            className={`flex ${width} ${height} bg-white pr-[clamp(0px,42px,42px)] pl-[clamp(0px,76px,76px)] rounded-tr-[36px] rounded-br-[36px] rounded-bl-[36px]`}
-          >
-            <Component />
+      <div className="relative flex items-center justify-center mx-auto my-auto">
+        {/* <DEV /> */}
+        <div className={`relative flex ${containerWidth}`}>
+          {/* 컨탠츠 영역 */}
+          <div className="flex flex-col justify-end w-full">
+            <div className="bg-white w-[108.91px] h-[40.58px] rounded-tl-[30px] rounded-tr-[30px]" />
+            <div
+              className={`flex ${width} ${height} bg-white pr-[clamp(0px,42px,42px)] pl-[clamp(0px,76px,76px)] rounded-tr-[36px] rounded-br-[36px] rounded-bl-[36px]`}
+            >
+              <Component />
+            </div>
           </div>
+          {/* 뒷 배경 영역, background가 true일 때만 적용 */}
+          {background && (
+            <div className="absolute flex flex-col top-[10px] left-[25px] z-[-1] w-full h-full">
+              <div className="bg-slate-400 w-[108.91px] h-[40.58px] rounded-tl-[30px] rounded-tr-[30px]" />
+              <div
+                className={`flex ${backgroundWidth} ${backgroundHeight} bg-slate-400 rounded-tr-[36px] rounded-br-[36px] rounded-bl-[36px]`}
+              ></div>
+            </div>
+          )}
         </div>
-        {/* 뒷 배경 영역, background가 true일 때만 적용 */}
-        {background && (
-          <div className="absolute flex flex-col top-[10px] left-[25px] z-[-1] w-full h-full">
-            <div className="bg-slate-400 w-[108.91px] h-[40.58px] rounded-tl-[30px] rounded-tr-[30px]" />
-            <div>
-              className={`flex ${backgroundWidth} ${backgroundHeight} bg-slate-400 rounded-tr-[36px] rounded-br-[36px] rounded-bl-[36px]`}
-            ></div>
-          </div>
-        )}
       </div>
     </div>
   );
