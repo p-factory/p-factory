@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import loginBlackImage from '../DEV/img/login-black-logo.svg';
+import { useNavigate } from 'react-router-dom';
 
 const LoginNickName = () => {
   const [isState, setState] = useState(false);
   const [isButton, setButton] = useState(false);
   const [isValue, setValue] = useState('');
-
+  const navigate = useNavigate();
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setValue(value);
@@ -64,11 +65,19 @@ const LoginNickName = () => {
       <div className="flex flex-col items-center justify-center w-full">
         <div
           className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isButton ? '--primary-bg-Color' : '--status-bg-Color-07'} py-[clamp(0px,3.3%,25px)] rounded-[30px] ${isButton ? 'cursor-pointer' : ''}`}
+          onClick={() => {
+            navigate('/LoginIn');
+          }}
         >
           가입 하기
           <img className="ml-[16px]" src={loginBlackImage} alt="img" />
         </div>
-        <div className="--status-font-Color-04 border-[--status-font-Color-04] border-b-[1px] --Pretendard --medium --font-xs mt-[clamp(0px,1.98%,15px)]">
+        <div
+          className="--status-font-Color-04 border-[--status-font-Color-04] border-b-[1px] --Pretendard --medium --font-xs mt-[clamp(0px,1.98%,15px)] cursor-pointer"
+          onClick={() => {
+            navigate('/LoginIn');
+          }}
+        >
           이미 만들어진 공장이 있어요!
         </div>
       </div>
