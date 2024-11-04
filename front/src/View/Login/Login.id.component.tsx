@@ -88,7 +88,7 @@ const LoginId = () => {
         <div
           className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isButton ? '--status-bg-Color-07' : '--status-bg-Color-01'} ${isButton ? '--status-font-Color-01' : '--status-font-Color-08'} py-[clamp(0px,3.3%,25px)] rounded-[30px] cursor-pointer`}
           onClick={() => {
-            if (isButton) {
+            if (!isButton) {
               console.log('navigate');
               navigate('/LoginPassWord');
             } else {

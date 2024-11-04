@@ -6,8 +6,8 @@ const LoginNickName = () => {
   return (
     <div className="h-screen">
       <Template
-        height={'h-[clamp(0px,100%,960px)]'}
-        shadowHeight={'h-[clamp(0px,100%,960px)]'}
+        height={'h-[clamp(0px,91.73%,1081px)]'}
+        shadowHeight={'h-[clamp(0px,91.73%,1081px)]'}
         component={LoginNickNameComponent}
       />
     </div>
