@@ -1,5 +1,5 @@
 import React from 'react';
-import loginImage from '../DEV/img/Vector.svg';
+import loginBlackImage from '../DEV/img/login-black-logo.svg';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -24,7 +24,7 @@ const Login = () => {
           }}
         >
           나의 공장 들어가기
-          <img src={loginImage} alt="img" />
+          <img src={loginBlackImage} alt="img" />
         </div>
         <div
           className="--neutral-font-Color --Pretendard --font-xxs mt-[clamp(0px,2.51%,19px)] mb-[clamp(0px,5.94%,45px)] cursor-pointer"

@@ -1,5 +1,5 @@
 import React from 'react';
-import loginImage from '../DEV/img/Vector.svg';
+import loginBlackImage from '../DEV/img/login-black-logo.svg';
 
 const LoginPassWord = () => {
   return (
@@ -49,7 +49,7 @@ const LoginPassWord = () => {
       <div className="flex flex-col items-center justify-center w-full">
         <div className="flex items-center justify-center w-full --Pretendard --semi-bold --font-xl --status-bg-Color-07 py-[clamp(0px,3.3%,25px)] rounded-[30px]">
           가입 하기
-          <img className="ml-[16px]" src={loginImage} alt="img" />
+          <img className="ml-[16px]" src={loginBlackImage} alt="img" />
         </div>
         <div className="--status-font-Color-04 border-[--status-font-Color-04] border-b-[1px] --Pretendard --medium --font-xs mt-[clamp(0px,1.98%,15px)]">
           이미 만들어진 공장이 있어요!
