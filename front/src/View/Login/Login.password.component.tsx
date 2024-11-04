@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import loginBlackImage from '../DEV/img/login-black-logo.svg';
+import { useNavigate } from 'react-router-dom';
 // import loginWhiteImage from '../DEV/img/login-white-logo.svg';
 const LoginPassWord = () => {
   const [isState, setState] = useState(false);
   const [isCheckedState, setCheckedState] = useState(false);
   const [isPassword, setPassword] = useState('');
   const [isCheckedPassword, setCheckedPassword] = useState('');
+  const navigate = useNavigate();
 
   const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -88,7 +90,14 @@ const LoginPassWord = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center w-full">
+      <div
+        className="flex flex-col items-center justify-center w-full cursor-pointer"
+        onClick={() => {
+          if (isState && !isCheckedState) {
+            navigate('/LoginNickName');
+          }
+        }}
+      >
         <div
           className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isState && !isCheckedState ? '--primary-bg-Color' : '--status-bg-Color-07'} py-[clamp(0px,3.3%,25px)] rounded-[30px]`}
         >
@@ -105,7 +114,7 @@ const LoginPassWord = () => {
             alt="img"
           />
         </div>
-        <div className="--status-font-Color-04 border-[--status-font-Color-04] border-b-[1px] --Pretendard --medium --font-xs mt-[clamp(0px,1.98%,15px)]">
+        <div className="--status-font-Color-04 border-[--status-font-Color-04] border-b-[1px] --Pretendard --medium --font-xs mt-[clamp(0px,1.98%,15px)] cursor-pointer">
           이미 만들어진 공장이 있어요!
         </div>
       </div>
