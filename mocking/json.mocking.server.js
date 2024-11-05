@@ -11,11 +11,11 @@ const __dirname = path.dirname(__filename);
 
 const server = jsonServer.create();
 
-// JSON 파일 경로 설정
 // const router = jsonServer.router(path.join(__dirname, 'db', 'db.json')); // db.json 파일 경로
 const middlewares = jsonServer.defaults();
 const rewriter = jsonServer.rewriter(path.join(__dirname, 'routes.json'));
 
+// JSON 파일 경로 설정
 // 결론적으로 post를 위한 path만 설정
 const userPath = path.join(__dirname, 'db', 'db.users.json');
 const testPath = path.join(__dirname, 'db', 'db.test.name.json');
@@ -25,9 +25,8 @@ const dbFilePaths = [userPath, testPath];
 
 // 병합된 데이터로 JSON 파일에 저장
 const mergedData = mergeJSONLoader(dbFilePaths);
-// const mergedOutputFilePath = path.join(__dirname, 'db', 'mergedData.json');
-// saveMergedDataToFile(mergedData, mergedOutputFilePath);
 
+// json파일의 router 설정
 // 병합된 데이터로 json-server 라우터 생성
 const router = jsonServer.router(mergedData);
 // post를 위한 라우터 생성
