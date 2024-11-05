@@ -2,6 +2,13 @@ const postSignUpHandler = (router) => (req, res) => {
   const users = router.db.get('users'); // db.json의 'users' 테이블
   const user = req.body;
 
+  // 유효성 검사: 사용자 이름과 비밀번호 필수 입력
+  if (!user.username || !user.password) {
+    return res
+      .status(400)
+      .json({ error: 'Username and password are required' });
+  }
+
   const existingUser = users
     .find({ username: user.username, password: user.password })
     .value();
