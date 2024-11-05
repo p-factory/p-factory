@@ -31,7 +31,7 @@ const mergedData = mergeJSONLoader(dbFilePaths);
 const router = jsonServer.router(mergedData);
 // post를 위한 라우터 생성
 const userRouter = jsonServer.router(userPath);
-const testRouter = jsonServer.router(testPath);
+// const testRouter = jsonServer.router(testPath);
 
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
@@ -39,7 +39,7 @@ server.use(rewriter);
 
 // 커스텀 라우트
 createRoutes(server, 'post', '/api/user/signup', SignUpHandler(userRouter));
-createRoutes(server, 'post', '/api/user/login', LoginHandler(testRouter));
+createRoutes(server, 'post', '/api/user/login', LoginHandler(userRouter));
 createRoutes(server, 'get', '/api/test/name', getTestNameHandler(router));
 
 // 기존 json-server 라우터 사용
