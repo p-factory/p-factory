@@ -6,9 +6,9 @@
   "scripts": {
     "setting": "powershell.exe -File ./use-nvmrc.ps1 ; node -v",
     "return": "powershell.exe -File ./use-nvmrc-front.ps1 ; node -v",
-    "dev": "nodemon json.mocking.server.test.js",
+    "dev": "nodemon json.mocking.server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "mocking": "json-server --watch db/temp/db.multi.json --port 3001"
+    "mocking": "json-server --watch test/db/temp/db.multi.json --port 3001"
   },
   "keywords": [],
   "author": "",
