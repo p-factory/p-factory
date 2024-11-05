@@ -1,3 +1,14 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
+import {
+  mergeJSONLoader,
+  saveMergedDataToFile,
+} from '../db/mergeJSONLoader.js';
+
+// __filename과 __dirname 설정
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const SignUpHandler = (router) => (req, res) => {
   const users = router.db.get('users'); // db.json의 'users' 테이블
   const user = req.body;
@@ -36,6 +47,21 @@ const SignUpHandler = (router) => (req, res) => {
     // 새로운 사용자 정보에 ID 추가
     const newUser = { id: newId, ...user };
     users.push(newUser).write();
+
+    // db.json 파일에 저장
+    const dbFilePath = path.join(__dirname, '..', 'db', 'db.users.json');
+    const currentData = router.db.getState(); // 현재 데이터 상태를 가져옵니다.
+    saveMergedDataToFile(currentData, dbFilePath); // 현재 데이터를 db.users.json에 저장합니다.
+
+    // 병합된 데이터 저장
+    const mergedDataFilePath = path.join(
+      __dirname,
+      '..',
+      'db',
+      'mergeData.json',
+    );
+    const mergedData = mergeJSONLoader([dbFilePath]); // db.users.json 파일에서 데이터를 병합합니다.
+    saveMergedDataToFile(mergedData, mergedDataFilePath); // 병합된 데이터를 mergeData.json에 저장합니다.
 
     res
       .status(200)
