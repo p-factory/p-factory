@@ -37,7 +37,7 @@ const postSignUpHandler = (router) => (req, res) => {
     const newUser = { id: newId, ...user };
     users.push(newUser).write();
 
-    res.status(201).json(user);
+    res.status(201).json(newUser);
   } catch (error) {
     console.error('Error adding user:', error);
     res.status(500).json({ error: 'An error occurred while adding the user.' });
