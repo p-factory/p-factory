@@ -9,6 +9,7 @@ const postSignUpHandler = (router) => (req, res) => {
       .json({ error: 'Username and password are required' });
   }
 
+  // 중복 검사: 사용자 이름과 비밀번호
   const existingUser = users
     .find({ username: user.username, password: user.password })
     .value();
@@ -28,7 +29,14 @@ const postSignUpHandler = (router) => (req, res) => {
   }
 
   try {
-    users.push(user).write();
+    // ID 자동 생성 (0부터 시작)
+    const lastUser = users.sortBy('id').last().value();
+    const newId = lastUser ? lastUser.id + 1 : 0;
+
+    // 새로운 사용자 정보에 ID 추가
+    const newUser = { id: newId, ...user };
+    users.push(newUser).write();
+
     res.status(201).json(user);
   } catch (error) {
     console.error('Error adding user:', error);
