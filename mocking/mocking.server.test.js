@@ -3,8 +3,8 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { getHyperLink } from './Routes/HyperLink.js'; // 홈 링크 HTML 반환
-import { createRoute } from './Routes/createRoutes.js'; // GET 및 POST 처리 로직
+import { getHyperLink } from './Routes/HyperLink.test.js'; // 홈 링크 HTML 반환
+import { createRoute } from './Routes/createRoutes.test.js'; // GET 및 POST 처리 로직
 
 // ESM 형식에서 __dirname 설정
 const __filename = fileURLToPath(import.meta.url);
