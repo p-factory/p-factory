@@ -1,4 +1,4 @@
-const postSignUpHandler = (router) => (req, res) => {
+const SignUpHandler = (router) => (req, res) => {
   const users = router.db.get('users'); // db.json의 'users' 테이블
   const user = req.body;
 
@@ -37,11 +37,37 @@ const postSignUpHandler = (router) => (req, res) => {
     const newUser = { id: newId, ...user };
     users.push(newUser).write();
 
-    res.status(201).json(newUser);
+    res
+      .status(200)
+      .json({ message: 'Welcome, proty!, Successful SignUp', newUser });
   } catch (error) {
     console.error('Error adding user:', error);
     res.status(500).json({ error: 'An error occurred while adding the user.' });
   }
 };
 
-export { postSignUpHandler };
+const LoginHandler = (router) => (req, res) => {
+  const { username, password } = req.body;
+
+  // 유효성 검사: 사용자 이름과 비밀번호 필수 입력
+  if (!username || !password) {
+    return res
+      .status(400)
+      .json({ error: 'Username and password are required' });
+  }
+
+  // 사용자 검증: 일치하는 사용자가 있는지 확인
+  const user = router.db.get('users').find({ username, password }).value();
+
+  if (!user) {
+    return res.status(401).json({ error: 'Invalid username or password' });
+  }
+
+  // 로그인 성공 시 사용자 정보 반환 (여기서는 비밀번호를 제외하고 반환)
+  const { password: _, ...userWithoutPassword } = user; // 비밀번호를 제외한 사용자 정보
+  res
+    .status(200)
+    .json({ message: 'Login successful', user: userWithoutPassword });
+};
+
+export { SignUpHandler, LoginHandler };

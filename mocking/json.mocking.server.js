@@ -2,7 +2,7 @@ import jsonServer from 'json-server';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import createRoutes from './Routes/createRoutes.js';
-import { postSignUpHandler } from './function/PostHandler.js';
+import { SignUpHandler, LoginHandler } from './function/PostHandler.js';
 import { getTestNameHandler } from './function/GetHandler.js';
 // ESM에서 __dirname을 설정하는 방법
 const __filename = fileURLToPath(import.meta.url);
@@ -21,8 +21,8 @@ server.use(jsonServer.bodyParser);
 server.use(rewriter);
 
 // 커스텀 라우트
-
-createRoutes(server, 'post', '/api/user/signup', postSignUpHandler(router));
+createRoutes(server, 'post', '/api/user/signup', SignUpHandler(router));
+createRoutes(server, 'post', '/api/user/login', LoginHandler(router));
 createRoutes(server, 'get', '/api/test/name', getTestNameHandler(router));
 
 // 기존 json-server 라우터 사용
