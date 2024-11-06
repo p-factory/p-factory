@@ -4,6 +4,7 @@ import {
   mergeJSONLoader,
   saveMergedDataToFile,
 } from '../db/mergeJSONLoader.js';
+import createToken from '../function/createToken.js';
 
 // __filename과 __dirname 설정
 const __filename = fileURLToPath(import.meta.url);
@@ -91,9 +92,11 @@ const LoginHandler = (router) => (req, res) => {
 
   // 로그인 성공 시 사용자 정보 반환 (여기서는 비밀번호를 제외하고 반환)
   const { password: _, ...userWithoutPassword } = user; // 비밀번호를 제외한 사용자 정보
+  const TOKEN = createToken(user);
+
   res
     .status(200)
-    .json({ message: 'Login successful', user: userWithoutPassword });
+    .json({ message: 'Login successful', user: userWithoutPassword, TOKEN });
 };
 
 export { SignUpHandler, LoginHandler };
