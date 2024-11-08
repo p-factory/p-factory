@@ -19,6 +19,7 @@ import SignUpNickName from './View/Login/SignUp.nickname';
 import SignUpPassWord from './View/Login/SignUp.password';
 import SignUp from './View/Login/SignUp';
 import DevFetch from './View/DEV/DevFetch';
+import { RecoilRoot } from 'recoil';
 
 // queryClient 생성
 const queryClient = new QueryClient();
@@ -28,34 +29,36 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       {/* QueryClientProvider로 전체 감싸야 동작 */}
       {/* Recoil도 추가 예정 */}
-      <Router>
-        <Routes>
-          {/* Main */}
-          <Route path="/" element={<MainPage />} />
-          <Route path="/Manual" element={<Manual />} />
-          <Route path="/MyFactory" element={<MyFactory />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/LoginIn" element={<LoginIn />} />
-          <Route path="/SignUpId" element={<SignUpId />} />
-          <Route path="/SignUpNickName" element={<SignUpNickName />} />
-          <Route path="/SignUpPassWord" element={<SignUpPassWord />} />
-          <Route path="/SignUp" element={<SignUp />} />
-          {/* DEVPosition */}
-          <Route path="/Dev" element={<DevDesignSystem />} />
-          <Route path="/DevWH" element={<DevDesignSystemWH />} />
-          <Route path="/DevStylesPreview" element={<DevStylesPreview />} />
-          <Route path="/DevPosition/Login" element={<DevPositionLogin />} />
-          <Route
-            path="/DevPosition/Viewport"
-            element={<DevPositionViewport />}
-          />
-          <Route path="/DevPosition/Px" element={<DevPositionPx />} />
-          {/* DEVFetch */}
-          <Route path="/DevFetch" element={<DevFetch />} />
-          {/* VocabularyBook */}
-          <Route path="/VocabularyBook" element={<VocabularyBookPage />} />
-        </Routes>
-      </Router>
+      <RecoilRoot>
+        <Router>
+          <Routes>
+            {/* Main */}
+            <Route path="/" element={<MainPage />} />
+            <Route path="/Manual" element={<Manual />} />
+            <Route path="/MyFactory" element={<MyFactory />} />
+            <Route path="/Login" element={<Login />} />
+            <Route path="/LoginIn" element={<LoginIn />} />
+            <Route path="/SignUpId" element={<SignUpId />} />
+            <Route path="/SignUpNickName" element={<SignUpNickName />} />
+            <Route path="/SignUpPassWord" element={<SignUpPassWord />} />
+            <Route path="/SignUp" element={<SignUp />} />
+            {/* DEVPosition */}
+            <Route path="/Dev" element={<DevDesignSystem />} />
+            <Route path="/DevWH" element={<DevDesignSystemWH />} />
+            <Route path="/DevStylesPreview" element={<DevStylesPreview />} />
+            <Route path="/DevPosition/Login" element={<DevPositionLogin />} />
+            <Route
+              path="/DevPosition/Viewport"
+              element={<DevPositionViewport />}
+            />
+            <Route path="/DevPosition/Px" element={<DevPositionPx />} />
+            {/* DEVFetch */}
+            <Route path="/DevFetch" element={<DevFetch />} />
+            {/* VocabularyBook */}
+            <Route path="/VocabularyBook" element={<VocabularyBookPage />} />
+          </Routes>
+        </Router>
+      </RecoilRoot>
     </QueryClientProvider>
   );
 };
