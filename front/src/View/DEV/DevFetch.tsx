@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
-  useFetchQuery,
-  useFetchMutation,
+  useFetchQuery, //get을 위한 Hook
+  useFetchMutation, //post를 위한 Hook
 } from '../../global/Hooks/uesFetchSingleAPI';
 
 const DevFetch = () => {
@@ -23,7 +23,7 @@ const DevFetch = () => {
     isError: isGetError,
     isSuccess: isGetSuccess,
   } = useFetchQuery({
-    url: '/comments',
+    url: '/test/names',
   });
 
   // POST 요청을 위한 훅 사용
@@ -33,7 +33,7 @@ const DevFetch = () => {
     isError: isPostError,
     isSuccess: isPostSuccess,
   } = useFetchMutation('POST', {
-    url: '/posts',
+    url: '/user/signup',
     postData,
   });
 
