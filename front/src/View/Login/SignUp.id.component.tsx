@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
 import loginBlackImage from '../DEV/img/login-black-logo.svg';
 import loginWhiteImage from '../DEV/img/login-white-logo.svg';
 import { useNavigate } from 'react-router-dom';
+import { userState } from '../../Model/atom';
 // import { useFetchMutation } from '../../global/Hooks/uesFetchSingleAPI';
 
 const SignUpId = () => {
@@ -9,6 +11,7 @@ const SignUpId = () => {
   const [isValue, setValue] = useState('');
   const [isButton, setButton] = useState(false); // 회색
   const navigate = useNavigate();
+  const [isUser, setUser] = useRecoilState(userState);
 
   // Post
   // const { mutation, isLoading, isError, isSuccess } = useFetchMutation('POST', {
@@ -17,7 +20,9 @@ const SignUpId = () => {
   // });
 
   // React.ChangeEvent<HTMLInputElement>
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // 입력값을 넣는 코드
+
+  const handleInputState = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setValue(value);
     if (value !== '') {
@@ -33,6 +38,15 @@ const SignUpId = () => {
       setButton(true);
       setState(true);
     }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUser((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    console.log(isUser);
   };
 
   useEffect(() => {
@@ -75,9 +89,13 @@ const SignUpId = () => {
           <div className="bg-white border-[1px] py-[3.69%] px-[3.96%] border-black rounded-[22px]">
             <input
               type="text"
+              name="username"
               className="bg-red-200 w-[100%]"
               value={isValue}
-              onChange={handleInput}
+              onChange={(e) => {
+                handleInputChange(e);
+                handleInputState(e);
+              }}
             />
           </div>
           <div className="mt-[10px]">
@@ -97,7 +115,7 @@ const SignUpId = () => {
           onClick={() => {
             if (!isButton) {
               console.log('navigate');
-              navigate('/LoginPassWord');
+              navigate('/SignUpPassWord');
             } else {
               setState(true);
             }

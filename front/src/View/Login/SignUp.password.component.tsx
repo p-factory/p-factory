@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
 import loginBlackImage from '../DEV/img/login-black-logo.svg';
 import { useNavigate } from 'react-router-dom';
+import { userState } from '../../Model/atom';
 // import loginWhiteImage from '../DEV/img/login-white-logo.svg';
 const SignUpPassWord = () => {
   const [isState, setState] = useState(false);
@@ -8,6 +10,15 @@ const SignUpPassWord = () => {
   const [isPassword, setPassword] = useState('');
   const [isCheckedPassword, setCheckedPassword] = useState('');
   const navigate = useNavigate();
+  const [isUser, setUser] = useRecoilState(userState);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUser((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -21,6 +32,8 @@ const SignUpPassWord = () => {
   };
 
   useEffect(() => {
+    // Recoil 확인을 위한 log
+    console.log(isUser);
     if (isPassword !== isCheckedPassword) {
       setCheckedState(true);
     } else {
@@ -74,9 +87,13 @@ const SignUpPassWord = () => {
           <div className="bg-white border-[1px] py-[3.69%] px-[3.96%] border-black rounded-[22px]">
             <input
               type="text"
+              name="password"
               className="bg-red-200 w-[100%]"
               value={isCheckedPassword}
-              onChange={handleCheckedPassword}
+              onChange={(e) => {
+                handleCheckedPassword(e);
+                handleInputChange(e);
+              }}
             />
           </div>
           <div className="mt-[10px]">
@@ -94,7 +111,7 @@ const SignUpPassWord = () => {
         className="flex flex-col items-center justify-center w-full cursor-pointer"
         onClick={() => {
           if (isState && !isCheckedState) {
-            navigate('/LoginNickName');
+            navigate('/SignUpNickName');
           }
         }}
       >
