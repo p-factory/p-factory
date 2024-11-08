@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import loginBlackImage from '../DEV/img/login-black-logo.svg';
 import { useNavigate } from 'react-router-dom';
 // import loginWhiteImage from '../DEV/img/login-white-logo.svg';
-const LoginPassWord = () => {
+const SignUpPassWord = () => {
   const [isState, setState] = useState(false);
   const [isCheckedState, setCheckedState] = useState(false);
   const [isPassword, setPassword] = useState('');
@@ -122,4 +122,4 @@ const LoginPassWord = () => {
   );
 };
 
-export default LoginPassWord;
+export default SignUpPassWord;
