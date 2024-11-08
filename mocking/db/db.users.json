@@ -11,42 +11,6 @@
       "username": "testUser1",
       "email": "testUser@example.com",
       "password": "1234!"
-    },
-    {
-      "id": 2,
-      "username": "ptory",
-      "email": "ptory@example.com",
-      "password": "01234"
-    },
-    {
-      "id": 3,
-      "username": "testUser2",
-      "email": "testUser@example.com",
-      "password": "123123"
-    },
-    {
-      "id": 4,
-      "username": "MyTestMy",
-      "email": "MyTestMy@gamil.com",
-      "password": "123423"
-    },
-    {
-      "id": 5,
-      "username": "testUser112",
-      "nickname": "myName",
-      "password": "122334"
-    },
-    {
-      "id": 6,
-      "username": "myTestYY",
-      "nickname": "miTes",
-      "password": "1023312"
-    },
-    {
-      "id": 7,
-      "username": "ffser",
-      "nickname": "ffest",
-      "password": "1234115"
     }
   ]
 }
