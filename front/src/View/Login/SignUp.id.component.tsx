@@ -13,15 +13,6 @@ const SignUpId = () => {
   const navigate = useNavigate();
   const [isUser, setUser] = useRecoilState(userState);
 
-  // Post
-  // const { mutation, isLoading, isError, isSuccess } = useFetchMutation('POST', {
-  //   url: '/user/login',
-  //   postData,
-  // });
-
-  // React.ChangeEvent<HTMLInputElement>
-  // 입력값을 넣는 코드
-
   const handleInputState = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setValue(value);
@@ -51,19 +42,7 @@ const SignUpId = () => {
 
   useEffect(() => {
     console.log('useEffect test');
-    // if (isValue !== '') {
-    //   // setState(!isState);
-    //   setButton(false);
-    //   setState(false);
-    //   console.log(isValue);
-    //   if (isState === false) {
-    //     setButton(true);
-    //     setState(false);
-    //   }
-    // } else {
-    //   setButton(false);
-    //   setState(true);
-    // }
+    console.log(isUser);
   }, []);
 
   return (

@@ -7,6 +7,7 @@ import { userState } from '../../Model/atom';
 const SignUpPassWord = () => {
   const [isState, setState] = useState(false);
   const [isCheckedState, setCheckedState] = useState(false);
+  const [isButton, setButton] = useState(false);
   const [isPassword, setPassword] = useState('');
   const [isCheckedPassword, setCheckedPassword] = useState('');
   const navigate = useNavigate();
@@ -23,21 +24,32 @@ const SignUpPassWord = () => {
   const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setPassword(value);
-    setState(true);
+    if (value !== '') {
+      setState(false);
+    } else {
+      setState(true);
+    }
   };
 
   const handleCheckedPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setCheckedPassword(value);
+    // if()
   };
 
   useEffect(() => {
     // Recoil 확인을 위한 log
     console.log(isUser);
-    if (isPassword !== isCheckedPassword) {
+    if (isPassword !== '' && isPassword !== isCheckedPassword) {
       setCheckedState(true);
-    } else {
+      setButton(false);
+      console.log('일치하지 않습니다.');
+      console.log(isButton);
+    } else if (isPassword !== '' && isPassword === isCheckedPassword) {
       setCheckedState(false);
+      setButton(true);
+      console.log('일치합니다.');
+      console.log(isButton);
     }
   }, [isPassword, isCheckedPassword]);
 
@@ -116,7 +128,7 @@ const SignUpPassWord = () => {
         }}
       >
         <div
-          className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isState && !isCheckedState ? '--primary-bg-Color' : '--status-bg-Color-07'} py-[clamp(0px,3.3%,25px)] rounded-[30px]`}
+          className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isButton ? '--primary-bg-Color' : '--status-bg-Color-07'} py-[clamp(0px,3.3%,25px)] rounded-[30px]`}
         >
           가입 하기
           <img
