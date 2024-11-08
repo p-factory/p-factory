@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRecoilState } from 'recoil';
 import loginBlackImage from '../DEV/img/login-black-logo.svg';
 import { useNavigate } from 'react-router-dom';
+import { userState } from '../../Model/atom';
 
 const SignUpNickName = () => {
   const [isState, setState] = useState(false);
   const [isButton, setButton] = useState(false);
   const [isValue, setValue] = useState('');
+  const [isUser, setUser] = useRecoilState(userState);
   const navigate = useNavigate();
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+  const handleInputState = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setValue(value);
     console.log(value.length);
@@ -22,6 +26,19 @@ const SignUpNickName = () => {
       setButton(true);
     }
   };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUser((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    console.log(isUser);
+  };
+
+  useEffect(() => {
+    console.log(isUser);
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center w-full pt-[12.01%] pb-[clamp(0px,10.39%,56px)] bg-yellow-300">
@@ -46,9 +63,13 @@ const SignUpNickName = () => {
           <div className="bg-white border-[1px] py-[3.69%] px-[3.96%] border-black rounded-[22px]">
             <input
               type="text"
+              name="nickname"
               className="bg-red-200 w-[100%]"
               value={isValue}
-              onChange={handleInput}
+              onChange={(e) => {
+                handleInputState(e);
+                handleInputChange(e);
+              }}
             />
           </div>
           <div className="mt-[10px]">

@@ -29,6 +29,12 @@
       "username": "MyTestMy",
       "email": "MyTestMy@gamil.com",
       "password": "123423"
+    },
+    {
+      "id": 5,
+      "username": "testUser112",
+      "nickname": "myName",
+      "password": "122334"
     }
   ]
 }
