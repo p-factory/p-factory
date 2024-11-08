@@ -7,7 +7,7 @@ import {
 const DevFetch = () => {
   const [postData, setPostData] = useState({
     username: '',
-    email: '',
+    nickname: '',
     password: '',
   });
 
@@ -128,11 +128,11 @@ const DevFetch = () => {
         <label>
           Email:
           <input
-            type="email"
-            name="email"
-            value={postData.email}
+            type="text"
+            name="nickname"
+            value={postData.nickname}
             onChange={handleInputChange}
-            placeholder="Enter email"
+            placeholder="Enter nickname"
           />
         </label>
         <br />

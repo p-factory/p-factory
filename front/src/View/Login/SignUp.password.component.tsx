@@ -122,7 +122,7 @@ const SignUpPassWord = () => {
       <div
         className="flex flex-col items-center justify-center w-full cursor-pointer"
         onClick={() => {
-          if (isState && !isCheckedState) {
+          if (isButton) {
             navigate('/SignUpNickName');
           }
         }}

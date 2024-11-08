@@ -35,6 +35,18 @@
       "username": "testUser112",
       "nickname": "myName",
       "password": "122334"
+    },
+    {
+      "id": 6,
+      "username": "myTestYY",
+      "nickname": "miTes",
+      "password": "1023312"
+    },
+    {
+      "id": 7,
+      "username": "ffser",
+      "nickname": "ffest",
+      "password": "1234115"
     }
   ]
 }
