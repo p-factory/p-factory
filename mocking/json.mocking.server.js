@@ -1,32 +1,46 @@
 import jsonServer from 'json-server';
 import path from 'path';
 import { fileURLToPath } from 'url';
-
+import { mergeJSONLoader } from './db/mergeJSONLoader.js';
+import createRoutes from './Routes/createRoutes.js';
+import { SignUpHandler, LoginHandler } from './API/PostHandler.js';
+import { getTestNameHandler } from './API/GetHandler.js';
 // ESM에서 __dirname을 설정하는 방법
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const server = jsonServer.create();
-const router = jsonServer.router(path.join(__dirname, 'db.json')); // db.json 파일 경로
+
+// const router = jsonServer.router(path.join(__dirname, 'db', 'db.json')); // db.json 파일 경로
 const middlewares = jsonServer.defaults();
+const rewriter = jsonServer.rewriter(path.join(__dirname, 'routes.json'));
+
+// JSON 파일 경로 설정
+// 결론적으로 post를 위한 path만 설정
+const userPath = path.join(__dirname, 'db', 'db.users.json');
+const testPath = path.join(__dirname, 'db', 'db.test.name.json');
+
+// 병합되어 있는 최종 코드
+const dbFilePaths = [userPath, testPath];
+
+// 병합된 데이터로 JSON 파일에 저장
+const mergedData = mergeJSONLoader(dbFilePaths);
+
+// json파일의 router 설정
+// 병합된 데이터로 json-server 라우터 생성
+const router = jsonServer.router(mergedData);
+// post를 위한 라우터 생성
+const userRouter = jsonServer.router(userPath);
+// const testRouter = jsonServer.router(testPath);
 
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
+server.use(rewriter);
 
-// 커스텀 라우트 예제
-server.post('/api/user/signup', (req, res) => {
-  const users = router.db.get('users'); // db.json의 'users' 테이블
-  const user = req.body;
-
-  // 원하는 로직을 추가할 수 있습니다 (예: 중복 사용자 체크)
-  const existingUser = users.find({ username: user.username }).value();
-  if (existingUser) {
-    return res.status(400).json({ error: 'User already exists' });
-  }
-
-  users.push(user).write();
-  res.status(201).json(user);
-});
+// 커스텀 라우트
+createRoutes(server, 'post', '/api/user/signup', SignUpHandler(userRouter));
+createRoutes(server, 'post', '/api/user/login', LoginHandler(userRouter));
+createRoutes(server, 'get', '/api/test/name', getTestNameHandler(router));
 
 // 기존 json-server 라우터 사용
 server.use(router);
