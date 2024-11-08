@@ -1,7 +1,7 @@
 import React, { ComponentType } from 'react';
 import Z from 'zod';
-// import Dev from '../../DEV/Dev';
-// const DEV = Dev.ToolButton;
+import Dev from '../../DEV/Dev';
+const DEV = Dev.ToolButton;
 
 // Zod 스키마 정의
 const ComponentSchema = Z.object({
@@ -9,9 +9,9 @@ const ComponentSchema = Z.object({
   containerWidth: Z.string().optional(), // 전체 width값 옵션 추가
   width: Z.string().optional(),
   height: Z.string().optional(),
-  backgroundWidth: Z.string().optional(),
-  backgroundHeight: Z.string().optional(),
-  background: Z.boolean().optional(), // background 옵션 추가
+  shadowWidth: Z.string().optional(),
+  shadowHeight: Z.string().optional(),
+  shadow: Z.boolean().optional(), // background 옵션 추가
   hScreen: Z.string().optional(), // 템플릿의 hscreen에 대한 옵션 추가
 });
 
@@ -21,10 +21,10 @@ const Template = ({
   component: Component,
   containerWidth = 'w-[clamp(0px,41.25%,792px)]',
   width = 'w-[clamp(0px,95.71%,758px)]',
-  height = 'h-[clamp(0px,89.49%,758px)]',
-  backgroundWidth = 'w-[clamp(0px,95.71%,758px)]',
-  backgroundHeight = 'h-[clamp(0px,89.49%,847px)]',
-  background = true, // 기본값 true
+  height = 'h-[clamp(0px,89.49%,847px)]',
+  shadowWidth = 'w-[clamp(0px,95.71%,758px)]',
+  shadowHeight = 'h-[clamp(0px,89.49%,847px)]',
+  shadow = true, // 기본값 true
   hScreen = 'min-h-screen',
 }: ComponentProps) => {
   // const { component: Component, width = 'w-[clamp(0px,95.71%,758px)]', height = 'h-[clamp(0px,89.49%,758px)]' } = props;
@@ -34,9 +34,9 @@ const Template = ({
       containerWidth,
       width,
       height,
-      backgroundWidth,
-      backgroundHeight,
-      background,
+      shadowWidth,
+      shadowHeight,
+      shadow,
       hScreen,
     });
   } catch (error) {
@@ -45,8 +45,8 @@ const Template = ({
 
   return (
     <div className={`flex items-center justify-center ${hScreen}`}>
-      {/* <DEV /> */}
-      <div className={`relative flex ${containerWidth}`}>
+      <DEV />
+      <div className={`relative flex ${containerWidth} h-[calc(100% + 20px)]`}>
         {/* 컨탠츠 영역 */}
         <div className="flex flex-col justify-end w-full">
           <div className="bg-white w-[108.91px] h-[40.58px] rounded-tl-[30px] rounded-tr-[30px]" />
@@ -55,16 +55,16 @@ const Template = ({
           >
             <Component />
           </div>
+          {/* 뒷 배경 영역, background가 true일 때만 적용 */}
+          {shadow && (
+            <div className="absolute flex flex-col top-[10px] left-[25px] z-[-1] w-full h-full">
+              <div className="bg-slate-400 w-[108.91px] h-[40.58px] rounded-tl-[30px] rounded-tr-[30px]" />
+              <div
+                className={`flex ${shadowWidth} ${shadowHeight} bg-slate-400 rounded-tr-[36px] rounded-br-[36px] rounded-bl-[36px]`}
+              ></div>
+            </div>
+          )}
         </div>
-        {/* 뒷 배경 영역, background가 true일 때만 적용 */}
-        {background && (
-          <div className="absolute flex flex-col top-[10px] left-[25px] z-[-1] w-full h-full">
-            <div className="bg-slate-400 w-[108.91px] h-[40.58px] rounded-tl-[30px] rounded-tr-[30px]" />
-            <div
-              className={`flex ${backgroundWidth} ${backgroundHeight} bg-slate-400 rounded-tr-[36px] rounded-br-[36px] rounded-bl-[36px]`}
-            ></div>
-          </div>
-        )}
       </div>
     </div>
   );
