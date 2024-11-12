@@ -35,6 +35,7 @@ export const useFetchMutation = (
   isLoading: boolean;
   isError: boolean;
   isSuccess: boolean;
+  responseData: any;
 } => {
   const api = fetchInstance();
 
@@ -59,12 +60,13 @@ export const useFetchMutation = (
   const isLoading = mutation.status === 'pending';
   const isError = mutation.status === 'error';
   const isSuccess = mutation.status === 'success';
-
+  const responseData = mutation.data;
   // mutation 객체와 상태 변수들을 함께 반환
   return {
     mutation,
     isLoading,
     isError,
     isSuccess,
+    responseData,
   };
 };
