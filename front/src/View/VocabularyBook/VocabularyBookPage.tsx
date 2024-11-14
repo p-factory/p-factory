@@ -4,7 +4,7 @@ import spannerIconBlack from '../../global/Img/spannerIconBlack.svg';
 import speechBubbleBg from '../../global/Img/speechBubbleBg.svg';
 import toryTop from '../../global/Img/toryTop.svg';
 import DevTool from '../../DEV/Dev';
-import VocabularyBook from './component/VocabularyBook.component';
+import VocabularyBook from './components/VocabularyBook.component';
 
 const DEV = DevTool.ToolButton;
 
