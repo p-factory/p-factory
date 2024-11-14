@@ -34,6 +34,7 @@ const MyFactory = () => {
           width="w-[clamp(0px, 86.66%, 994px)]"
           height="h-[1069px]"
           background={false}
+          hScreen=""
         />
         {/* 인덱스 부분 */}
         <div className="absolute flex justify-center w-full top-[112px] right-[58px]">
