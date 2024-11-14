@@ -1,17 +1,17 @@
 import React from 'react';
 import Template from '../../global/components/Template.test';
-import LoginNickNameComponent from './Login.nickname.component';
+import SignUpNickNameComponent from './SignUp.nickname.component';
 // import LoginIdComponent from './Login.id.component';
-const LoginNickName = () => {
+const SignUpNickName = () => {
   return (
     <div className="h-screen">
       <Template
         height={'h-[clamp(0px,91.73%,1081px)]'}
         shadowHeight={'h-[clamp(0px,91.73%,1081px)]'}
-        component={LoginNickNameComponent}
+        component={SignUpNickNameComponent}
       />
     </div>
   );
 };
 
-export default LoginNickName;
+export default SignUpNickName;

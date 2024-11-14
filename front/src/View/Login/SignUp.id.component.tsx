@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
 import loginBlackImage from '../DEV/img/login-black-logo.svg';
 import loginWhiteImage from '../DEV/img/login-white-logo.svg';
 import { useNavigate } from 'react-router-dom';
+import { userState } from '../../Model/atom';
+// import { useFetchMutation } from '../../global/Hooks/uesFetchSingleAPI';
 
-const LoginId = () => {
+const SignUpId = () => {
   const [isState, setState] = useState(false); // 메세지 없음
   const [isValue, setValue] = useState('');
   const [isButton, setButton] = useState(false); // 회색
   const navigate = useNavigate();
+  const [isUser, setUser] = useRecoilState(userState);
 
-  // React.ChangeEvent<HTMLInputElement>
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputState = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setValue(value);
     if (value !== '') {
@@ -28,21 +31,18 @@ const LoginId = () => {
     }
   };
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUser((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    console.log(isUser);
+  };
+
   useEffect(() => {
     console.log('useEffect test');
-    // if (isValue !== '') {
-    //   // setState(!isState);
-    //   setButton(false);
-    //   setState(false);
-    //   console.log(isValue);
-    //   if (isState === false) {
-    //     setButton(true);
-    //     setState(false);
-    //   }
-    // } else {
-    //   setButton(false);
-    //   setState(true);
-    // }
+    console.log(isUser);
   }, []);
 
   return (
@@ -68,9 +68,13 @@ const LoginId = () => {
           <div className="bg-white border-[1px] py-[3.69%] px-[3.96%] border-black rounded-[22px]">
             <input
               type="text"
+              name="username"
               className="bg-red-200 w-[100%]"
               value={isValue}
-              onChange={handleInput}
+              onChange={(e) => {
+                handleInputChange(e);
+                handleInputState(e);
+              }}
             />
           </div>
           <div className="mt-[10px]">
@@ -90,7 +94,7 @@ const LoginId = () => {
           onClick={() => {
             if (!isButton) {
               console.log('navigate');
-              navigate('/LoginPassWord');
+              navigate('/SignUpPassWord');
             } else {
               setState(true);
             }
@@ -111,4 +115,4 @@ const LoginId = () => {
   );
 };
 
-export default LoginId;
+export default SignUpId;

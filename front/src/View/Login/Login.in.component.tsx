@@ -1,7 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import loginBlackImage from '../DEV/img/login-black-logo.svg';
+import { useFetchMutation } from '../../global/Hooks/uesFetchSingleAPI';
 
 const LoginIn = () => {
+  const [isPostData, setPostData] = useState({
+    username: '',
+    password: '',
+  });
+  // const [isValue, setValue] = useState('');
+
+  const [isLoadingMessage, setLoadingMessage] = useState('');
+  const [isErrorMessage, setErrorMessage] = useState('');
+  const [isSuccessMessage, setSuccessMessage] = useState('');
+  const [isResponseData, setResponseData] = useState(null); // 응답 데이터를 저장할 상태
+
+  const { mutation, isLoading, isError, isSuccess, responseData } =
+    useFetchMutation('POST', {
+      url: '/user/login',
+      postData: isPostData,
+    });
+
+  const handleSubmit = () => {
+    mutation.mutate(isPostData); // POST 요청 수동 실행
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setPostData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    console.log(isPostData);
+  };
+
+  useEffect(() => {
+    console.log(isPostData);
+    if (isLoading) {
+      setLoadingMessage('Sending data...');
+      setErrorMessage('');
+      setSuccessMessage('');
+      console.log(isLoadingMessage);
+    } else if (isError) {
+      setLoadingMessage('');
+      setErrorMessage('Error occurred while sending data.');
+      setSuccessMessage('');
+      console.log(isErrorMessage);
+    } else if (isSuccess) {
+      setLoadingMessage('');
+      setErrorMessage('');
+      setSuccessMessage('POST 요청 성공!');
+      setResponseData(responseData); // 응답 데이터를 상태로 설정
+      console.log('Response data:', isResponseData, responseData); // 응답 데이터를 콘솔에 출력
+      console.log('POST request successful with data:', isPostData);
+      console.log(isSuccessMessage);
+    }
+  }, [isLoading, isError, isSuccess, isPostData]);
+
   return (
     <div className="flex flex-col items-center justify-center w-full pt-[12.01%] pb-[clamp(0px,10.39%,56px)] bg-yellow-300">
       <div className="bg-orange-500 mb-[32.37px]">
@@ -14,9 +68,18 @@ const LoginIn = () => {
       <div className="flex flex-col items-center justify-center w-full pt-[] pb-[] bg-yellow-100 mb-[clamp(0px,9.1%,69.45px)]">
         <div className="flex flex-col w-full">
           <div className="bg-white border-[1px] py-[3.69%] px-[3.96%] border-black rounded-[22px]">
-            <input type="text" className="bg-red-200 w-[100%]" />
+            <input
+              type="text"
+              name="username"
+              className="bg-red-200 w-[100%]"
+              value={isPostData.username}
+              onChange={(e) => {
+                handleInputChange(e);
+              }}
+            />
           </div>
           <div className="mb-[clamp(0px,4.49%,34px)] mt-[clamp(0px,2.24%,17px)]">
+            {/* API 메세지에 따라 다르게 구현할 예정 */}
             <span className="--error-font-Color --Pretendard --medium text-[14px]">
               *아이디 & 비밀번호가 올바르지 않습니다. 다시 입력해 주세요.
             </span>
@@ -24,9 +87,18 @@ const LoginIn = () => {
         </div>
         <div className="flex flex-col w-full">
           <div className="bg-white border-[1px] py-[3.69%] px-[3.96%] border-black rounded-[22px]">
-            <input type="text" className="bg-red-200 w-[100%]" />
+            <input
+              type="text"
+              name="password"
+              className="bg-red-200 w-[100%]"
+              value={isPostData.password}
+              onChange={(e) => {
+                handleInputChange(e);
+              }}
+            />
           </div>
           <div className="mt-[clamp(0px,2.24%,17px)]">
+            {/* API 메세지에 따라 다르게 구현할 예정 */}
             <span className="--error-font-Color --Pretendard --medium text-[14px]">
               *아이디 & 비밀번호가 올바르지 않습니다. 다시 입력해 주세요.
             </span>
@@ -34,7 +106,12 @@ const LoginIn = () => {
         </div>
       </div>
       <div className="flex flex-col items-center justify-center w-full">
-        <div className="flex items-center justify-center w-full --Pretendard --semi-bold --font-xl --status-bg-Color-07 py-[clamp(0px,3.3%,25px)] rounded-[30px]">
+        <div
+          className="flex items-center justify-center w-full --Pretendard --semi-bold --font-xl --status-bg-Color-07 py-[clamp(0px,3.3%,25px)] rounded-[30px]"
+          onClick={() => {
+            handleSubmit();
+          }}
+        >
           로그인
           <img className="ml-[16px]" src={loginBlackImage} alt="img" />
         </div>
