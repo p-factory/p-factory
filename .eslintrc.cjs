@@ -14,10 +14,12 @@ module.exports = {
     'eslint:recommended',  // 기본 ESLint 규칙
     'plugin:@typescript-eslint/recommended',  // TypeScript 린팅 규칙
     'plugin:react/recommended',  // React 관련 린트 규칙
-    'plugin:prettier/recommended'  // Prettier와 eslint 통합
+    'plugin:prettier/recommended',  // Prettier와 eslint 통합
+    // 'react-app' // eslint-config-react-app을 사용하여 TypeScript와 React 관련 기본 설정 통합
   ],
 
-  plugins: ['@typescript-eslint',
+  plugins: [
+    '@typescript-eslint',
     'react',
     'prettier',
     'react-hooks',  // React Hooks 관련 규칙 추가
