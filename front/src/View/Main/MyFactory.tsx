@@ -33,8 +33,7 @@ const MyFactory = () => {
           containerWidth="w-[clamp(0px,59.74%,1142px)]"
           width="w-[clamp(0px, 86.66%, 994px)]"
           height="h-[1069px]"
-          background={false}
-          hScreen=""
+          shadow={false}
         />
         {/* 인덱스 부분 */}
         <div className="absolute flex justify-center w-full top-[112px] right-[58px]">
