@@ -9,11 +9,11 @@ interface VocabularyBookWordProps {
   wordDelete?: boolean;
 }
 
-const VocabularyBookWord: React.FC<VocabularyBookWordProps> = ({
+const VocabularyBookWord = ({
   wordLine,
   wordHighlight,
   wordDelete,
-}) => {
+}: VocabularyBookWordProps) => {
   return (
     <div
       className={`relative grid grid-cols-[1fr_auto_1fr] ${
