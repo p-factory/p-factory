@@ -1,30 +1,55 @@
 import React, { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
 import loginBlackImage from '../DEV/img/login-black-logo.svg';
 import { useNavigate } from 'react-router-dom';
+import { userState } from '../../Model/atom';
 // import loginWhiteImage from '../DEV/img/login-white-logo.svg';
-const LoginPassWord = () => {
+const SignUpPassWord = () => {
   const [isState, setState] = useState(false);
   const [isCheckedState, setCheckedState] = useState(false);
+  const [isButton, setButton] = useState(false);
   const [isPassword, setPassword] = useState('');
   const [isCheckedPassword, setCheckedPassword] = useState('');
   const navigate = useNavigate();
+  const [isUser, setUser] = useRecoilState(userState);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUser((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setPassword(value);
-    setState(true);
+    if (value !== '') {
+      setState(false);
+    } else {
+      setState(true);
+    }
   };
 
   const handleCheckedPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setCheckedPassword(value);
+    // if()
   };
 
   useEffect(() => {
-    if (isPassword !== isCheckedPassword) {
+    // Recoil 확인을 위한 log
+    console.log(isUser);
+    if (isPassword !== '' && isPassword !== isCheckedPassword) {
       setCheckedState(true);
-    } else {
+      setButton(false);
+      console.log('일치하지 않습니다.');
+      console.log(isButton);
+    } else if (isPassword !== '' && isPassword === isCheckedPassword) {
       setCheckedState(false);
+      setButton(true);
+      console.log('일치합니다.');
+      console.log(isButton);
     }
   }, [isPassword, isCheckedPassword]);
 
@@ -74,9 +99,13 @@ const LoginPassWord = () => {
           <div className="bg-white border-[1px] py-[3.69%] px-[3.96%] border-black rounded-[22px]">
             <input
               type="text"
+              name="password"
               className="bg-red-200 w-[100%]"
               value={isCheckedPassword}
-              onChange={handleCheckedPassword}
+              onChange={(e) => {
+                handleCheckedPassword(e);
+                handleInputChange(e);
+              }}
             />
           </div>
           <div className="mt-[10px]">
@@ -93,13 +122,13 @@ const LoginPassWord = () => {
       <div
         className="flex flex-col items-center justify-center w-full cursor-pointer"
         onClick={() => {
-          if (isState && !isCheckedState) {
-            navigate('/LoginNickName');
+          if (isButton) {
+            navigate('/SignUpNickName');
           }
         }}
       >
         <div
-          className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isState && !isCheckedState ? '--primary-bg-Color' : '--status-bg-Color-07'} py-[clamp(0px,3.3%,25px)] rounded-[30px]`}
+          className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isButton ? '--primary-bg-Color' : '--status-bg-Color-07'} py-[clamp(0px,3.3%,25px)] rounded-[30px]`}
         >
           가입 하기
           <img
@@ -122,4 +151,4 @@ const LoginPassWord = () => {
   );
 };
 
-export default LoginPassWord;
+export default SignUpPassWord;

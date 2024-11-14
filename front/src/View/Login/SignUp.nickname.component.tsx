@@ -1,13 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRecoilState } from 'recoil';
 import loginBlackImage from '../DEV/img/login-black-logo.svg';
 import { useNavigate } from 'react-router-dom';
-
-const LoginNickName = () => {
+import { userState } from '../../Model/atom';
+import { useFetchMutation } from '../../global/Hooks/uesFetchSingleAPI';
+const SignUpNickName = () => {
   const [isState, setState] = useState(false);
   const [isButton, setButton] = useState(false);
   const [isValue, setValue] = useState('');
+  const [isUser, setUser] = useRecoilState(userState);
   const navigate = useNavigate();
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+  const [isLoadingMessage, setLoadingMessage] = useState('');
+  const [isErrorMessage, setErrorMessage] = useState('');
+  const [isSuccessMessage, setSuccessMessage] = useState('');
+  // const [isData, setIsData] = useState(false);
+
+  const { mutation, isLoading, isError, isSuccess } = useFetchMutation('POST', {
+    url: '/user/signup',
+    postData: isUser,
+  });
+
+  const handleInputState = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setValue(value);
     console.log(value.length);
@@ -22,6 +36,40 @@ const LoginNickName = () => {
       setButton(true);
     }
   };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUser((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    console.log(isUser);
+  };
+
+  const handleSubmit = () => {
+    mutation.mutate(isUser); // POST 요청 수동 실행
+  };
+
+  useEffect(() => {
+    console.log(isUser);
+    if (isLoading) {
+      setLoadingMessage('Sending data...');
+      setErrorMessage('');
+      setSuccessMessage('');
+      console.log(isLoadingMessage);
+    } else if (isError) {
+      setLoadingMessage('');
+      setErrorMessage('Error occurred while sending data.');
+      setSuccessMessage('');
+      console.log(isErrorMessage);
+    } else if (isSuccess) {
+      setLoadingMessage('');
+      setErrorMessage('');
+      setSuccessMessage('POST 요청 성공!');
+      console.log('POST request successful with data:', isUser);
+      console.log(isSuccessMessage);
+    }
+  }, [isLoading, isError, isSuccess, isUser]);
 
   return (
     <div className="flex flex-col items-center justify-center w-full pt-[12.01%] pb-[clamp(0px,10.39%,56px)] bg-yellow-300">
@@ -46,9 +94,13 @@ const LoginNickName = () => {
           <div className="bg-white border-[1px] py-[3.69%] px-[3.96%] border-black rounded-[22px]">
             <input
               type="text"
+              name="nickname"
               className="bg-red-200 w-[100%]"
               value={isValue}
-              onChange={handleInput}
+              onChange={(e) => {
+                handleInputState(e);
+                handleInputChange(e);
+              }}
             />
           </div>
           <div className="mt-[10px]">
@@ -67,6 +119,7 @@ const LoginNickName = () => {
           className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isButton ? '--primary-bg-Color' : '--status-bg-Color-07'} py-[clamp(0px,3.3%,25px)] rounded-[30px] ${isButton ? 'cursor-pointer' : ''}`}
           onClick={() => {
             navigate('/LoginIn');
+            handleSubmit();
           }}
         >
           가입 하기
@@ -85,4 +138,4 @@ const LoginNickName = () => {
   );
 };
 
-export default LoginNickName;
+export default SignUpNickName;

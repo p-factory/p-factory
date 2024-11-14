@@ -1,11 +1,11 @@
 import React from 'react';
 import Template from '../../global/components/Template.test';
-import LoginIdComponent from './Login.id.component';
-const LoginIn = () => {
+import SignUpIdComponent from './SignUp.id.component';
+const SignUpId = () => {
   return (
     <div className="h-screen">
       <Template
-        component={LoginIdComponent}
+        component={SignUpIdComponent}
         // 전체 height
         height={'h-[clamp(0px,91.73%,1081px)]'}
         //  내부 height 85.73
@@ -15,4 +15,4 @@ const LoginIn = () => {
   );
 };
 
-export default LoginIn;
+export default SignUpId;
