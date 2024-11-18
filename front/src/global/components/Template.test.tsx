@@ -13,6 +13,8 @@ const ComponentSchema = Z.object({
   shadowHeight: Z.string().optional(),
   shadow: Z.boolean().optional(), // background 옵션 추가
   hScreen: Z.string().optional(), // 템플릿의 hscreen에 대한 옵션 추가
+  shadowTop: Z.string().optional(),
+  shadowLeft: Z.string().optional(),
 });
 
 type ComponentProps = Z.infer<typeof ComponentSchema>;
@@ -26,6 +28,8 @@ const Template = ({
   shadowHeight = 'h-[clamp(0px,89.49%,847px)]',
   shadow = true, // 기본값 true
   hScreen = 'min-h-screen',
+  shadowTop = 'top-[10px]',
+  shadowLeft = 'left-[25px]',
 }: ComponentProps) => {
   // const { component: Component, width = 'w-[clamp(0px,95.71%,758px)]', height = 'h-[clamp(0px,89.49%,758px)]' } = props;
   try {
@@ -38,6 +42,8 @@ const Template = ({
       shadowHeight,
       shadow,
       hScreen,
+      shadowTop,
+      shadowLeft,
     });
   } catch (error) {
     console.error('Props validation failed', error);
@@ -57,10 +63,12 @@ const Template = ({
           </div>
           {/* 뒷 배경 영역, background가 true일 때만 적용 */}
           {shadow && (
-            <div className="absolute flex flex-col top-[10px] left-[25px] z-[-1] w-full h-full">
-              <div className="bg-slate-400 w-[108.91px] h-[40.58px] rounded-tl-[30px] rounded-tr-[30px]" />
+            <div
+              className={`absolute flex flex-col ${shadowTop} ${shadowLeft} z-[-1] w-full h-full`}
+            >
+              <div className="--status-bg-Color-04 w-[108.91px] h-[40.58px] rounded-tl-[30px] rounded-tr-[30px]" />
               <div
-                className={`flex ${shadowWidth} ${shadowHeight} bg-slate-400 rounded-tr-[36px] rounded-br-[36px] rounded-bl-[36px]`}
+                className={`flex ${shadowWidth} ${shadowHeight} --status-bg-Color-04 rounded-tr-[36px] rounded-br-[36px] rounded-bl-[36px]`}
               ></div>
             </div>
           )}
