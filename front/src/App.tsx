@@ -14,11 +14,12 @@ import DevPositionViewport from './View/DEV/Position/DevPositionViewport.test';
 import DevPositionPx from './View/DEV/Position/DevPositionPx.test';
 import Login from './View/Login/Login';
 import LoginIn from './View/Login/Login.in';
-import LoginId from './View/Login/Login.id';
-import LoginNickName from './View/Login/Login.nickname';
-import LoginPassWord from './View/Login/Login.password';
+import SignUpId from './View/Login/SignUp.id';
+import SignUpNickName from './View/Login/SignUp.nickname';
+import SignUpPassWord from './View/Login/SignUp.password';
 import SignUp from './View/Login/SignUp';
 import DevFetch from './View/DEV/DevFetch';
+import { RecoilRoot } from 'recoil';
 
 // queryClient 생성
 const queryClient = new QueryClient();
@@ -27,35 +28,37 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       {/* QueryClientProvider로 전체 감싸야 동작 */}
-      {/* Recoil도 추가 예정 */}
-      <Router>
-        <Routes>
-          {/* Main */}
-          <Route path="/" element={<MainPage />} />
-          <Route path="/Manual" element={<Manual />} />
-          <Route path="/MyFactory" element={<MyFactory />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/LoginIn" element={<LoginIn />} />
-          <Route path="/LoginId" element={<LoginId />} />
-          <Route path="/LoginNickName" element={<LoginNickName />} />
-          <Route path="/LoginPassWord" element={<LoginPassWord />} />
-          <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/Dev" element={<DevDesignSystem />} />
-          <Route path="/DevWH" element={<DevDesignSystemWH />} />
-          <Route path="/DevStylesPreview" element={<DevStylesPreview />} />
-          {/* DEVPosition */}
-          <Route path="/DevPosition/Login" element={<DevPositionLogin />} />
-          <Route
-            path="/DevPosition/Viewport"
-            element={<DevPositionViewport />}
-          />
-          <Route path="/DevPosition/Px" element={<DevPositionPx />} />
-          {/* DEVFetch */}
-          <Route path="/DevFetch" element={<DevFetch />} />
-          {/* VocabularyBook */}
-          <Route path="/VocabularyBook" element={<VocabularyBookPage />} />
-        </Routes>
-      </Router>
+      {/* Recoil도 추가 */}
+      <RecoilRoot>
+        <Router>
+          <Routes>
+            {/* Main */}
+            <Route path="/" element={<MainPage />} />
+            <Route path="/Manual" element={<Manual />} />
+            <Route path="/MyFactory" element={<MyFactory />} />
+            <Route path="/Login" element={<Login />} />
+            <Route path="/LoginIn" element={<LoginIn />} />
+            <Route path="/SignUpId" element={<SignUpId />} />
+            <Route path="/SignUpNickName" element={<SignUpNickName />} />
+            <Route path="/SignUpPassWord" element={<SignUpPassWord />} />
+            <Route path="/SignUp" element={<SignUp />} />
+            {/* DEVPosition */}
+            <Route path="/Dev" element={<DevDesignSystem />} />
+            <Route path="/DevWH" element={<DevDesignSystemWH />} />
+            <Route path="/DevStylesPreview" element={<DevStylesPreview />} />
+            <Route path="/DevPosition/Login" element={<DevPositionLogin />} />
+            <Route
+              path="/DevPosition/Viewport"
+              element={<DevPositionViewport />}
+            />
+            <Route path="/DevPosition/Px" element={<DevPositionPx />} />
+            {/* DEVFetch */}
+            <Route path="/DevFetch" element={<DevFetch />} />
+            {/* VocabularyBook */}
+            <Route path="/VocabularyBook" element={<VocabularyBookPage />} />
+          </Routes>
+        </Router>
+      </RecoilRoot>
     </QueryClientProvider>
   );
 };

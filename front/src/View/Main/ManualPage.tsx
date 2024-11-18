@@ -38,7 +38,7 @@ const ManualPage = () => {
         component={ManualComponentTop}
         containerWidth="w-[clamp(0px,59.74%,1142px)]"
         width="w-[clamp(0px, 86.66%, 994px)]"
-        background={false}
+        shadow={false}
         hScreen=""
       />
       <div className="mt-[36px]" />
@@ -46,7 +46,7 @@ const ManualPage = () => {
         component={ManualComponentBottom}
         containerWidth="w-[clamp(0px,59.74%,1142px)]"
         width="w-[clamp(0px, 86.66%, 994px)]"
-        background={false}
+        shadow={false}
         hScreen=""
       />
       <div className="relative flex items-end justify-center">

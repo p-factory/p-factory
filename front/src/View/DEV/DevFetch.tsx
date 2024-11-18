@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {
-  useFetchQuery,
-  useFetchMutation,
+  useFetchQuery, //get을 위한 Hook
+  useFetchMutation, //post를 위한 Hook
 } from '../../global/Hooks/uesFetchSingleAPI';
 
 const DevFetch = () => {
   const [postData, setPostData] = useState({
     username: '',
-    email: '',
+    nickname: '',
     password: '',
   });
 
@@ -23,7 +23,7 @@ const DevFetch = () => {
     isError: isGetError,
     isSuccess: isGetSuccess,
   } = useFetchQuery({
-    url: '/comments',
+    url: '/test/names',
   });
 
   // POST 요청을 위한 훅 사용
@@ -33,7 +33,7 @@ const DevFetch = () => {
     isError: isPostError,
     isSuccess: isPostSuccess,
   } = useFetchMutation('POST', {
-    url: '/posts',
+    url: '/user/signup',
     postData,
   });
 
@@ -128,11 +128,11 @@ const DevFetch = () => {
         <label>
           Email:
           <input
-            type="email"
-            name="email"
-            value={postData.email}
+            type="text"
+            name="nickname"
+            value={postData.nickname}
             onChange={handleInputChange}
-            placeholder="Enter email"
+            placeholder="Enter nickname"
           />
         </label>
         <br />
