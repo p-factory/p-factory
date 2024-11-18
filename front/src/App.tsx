@@ -28,7 +28,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       {/* QueryClientProvider로 전체 감싸야 동작 */}
-      {/* Recoil도 추가 예정 */}
+      {/* Recoil도 추가 */}
       <RecoilRoot>
         <Router>
           <Routes>

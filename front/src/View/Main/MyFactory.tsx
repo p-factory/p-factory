@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import spannerIconBlack from '../../global/Img/spannerIconBlack.svg';
+import circleSingleIcon from '../../global/Img/circleSingleIcon.svg';
 import Template from '../../global/components/Template.test';
 import MyFactoryComponent from './component/MyFactory.component';
 import toryTop from '../../global/Img/toryTop.svg';
+import Modal from 'react-modal';
+
+// 모달의 root 엘리먼트를 설정합니다 (접근성 요구사항에 필요).
+Modal.setAppElement('#root');
 
 const MyFactory = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
   return (
     <div className="mt-[200px] mb-[200px]">
       {/* 제목 부분 */}
@@ -52,11 +63,90 @@ const MyFactory = () => {
       {/* 버튼 부분 */}
       <div className="flex flex-col items-center w-full mt-[108px]">
         <div className="w-[clamp(0px,35.52%,682px)] h-[102px]">
-          <div className="--bold btn-secondary --Pretendard pt-[clamp(0px,3.33%,36px)] pb-[clamp(0px,3.61%,39px)] pl-[clamp(0px,10.83%,208px)] pr-[clamp(0px,13.59%,261px)]">
+          <div
+            className="--bold btn-secondary --Pretendard pt-[clamp(0px,3.33%,36px)] pb-[clamp(0px,3.61%,39px)] pl-[clamp(0px,10.83%,208px)] pr-[clamp(0px,13.59%,261px)] cursor-pointer"
+            onClick={() => {
+              console.log('click');
+              openModal();
+            }}
+          >
             <div className="flex items-center">
               <div className="--font-l whitespace-nowrap">공장 생성하기</div>
             </div>
           </div>
+          <Modal
+            isOpen={isOpen}
+            onRequestClose={closeModal}
+            contentLabel="Modal"
+            // 스크롤 활성화 이벤트
+            onAfterOpen={() => {
+              document.body.style.overflow = 'hidden'; // 모달 열릴 때 스크롤 비활성화
+            }}
+            onAfterClose={() => {
+              document.body.style.overflow = 'auto'; // 모달 닫힐 때 스크롤 활성화
+            }}
+            style={{
+              overlay: {
+                backgroundColor: 'rgba(0, 0, 0, 0.6)', // #000000 배경색에 60% 불투명도
+              },
+              // 모달 기본 설정을 위한 매개변수
+              // React-Modal은 content를 통해서 설정 할 수 있다.
+              content: {
+                display: 'flex',
+                justifyContent: 'center',
+                // padding: '36px 46px', // 여기에 padding 값 설정
+                padding: 0,
+                width: '821.5px',
+                height: '338px',
+                borderRadius: '49px', // rounded-lg에 해당하는 radius 값
+                fontFamily: 'Pretendard',
+                fontWeight: 'SemiBold',
+                outline: 'none',
+                margin: 0,
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)', // 중앙 정렬을 위한 transform
+                fontSize: '25px',
+              },
+            }}
+          >
+            <div className="flex-col w-[100%]">
+              <div className="flex w-[100%] border-b border-black px-[46px] py-[30px]">
+                <div className="flex w-[100%]">
+                  <span className="">공장 생성하기</span>
+                  <img src={spannerIconBlack} alt="" />
+                </div>
+                <div>
+                  <img src={circleSingleIcon} alt="" />
+                </div>
+              </div>
+              <div className="w-[100%] px-[46px] mt-[30px] mb-[63px]">
+                <div className="w-[100%] border border-black py-[20px] px-[30px]">
+                  <input
+                    type="text"
+                    className="w-[100%]"
+                    placeholder="공장 이름"
+                  />
+                </div>
+              </div>
+              <div className="flex w-[100%] justify-between border-t border-black">
+                <div
+                  onClick={closeModal}
+                  className="flex w-[50%] h-[65.9px] pt-[10px] border-r border-black justify-center outline-none cursor-pointer"
+                >
+                  취소
+                </div>
+                <div
+                  onClick={() => {
+                    console.log('단어장 생성: POST');
+                  }}
+                  className="flex w-[50%] h-[65.9px] pt-[10px] justify-center outline-none cursor-pointer"
+                >
+                  확인
+                </div>
+              </div>
+            </div>
+          </Modal>
         </div>
       </div>
     </div>
