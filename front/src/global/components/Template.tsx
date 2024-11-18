@@ -10,6 +10,8 @@ const ComponentSchema = Z.object({
   height: Z.string().optional(),
   backgroundWidth: Z.string().optional(),
   backgroundHeight: Z.string().optional(),
+  shadowTop: Z.string().optional(),
+  shadowLeft: Z.string().optional(),
 });
 
 type ComponentProps = Z.infer<typeof ComponentSchema>;
@@ -20,6 +22,8 @@ const Template = ({
   height = 'h-[clamp(0px,89.49%,758px)]',
   backgroundWidth = 'w-[clamp(0px,95.71%,758px)]',
   backgroundHeight = 'h-[clamp(0px,89.49%,847px)]',
+  shadowTop = 'top-[10px]',
+  shadowLeft = 'left-[25px]',
 }: ComponentProps) => {
   // h-[clamp(0px,89.49%,847px)]
   // const { component: Component, width = 'w-[clamp(0px,95.71%,758px)]', height = 'h-[clamp(0px,89.49%,758px)]' } = props;
@@ -31,6 +35,8 @@ const Template = ({
       height,
       backgroundWidth,
       backgroundHeight,
+      shadowTop,
+      shadowLeft,
     });
   } catch (error) {
     console.error('Props validation failed', error);
@@ -56,7 +62,9 @@ const Template = ({
           </div>
         </div>
         {/* 뒷 배경 영역 */}
-        <div className="absolute flex flex-col top-[10px] left-[25px] z-[-1] w-full">
+        <div
+          className={`absolute flex flex-col ${shadowTop} ${shadowLeft} z-[-1] w-full`}
+        >
           <div className="bg-slate-400 w-[108.91px] h-[40.58px] rounded-tl-[30px] rounded-tr-[30px]" />
           <div
             className={`flex ${backgroundWidth}  bg-slate-400 rounded-tr-[36px] rounded-br-[36px] rounded-bl-[36px]`}

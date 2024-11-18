@@ -57,26 +57,30 @@ const LoginIn = () => {
   }, [isLoading, isError, isSuccess, isPostData]);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full pt-[12.01%] pb-[clamp(0px,10.39%,56px)] bg-yellow-300">
-      <div className="bg-orange-500 mb-[32.37px]">
+    <div className="flex flex-col items-center justify-center w-full pt-[12.01%] pb-[clamp(0px,10.39%,56px)]">
+      {/*  bg-yellow-300 */}
+      <div className="mb-[32.37px]">
+        {/* bg-orange-500  */}
         <div className="--neutral-font-Color --JejuDoldam --font-xl">
           &apos;나만의 단어공장&apos;
         </div>
         <div className="--JejuDoldam --font-xxl">ㅍ토리</div>
       </div>
       {/* 컨텐츠 영역 */}
-      <div className="flex flex-col items-center justify-center w-full pt-[] pb-[] bg-yellow-100 mb-[clamp(0px,9.1%,69.45px)]">
+      <div className="flex flex-col items-center justify-center w-full pt-[] pb-[] mb-[clamp(0px,9.1%,69.45px)]">
+        {/* bg-yellow-100  */}
         <div className="flex flex-col w-full">
           <div className="bg-white border-[1px] py-[3.69%] px-[3.96%] border-black rounded-[22px]">
             <input
               type="text"
               name="username"
-              className="bg-red-200 w-[100%]"
+              className="w-[100%]"
               value={isPostData.username}
               onChange={(e) => {
                 handleInputChange(e);
               }}
             />
+            {/* bg-red-200  */}
           </div>
           <div className="mb-[clamp(0px,4.49%,34px)] mt-[clamp(0px,2.24%,17px)]">
             {/* API 메세지에 따라 다르게 구현할 예정 */}
@@ -90,12 +94,13 @@ const LoginIn = () => {
             <input
               type="text"
               name="password"
-              className="bg-red-200 w-[100%]"
+              className="w-[100%]"
               value={isPostData.password}
               onChange={(e) => {
                 handleInputChange(e);
               }}
             />
+            {/* bg-red-200  */}
           </div>
           <div className="mt-[clamp(0px,2.24%,17px)]">
             {/* API 메세지에 따라 다르게 구현할 예정 */}

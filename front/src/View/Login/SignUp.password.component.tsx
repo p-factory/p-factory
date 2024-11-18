@@ -54,8 +54,10 @@ const SignUpPassWord = () => {
   }, [isPassword, isCheckedPassword]);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full pt-[12.01%] pb-[clamp(0px,10.39%,56px)] bg-yellow-300">
-      <div className="flex flex-col justify-center items-center bg-orange-500 mb-[49px]">
+    <div className="flex flex-col items-center justify-center w-full pt-[12.01%] pb-[clamp(0px,10.39%,56px)]">
+      {/* bg-yellow-300 */}
+      <div className="flex flex-col justify-center items-center mb-[49px]">
+        {/* bg-orange-500 */}
         <div className="--neutral-font-Color --JejuDoldam --font-xl">
           &apos;나만의 단어공장&apos;
         </div>
@@ -63,7 +65,8 @@ const SignUpPassWord = () => {
         <div className="--semi-bold --font-l">회원가입</div>
       </div>
       {/* 컨텐츠 영역 */}
-      <div className="flex flex-col items-center justify-center w-full pt-[] pb-[] bg-yellow-100 mb-[clamp(0px,9.1%,69.45px)]">
+      <div className="flex flex-col items-center justify-center w-full pt-[] pb-[] mb-[clamp(0px,9.1%,69.45px)]">
+        {/* bg-yellow-100 */}
         <div className="flex flex-col justify-start items-start w-full --Pretendard text-[33px] --bold mb-[clamp(0px,17.94%,136px)]">
           <span>토리가 만나기 위한</span>
           <span>준비를 하고 있어요!</span>
@@ -76,10 +79,11 @@ const SignUpPassWord = () => {
           <div className="bg-white border-[1px] py-[3.69%] px-[3.96%] border-black rounded-[22px]">
             <input
               type="text"
-              className="bg-red-200 w-[100%]"
+              className="w-[100%]"
               value={isPassword}
               onChange={handlePassword}
             />
+            {/* bg-red-200 */}
           </div>
           <div className="mt-[10px] mb-[15px]">
             {isState ? (
@@ -100,13 +104,14 @@ const SignUpPassWord = () => {
             <input
               type="text"
               name="password"
-              className="bg-red-200 w-[100%]"
+              className="w-[100%]"
               value={isCheckedPassword}
               onChange={(e) => {
                 handleCheckedPassword(e);
                 handleInputChange(e);
               }}
             />
+            {/* bg-red-200  */}
           </div>
           <div className="mt-[10px]">
             {isCheckedState ? (
