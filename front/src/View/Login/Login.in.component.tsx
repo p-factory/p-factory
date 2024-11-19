@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 import loginBlackImage from '../DEV/img/login-black-logo.svg';
 import { useFetchMutation } from '../../global/Hooks/uesFetchSingleAPI';
-
+import { useNavigate } from 'react-router-dom';
 const LoginIn = () => {
+  const navigate = useNavigate();
+
   const [isPostData, setPostData] = useState({
     username: '',
     password: '',
@@ -53,6 +56,16 @@ const LoginIn = () => {
       console.log('Response data:', isResponseData, responseData); // 응답 데이터를 콘솔에 출력
       console.log('POST request successful with data:', isPostData);
       console.log(isSuccessMessage);
+    }
+    if (isSuccess && responseData?.TOKEN) {
+      // js-cookie를 사용하여 TOKEN 저장
+      Cookies.set('TOKEN', responseData.TOKEN, {
+        path: '/',
+        expires: 1, //만료일
+        secure: true,
+      });
+      console.log('TOKEN saved to cookie:'); //, responseData.TOKEN
+      navigate('/');
     }
   }, [isLoading, isError, isSuccess, isPostData]);
 
