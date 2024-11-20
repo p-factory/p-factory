@@ -4,12 +4,14 @@ import pencilIconGrey from '../../../global/Img/pencilIconGrey.svg';
 
 // props 타입 정의
 interface VocabularyBookWordProps {
+  word: string;
   wordLine?: number;
   wordHighlight?: boolean;
   wordDelete?: boolean;
 }
 
 const VocabularyBookWord = ({
+  word,
   wordLine,
   wordHighlight,
   wordDelete,
@@ -23,7 +25,7 @@ const VocabularyBookWord = ({
       <div className="pl-[clamp(0px,28.97%,84px)] pt-[23px] flex w-3/4">
         <div className="w-full break-all">
           <span className={`${wordHighlight ? '--primary-bg-Color' : ''}`}>
-            word
+            {word}
           </span>
         </div>
       </div>

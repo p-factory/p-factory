@@ -9,20 +9,20 @@ const VocabularyBookList = () => {
         {/* 왼쪽 단어장 */}
         <div className="flex flex-col w-full gap-[38px]">
           {/* 단어 1칸 하이라이트 */}
-          <VocabularyBookWord wordHighlight={true} />
+          <VocabularyBookWord word="word" wordHighlight={true} />
           {/* 단어 2칸 하이라이트 */}
-          <VocabularyBookWord wordLine={2} wordHighlight={true} />
+          <VocabularyBookWord word="word" wordLine={2} wordHighlight={true} />
         </div>
         {/* 오른쪽 단어장 */}
         <div className="flex flex-col w-full gap-[38px]">
           {/* 단어 1칸 삭제 */}
-          <VocabularyBookWord wordDelete={true} />
+          <VocabularyBookWord word="word" wordDelete={true} />
           {/* 단어 1칸 */}
-          <VocabularyBookWord />
+          <VocabularyBookWord word="word" />
           {/* 단어 1칸 */}
-          <VocabularyBookWord />
+          <VocabularyBookWord word="word" />
           {/* 단어 2칸 삭제 */}
-          <VocabularyBookWord wordLine={2} wordDelete={true} />
+          <VocabularyBookWord word="word" wordLine={2} wordDelete={true} />
         </div>
       </div>
     </div>
