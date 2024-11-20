@@ -135,16 +135,6 @@ const addWordHandler = (router) => (req, res) => {
     const currentData = router.db.getState(); // 현재 데이터 상태를 가져옵니다.
     saveMergedDataToFile(currentData, dbFilePath); // 현재 데이터를 db.words.json에 저장합니다.
 
-    // 병합된 데이터 저장
-    const mergedDataFilePath = path.join(
-      __dirname,
-      '..',
-      'db',
-      'mergeData.json',
-    );
-    const mergedData = mergeJSONLoader([dbFilePath]); // db.words.json 파일에서 데이터를 병합합니다.
-    saveMergedDataToFile(mergedData, mergedDataFilePath); // 병합된 데이터를 mergeData.json에 저장합니다.
-
     res
       .status(200)
       .json({ message: 'Successful Save Word', newWord });
