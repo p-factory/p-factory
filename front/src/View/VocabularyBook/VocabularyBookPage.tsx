@@ -15,6 +15,7 @@ const DEV = DevTool.ToolButton;
 const VocabularyBookPage = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const [isUpdateList, setUpdateList] = useState(false); // 리스트 업데이트 상태
 
   const [isPostData, setPostData] = useState({
     word: '',
@@ -32,6 +33,7 @@ const VocabularyBookPage = () => {
     });
 
   const handleSubmit = () => {
+    setUpdateList((prev) => !prev); // 리스트 업데이트
     mutation.mutate(isPostData); // POST 요청 수동 실행
   };
 
@@ -113,7 +115,7 @@ const VocabularyBookPage = () => {
           </div>
         </div>
       </div>
-      <VocabularyBook />
+      <VocabularyBook isUpdateList={isUpdateList} />
       {/* 버튼 부분 */}
       <div className="flex flex-col items-center w-full mb-[212px] mt-[143px]">
         <div className="w-[clamp(0px,35.52%,682px)] h-[102px]">

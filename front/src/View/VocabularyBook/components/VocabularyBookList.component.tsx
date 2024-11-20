@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import VocabularyBookWord from './VocabularyBookWord.component';
 import { useFetchQuery } from '../../../global/Hooks/uesFetchSingleAPI';
 
@@ -8,13 +8,20 @@ interface Word {
 }
 
 // 전체 단어장 리스트
-const VocabularyBookList = () => {
+const VocabularyBookList = ({ isUpdateList }: { isUpdateList: boolean }) => {
   // 서버에서 단어 리스트 가져오기
   const {
     data: words,
     isLoading,
     isError,
+    refetch,
   } = useFetchQuery({ url: '/vocabularyBook/words' });
+
+  useEffect(() => {
+    if (isUpdateList) {
+      refetch(); // React Query의 refetch 호출
+    }
+  }, [isUpdateList, refetch]);
 
   if (isLoading) return <div>Loading...</div>;
   if (isError || !words) return <div>Error occurred while fetching words.</div>;

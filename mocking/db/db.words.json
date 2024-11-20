@@ -27,6 +27,30 @@
     {
       "wordId": 6,
       "word": "hand"
+    },
+    {
+      "wordId": 7,
+      "word": "korea"
+    },
+    {
+      "wordId": 8,
+      "word": "hello"
+    },
+    {
+      "wordId": 9,
+      "word": "month"
+    },
+    {
+      "wordId": 10,
+      "word": "date"
+    },
+    {
+      "wordId": 11,
+      "word": "day"
+    },
+    {
+      "wordId": 12,
+      "word": "holiday"
     }
   ]
 }

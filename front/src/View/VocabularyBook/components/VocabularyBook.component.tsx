@@ -4,7 +4,7 @@ import trashCanIcon from '../../../global/Img/trashCanIcon.svg';
 import highlighterIcon from '../../../global/Img/highlighterIcon.svg';
 import VocabularyBookList from './VocabularyBookList.component';
 
-const VocabularyBook = () => {
+const VocabularyBook = ({ isUpdateList }: { isUpdateList: boolean }) => {
   return (
     <div className="relative flex flex-col items-center w-full">
       <div className="relative w-[clamp(0px,83.18%,1597px)]">
@@ -47,7 +47,7 @@ const VocabularyBook = () => {
             </div>
           </div>
           {/* 전체 단어장 리스트 */}
-          <VocabularyBookList />
+          <VocabularyBookList isUpdateList={isUpdateList} />
           {/* 단어장 footer */}
           <div className="flex justify-center w-[clamp(0px,60.8%,971px)] h-[82px] gap-[95px] --Pretendard --semi-bold --font-l mt-[66px]">
             <div className="flex items-center justify-center w-full relative bg-white border-[0.9px] border-black border-solid rounded-[18px] shadow-[0_3.58px_3.58px_0_rgba(0,0,0,0.25)]">
