@@ -44,6 +44,7 @@ createRoutes(server, 'post', '/api/user/signup', SignUpHandler(userRouter));
 createRoutes(server, 'post', '/api/user/login', LoginHandler(userRouter));
 createRoutes(server, 'post', '/api/vocabularyBook/words', addWordHandler(wordRouter));
 createRoutes(server, 'get', '/api/test/name', getTestNameHandler(router));
+createRoutes(server, 'get', '/api/vocabularyBook/words', getTestNameHandler(wordRouter));
 
 // 기존 json-server 라우터 사용
 server.use(router);
