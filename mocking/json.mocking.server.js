@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 import { mergeJSONLoader } from './db/mergeJSONLoader.js';
 import createRoutes from './Routes/createRoutes.js';
 import { SignUpHandler, LoginHandler, addWordHandler } from './API/PostHandler.js';
-import { getTestNameHandler } from './API/GetHandler.js';
+import { getTestNameHandler, getWordListHandler } from './API/GetHandler.js';
 // ESM에서 __dirname을 설정하는 방법
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,7 +22,7 @@ const wordPath = path.join(__dirname, 'db', 'db.words.json');
 const testPath = path.join(__dirname, 'db', 'db.test.name.json');
 
 // 병합되어 있는 최종 코드
-const dbFilePaths = [userPath, testPath];
+const dbFilePaths = [userPath, testPath, wordPath];
 
 // 병합된 데이터로 JSON 파일에 저장
 const mergedData = mergeJSONLoader(dbFilePaths);
@@ -44,7 +44,7 @@ createRoutes(server, 'post', '/api/user/signup', SignUpHandler(userRouter));
 createRoutes(server, 'post', '/api/user/login', LoginHandler(userRouter));
 createRoutes(server, 'post', '/api/vocabularyBook/words', addWordHandler(wordRouter));
 createRoutes(server, 'get', '/api/test/name', getTestNameHandler(router));
-createRoutes(server, 'get', '/api/vocabularyBook/words', getTestNameHandler(wordRouter));
+createRoutes(server, 'get', '/api/vocabularyBook/words', getWordListHandler(wordRouter));
 
 // 기존 json-server 라우터 사용
 server.use(router);

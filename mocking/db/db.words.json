@@ -15,6 +15,18 @@
     {
       "wordId": 3,
       "word": "name"
+    },
+    {
+      "wordId": 4,
+      "word": "body"
+    },
+    {
+      "wordId": 5,
+      "word": "head"
+    },
+    {
+      "wordId": 6,
+      "word": "hand"
     }
   ]
 }
