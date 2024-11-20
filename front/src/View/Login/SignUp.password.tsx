@@ -7,6 +7,8 @@ const SignUpPassWord = () => {
       <Template
         height={'h-[clamp(0px,91.12%,1149px)]'}
         shadowHeight={'h-[clamp(0px,91.12%,1149px)]'}
+        shadowTop={'top-[27px]'}
+        shadowLeft={'left-[25px]'}
         component={SignUpPassWordComponent}
       />
     </div>

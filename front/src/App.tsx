@@ -12,6 +12,7 @@ import DevDesignSystemWH from './View/DEV/DevDesignSystem-wh.test';
 import DevPositionLogin from './View/DEV/Position/DevPositionLogin.test';
 import DevPositionViewport from './View/DEV/Position/DevPositionViewport.test';
 import DevPositionPx from './View/DEV/Position/DevPositionPx.test';
+import DevTerminal from './View/DEV/DevTerminal';
 import Login from './View/Login/Login';
 import LoginIn from './View/Login/Login.in';
 import SignUpId from './View/Login/SignUp.id';
@@ -42,7 +43,9 @@ const App = () => {
             <Route path="/SignUpNickName" element={<SignUpNickName />} />
             <Route path="/SignUpPassWord" element={<SignUpPassWord />} />
             <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/VocabularyBook" element={<VocabularyBookPage />} />
             {/* DEVPosition */}
+            <Route path="/DevTerminal" element={<DevTerminal />} />
             <Route path="/Dev" element={<DevDesignSystem />} />
             <Route path="/DevWH" element={<DevDesignSystemWH />} />
             <Route path="/DevStylesPreview" element={<DevStylesPreview />} />
@@ -55,7 +58,6 @@ const App = () => {
             {/* DEVFetch */}
             <Route path="/DevFetch" element={<DevFetch />} />
             {/* VocabularyBook */}
-            <Route path="/VocabularyBook" element={<VocabularyBookPage />} />
           </Routes>
         </Router>
       </RecoilRoot>

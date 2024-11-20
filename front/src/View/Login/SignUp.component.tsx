@@ -79,9 +79,11 @@ const SignUp = () => {
   }, [isChecked.service, isChecked.private, isChecked.position]);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full pt-[clamp(0px,8.31%,63px)] pb-[clamp(0px,9.63%,73px)] --Pretendard bg-yellow-300">
+    <div className="flex flex-col items-center justify-center w-full pt-[clamp(0px,8.31%,63px)] pb-[clamp(0px,9.63%,73px)] --Pretendard">
+      {/*  bg-yellow-300 */}
       {/* w-[clamp(0px,84.43%,640px)] */}
-      <div className="bg-orange-500 mb-[]">
+      <div className="mb-[]">
+        {/* bg-orange-500  */}
         <div className="--neutral-font-Color --JejuDoldam --font-xl">
           &apos;나만의 단어공장&apos;
         </div>
@@ -94,7 +96,8 @@ const SignUp = () => {
       {/* 컨텐츠 영역 */}
       <div className="flex flex-col items-center justify-center w-full pr-[clamp(0px,6.79%,51.5px)] pl-[clamp(0px,6.79%,51.5px)] mb-[clamp(0px,11.74%,89px)]">
         <div className="bg-white flex items-start justify-center w-full px-[clamp(0px,5.67%,43px)] py-[clamp(0px,3.83%,29px)] border-black border rounded-tr-[34px] rounded-tl-[34px]">
-          <div className="flex items-center w-full bg-orange-200 --medium --font-xl">
+          <div className="flex items-center w-full --medium --font-xl">
+            {/*  bg-orange-200 */}
             <input
               type="checkbox"
               id="agreeAll"
@@ -117,7 +120,8 @@ const SignUp = () => {
         <div className="flex flex-col items-start justify-center w-full">
           <div className="bg-white w-full --medium px-[clamp(0px,5.67%,43px)] py-[clamp(0px,4.09%,31px)] border-l border-r border-b border-black rounded-br-[34px] rounded-bl-[34px]">
             <div className="flex mb-[clamp(0px,4.09%,31px)]">
-              <div className="flex items-center w-full bg-orange-200">
+              <div className="flex items-center w-full">
+                {/*  bg-orange-200 */}
                 <input
                   type="checkbox"
                   id="agreeService"
@@ -147,7 +151,8 @@ const SignUp = () => {
               </div>
             </div>
             <div className="flex mb-[clamp(0px,4.09%,31px)]">
-              <div className="flex items-center w-full bg-orange-200">
+              <div className="flex items-center w-full">
+                {/*  bg-orange-200 */}
                 <input
                   type="checkbox"
                   id="agreePrivate"
@@ -177,7 +182,8 @@ const SignUp = () => {
               </div>
             </div>
             <div className="flex mb-[clamp(0px,4.09%,31px)]">
-              <div className="flex items-center w-full bg-orange-200">
+              <div className="flex items-center w-full">
+                {/*  bg-orange-200 */}
                 <input
                   type="checkbox"
                   id="agreePos"
@@ -207,7 +213,8 @@ const SignUp = () => {
               </div>
             </div>
             <div className="flex mb-[clamp(0px,4.09%,31px)]">
-              <div className="flex items-center w-full bg-orange-200">
+              <div className="flex items-center w-full">
+                {/*  bg-orange-200 */}
                 <input
                   type="checkbox"
                   id="agreeMarketing"

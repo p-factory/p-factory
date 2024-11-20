@@ -60,7 +60,8 @@ a {
 }
 
 body {
-  background-color: #2323;
+  /* background-color: #2323; */
+  background-color: #d9d9d9;
   /* font-family: "Pretendard Variable"; */
   /* color: var(--white-color); */
   margin: 0;
