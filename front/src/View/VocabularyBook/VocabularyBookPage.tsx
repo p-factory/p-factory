@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
 import spannerIconBlack from '../../global/Img/spannerIconBlack.svg';
 import circleSingleIcon from '../../global/Img/circleSingleIcon.svg';
@@ -6,6 +7,7 @@ import speechBubbleBg from '../../global/Img/speechBubbleBg.svg';
 import toryTop from '../../global/Img/toryTop.svg';
 import DevTool from '../../DEV/Dev';
 import VocabularyBook from './components/VocabularyBook.component';
+import { useFetchMutation } from '../../global/Hooks/uesFetchSingleAPI';
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
 
@@ -14,6 +16,67 @@ const DEV = DevTool.ToolButton;
 const VocabularyBookPage = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+
+  const [isPostData, setPostData] = useState({
+    word: '',
+  });
+
+  const [isLoadingMessage, setLoadingMessage] = useState('');
+  const [isErrorMessage, setErrorMessage] = useState('');
+  const [isSuccessMessage, setSuccessMessage] = useState('');
+  const [isResponseData, setResponseData] = useState(null); // 응답 데이터를 저장할 상태
+
+  const { mutation, isLoading, isError, isSuccess, responseData } =
+    useFetchMutation('POST', {
+      url: '/vocabularyBook/words',
+      postData: isPostData,
+    });
+
+  const handleSubmit = () => {
+    mutation.mutate(isPostData); // POST 요청 수동 실행
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setPostData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    console.log(isPostData);
+  };
+
+  useEffect(() => {
+    console.log(isPostData);
+    if (isLoading) {
+      setLoadingMessage('Sending data...');
+      setErrorMessage('');
+      setSuccessMessage('');
+      console.log(isLoadingMessage);
+    } else if (isError) {
+      setLoadingMessage('');
+      setErrorMessage('Error occurred while sending data.');
+      setSuccessMessage('');
+      console.log(isErrorMessage);
+    } else if (isSuccess) {
+      setLoadingMessage('');
+      setErrorMessage('');
+      setSuccessMessage('POST 요청 성공!');
+      setResponseData(responseData); // 응답 데이터를 상태로 설정
+      console.log('Response data:', isResponseData, responseData); // 응답 데이터를 콘솔에 출력
+      console.log('POST request successful with data:', isPostData);
+      console.log(isSuccessMessage);
+    }
+    if (isSuccess && responseData?.TOKEN) {
+      // js-cookie를 사용하여 TOKEN 저장
+      Cookies.set('TOKEN', responseData.TOKEN, {
+        path: '/',
+        expires: 1, //만료일
+        secure: true,
+      });
+      console.log('TOKEN saved to cookie:'); //, responseData.TOKEN
+      navigate('/');
+    }
+  }, [isLoading, isError, isSuccess, isPostData]);
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
@@ -138,7 +201,15 @@ const VocabularyBookPage = () => {
           </div>
           <div className="w-[100%] px-[46px] mt-[30px] mb-[63px]">
             <div className="w-[100%] border border-black py-[20px] px-[30px]">
-              <input type="text" className="w-[100%]" placeholder="" />
+              <input
+                type="text"
+                name="word"
+                className="w-[100%]"
+                value={isPostData.word}
+                onChange={(e) => {
+                  handleInputChange(e);
+                }}
+              />
             </div>
           </div>
           <div className="flex w-[100%] justify-between border-t border-black">
@@ -151,6 +222,7 @@ const VocabularyBookPage = () => {
             <div
               onClick={() => {
                 console.log('단어장 생성: POST');
+                handleSubmit();
                 navigate('/VocabularyBook');
               }}
               className="flex w-[50%] h-[65.9px] pt-[10px] justify-center outline-none cursor-pointer"
