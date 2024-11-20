@@ -1,11 +1,14 @@
 import React from 'react';
 import spannerIconBlack from '../../global/Img/spannerIconBlack.svg';
 import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
+import { useNavigate } from 'react-router-dom';
 import DevTool from '../../DEV/Dev';
 
 const DEV = DevTool.ToolButton;
 
 const MainPage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col w-full h-screen">
       <DEV />
@@ -24,7 +27,12 @@ const MainPage = () => {
           나만의 <span className="--status-font-Color-01">단어 공장</span>
         </div>
         <div className="pr-[clamp(0px,66.88%,1284px)]">
-          <div className="flex items-center justify-center --font-m --bold --Pretendard btn-secondary h-[61px] pl-[clamp(0px,5.94%,114px)] pr-[clamp(0px,4.79%,92px)]">
+          <div
+            className="flex items-center justify-center --font-m --bold --Pretendard btn-secondary h-[61px] pl-[clamp(0px,5.94%,114px)] pr-[clamp(0px,4.79%,92px)] cursor-pointer"
+            onClick={() => {
+              navigate('/Manual');
+            }}
+          >
             ㅍ토리 사용법
             <img
               src={spannerIconWhite}
@@ -33,7 +41,12 @@ const MainPage = () => {
             />
           </div>
           <div className="pt-[clamp(0px,1.85%,20px)]" />
-          <div className="flex items-center justify-center --font-m --bold --Pretendard btn-primary h-[61px] pl-[clamp(0px,3.85%,74px)] pr-[clamp(0px,2.81%,54px)]">
+          <div
+            className="flex items-center justify-center --font-m --bold --Pretendard btn-primary h-[61px] pl-[clamp(0px,3.85%,74px)] pr-[clamp(0px,2.81%,54px)] cursor-pointer"
+            onClick={() => {
+              navigate('/MyFactory');
+            }}
+          >
             단어 공장 작업 시작하기
             <img
               src={spannerIconBlack}

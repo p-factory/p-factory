@@ -5,7 +5,7 @@ import Template from '../../global/components/Template.test';
 import MyFactoryComponent from './component/MyFactory.component';
 import toryTop from '../../global/Img/toryTop.svg';
 import Modal from 'react-modal';
-
+import { useNavigate } from 'react-router-dom';
 // 모달의 root 엘리먼트를 설정합니다 (접근성 요구사항에 필요).
 Modal.setAppElement('#root');
 
@@ -14,7 +14,7 @@ const MyFactory = () => {
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
-
+  const navigate = useNavigate();
   return (
     <div className="mt-[200px] mb-[200px]">
       {/* 제목 부분 */}
@@ -139,6 +139,7 @@ const MyFactory = () => {
                 <div
                   onClick={() => {
                     console.log('단어장 생성: POST');
+                    navigate('/VocabularyBook');
                   }}
                   className="flex w-[50%] h-[65.9px] pt-[10px] justify-center outline-none cursor-pointer"
                 >

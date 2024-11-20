@@ -6,9 +6,11 @@ const Login = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center justify-center w-full pt-[16.09%] pb-[20.71%] bg-yellow-300">
+    <div className="flex flex-col items-center justify-center w-full pt-[16.09%] pb-[20.71%]">
+      {/* bg-yellow-300 */}
       {/* 기본 템플릿 */}
-      <div className="bg-orange-500">
+      <div className="">
+        {/* bg-orange-500 */}
         <div className="--neutral-font-Color --JejuDoldam --font-xl">
           &apos;나만의 단어공장&apos;
         </div>
