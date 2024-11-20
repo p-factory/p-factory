@@ -1,0 +1,20 @@
+{
+  "words": [
+    {
+      "wordId": 0,
+      "word": "test"
+    },
+    {
+      "wordId": 1,
+      "word": "english"
+    },
+    {
+      "wordId": 2,
+      "word": "user"
+    },
+    {
+      "wordId": 3,
+      "word": "name"
+    }
+  ]
+}

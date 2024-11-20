@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Cookies from 'js-cookie';
 import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
 import spannerIconBlack from '../../global/Img/spannerIconBlack.svg';
 import circleSingleIcon from '../../global/Img/circleSingleIcon.svg';
@@ -65,16 +64,6 @@ const VocabularyBookPage = () => {
       console.log('Response data:', isResponseData, responseData); // 응답 데이터를 콘솔에 출력
       console.log('POST request successful with data:', isPostData);
       console.log(isSuccessMessage);
-    }
-    if (isSuccess && responseData?.TOKEN) {
-      // js-cookie를 사용하여 TOKEN 저장
-      Cookies.set('TOKEN', responseData.TOKEN, {
-        path: '/',
-        expires: 1, //만료일
-        secure: true,
-      });
-      console.log('TOKEN saved to cookie:'); //, responseData.TOKEN
-      navigate('/');
     }
   }, [isLoading, isError, isSuccess, isPostData]);
 
@@ -221,7 +210,6 @@ const VocabularyBookPage = () => {
             </div>
             <div
               onClick={() => {
-                console.log('단어장 생성: POST');
                 handleSubmit();
                 navigate('/VocabularyBook');
               }}
