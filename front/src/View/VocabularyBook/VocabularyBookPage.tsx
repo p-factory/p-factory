@@ -4,13 +4,13 @@ import spannerIconBlack from '../../global/Img/spannerIconBlack.svg';
 import circleSingleIcon from '../../global/Img/circleSingleIcon.svg';
 import speechBubbleBg from '../../global/Img/speechBubbleBg.svg';
 import toryTop from '../../global/Img/toryTop.svg';
-import DevTool from '../../DEV/Dev';
+// import DevTool from '../../DEV/Dev';
 import VocabularyBook from './components/VocabularyBook.component';
 import { useFetchMutation } from '../../global/Hooks/uesFetchSingleAPI';
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
 
-const DEV = DevTool.ToolButton;
+// const DEV = DevTool.ToolButton;
 
 const VocabularyBookPage = () => {
   const navigate = useNavigate();
@@ -73,7 +73,7 @@ const VocabularyBookPage = () => {
   const closeModal = () => setIsOpen(false);
   return (
     <div className="flex flex-col item-center --Pretendard">
-      <DEV />
+      {/* <DEV /> */}
       {/* 제목 부분 */}
       <div className="relative flex flex-col items-center justify-end mb-[66px] mt-[172px]">
         <div className="text-[60px] --JejuDoldam font-bold relative z-10">
