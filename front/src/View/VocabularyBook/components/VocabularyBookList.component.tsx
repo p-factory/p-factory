@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import VocabularyBookWord from './VocabularyBookWord.component';
-import { useFetchQuery } from '../../../global/Hooks/uesFetchSingleAPI';
+import React, { useEffect, useState } from "react";
+import VocabularyBookWord from "./VocabularyBookWord.component";
+import { useFetchQuery } from "../../../global/Hooks/uesFetchSingleAPI";
 
 interface Word {
   wordId: number;
@@ -12,10 +12,41 @@ const VocabularyBookList = ({ isUpdateList }: { isUpdateList: boolean }) => {
   // 서버에서 단어 리스트 가져오기
   const {
     data: words,
+    isSuccess,
     isLoading,
     isError,
     refetch,
-  } = useFetchQuery({ url: '/vocabularyBook/words' });
+  } = useFetchQuery({ url: "/vocabularyBook/words" });
+
+  //Fetch 상태를 가지고 오지 않은 이유는?
+
+  const [isLoadingMessage, setLoadingMessage] = useState("");
+  const [isErrorMessage, setErrorMessage] = useState("");
+  const [isSuccessMessage, setSuccessMessage] = useState("");
+  const [isResponseData, setResponseData] = useState(null); // 응답 데이터를 저장할 상태
+
+  useEffect(() => {
+    // console.log(isPostData);
+    if (isLoading) {
+      setLoadingMessage("Sending data...");
+      setErrorMessage("");
+      setSuccessMessage("");
+      console.log(isLoadingMessage);
+    } else if (isError) {
+      setLoadingMessage("");
+      setErrorMessage("Error occurred while sending data.");
+      setSuccessMessage("");
+      console.log(isErrorMessage);
+    } else if (isSuccess) {
+      setLoadingMessage("");
+      setErrorMessage("");
+      setSuccessMessage("POST 요청 성공!");
+      setResponseData(words); // 응답 데이터를 상태로 설정
+      console.log("Response data:", isResponseData, words); // 응답 데이터를 콘솔에 출력
+      // console.log("POST request successful with data:", isPostData);
+      console.log(isSuccessMessage);
+    }
+  }, [isLoading, isError, isSuccess]);
 
   useEffect(() => {
     if (isUpdateList) {

@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { useRecoilState } from 'recoil';
-import loginBlackImage from '../DEV/img/login-black-logo.svg';
-import loginWhiteImage from '../DEV/img/login-white-logo.svg';
-import { useNavigate } from 'react-router-dom';
-import { userState } from '../../Model/atom';
+import React, { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import loginBlackImage from "../DEV/img/login-black-logo.svg";
+import loginWhiteImage from "../DEV/img/login-white-logo.svg";
+import { useNavigate } from "react-router-dom";
+import { userState } from "../../Model/atom";
 // import { useFetchMutation } from '../../global/Hooks/uesFetchSingleAPI';
 
 const SignUpId = () => {
   const [isState, setState] = useState(false); // 메세지 없음
-  const [isValue, setValue] = useState('');
+  const [isValue, setValue] = useState("");
   const [isButton, setButton] = useState(false); // 회색
   const navigate = useNavigate();
   const [isUser, setUser] = useRecoilState(userState);
@@ -16,7 +16,7 @@ const SignUpId = () => {
   const handleInputState = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setValue(value);
-    if (value !== '') {
+    if (value !== "") {
       // setState(!isState);
       setState(false);
       setButton(false);
@@ -41,7 +41,7 @@ const SignUpId = () => {
   };
 
   useEffect(() => {
-    console.log('useEffect test');
+    console.log("useEffect test");
     console.log(isUser);
   }, []);
 
@@ -94,11 +94,11 @@ const SignUpId = () => {
       </div>
       <div className="flex flex-col items-center justify-center w-full">
         <div
-          className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isButton ? '--status-bg-Color-07' : '--status-bg-Color-01'} ${isButton ? '--status-font-Color-01' : '--status-font-Color-08'} py-[clamp(0px,3.3%,25px)] rounded-[30px] cursor-pointer`}
+          className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isButton ? "--status-bg-Color-07" : "--status-bg-Color-01"} ${isButton ? "--status-font-Color-01" : "--status-font-Color-08"} py-[clamp(0px,3.3%,25px)] rounded-[30px] cursor-pointer`}
           onClick={() => {
             if (!isButton) {
-              console.log('navigate');
-              navigate('/SignUpPassWord');
+              console.log("navigate");
+              navigate("/SignUpPassWord");
             } else {
               setState(true);
             }

@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import Dev from './dev.Calculator';
+import React, { useRef, useState } from "react";
+import Dev from "./dev.Calculator";
 const devCalculator = Dev.devCalculator;
 
 export const DevTool = () => {
@@ -19,7 +19,8 @@ export const DevTool = () => {
       const calcResult = devCalculator(Number(targetValue), Number(widthValue)); // 값을 숫자로 변환하여 전달
       setResult(calcResult); // 상태로 업데이트하여 UI 리렌더링
       console.log(
-        `기준 값: ${widthValue} /n 입력 값: ${targetValue}, 계산 결과: ${calcResult}`,
+        // eslint-disable-next-line prettier/prettier
+        `기준 값: ${widthValue} /n 입력 값: ${targetValue}, 계산 결과: ${calcResult}`
       );
     }
   };
@@ -27,30 +28,30 @@ export const DevTool = () => {
   return (
     <div
       style={{
-        position: 'fixed', // 화면 상단에 고정
+        position: "fixed", // 화면 상단에 고정
         top: 10, // 상단에 위치
-        left: '88%', // 가로로 화면 중앙에 위치
+        left: "88%", // 가로로 화면 중앙에 위치
         // transform: 'translateX(-50%)', // 정확하게 중앙 정렬
         zIndex: 9999, // 레이어를 최상단으로 설정
-        backgroundColor: 'white', // 배경색을 흰색으로 설정하여 다른 요소와 분리
-        padding: '10px 20px',
-        borderRadius: '8px',
-        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', // 약간의 그림자 추가
-        opacity: '70%',
+        backgroundColor: "white", // 배경색을 흰색으로 설정하여 다른 요소와 분리
+        padding: "10px 20px",
+        borderRadius: "8px",
+        boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", // 약간의 그림자 추가
+        opacity: "70%",
       }}
     >
       {/* input 값의 배경을 흰색으로 설정 */}
       <input
         type="number"
         ref={widthRef}
-        style={{ backgroundColor: 'white', width: '100px' }}
+        style={{ backgroundColor: "white", width: "100px" }}
         placeholder="std 1920px"
         // value={1920}
       />
       <input
         type="number"
         ref={targetRef}
-        style={{ backgroundColor: 'white', width: '100px' }}
+        style={{ backgroundColor: "white", width: "100px" }}
         placeholder="width px"
       />
       {/* 버튼을 클릭하여 devCalculator 호출 및 결과 출력 */}
@@ -71,24 +72,24 @@ export const ToolButton = () => {
   };
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: "relative" }}>
       {/* 원형 버튼 */}
       <button
         onClick={toggleDevTool}
         style={{
-          position: 'fixed', // 화면 상단에 고정
+          position: "fixed", // 화면 상단에 고정
           top: 17, // 상단에 위치
-          left: isActive ? '84%' : '95%', // 가로로 화면 중앙에 위치
+          left: isActive ? "84%" : "95%", // 가로로 화면 중앙에 위치
           // transform: 'translateX(-50%)', // 정확하게 중앙 정렬
           zIndex: 9999, // 레이어를 최상단으로 설정
-          width: '50px',
-          height: '50px',
-          borderRadius: '50%',
-          backgroundColor: isActive ? 'white' : 'white',
-          color: 'balck',
-          border: 'none',
-          cursor: 'pointer',
-          opacity: isActive ? '60%' : '80%',
+          width: "50px",
+          height: "50px",
+          borderRadius: "50%",
+          backgroundColor: isActive ? "white" : "white",
+          color: "balck",
+          border: "none",
+          cursor: "pointer",
+          opacity: isActive ? "60%" : "80%",
         }}
       >
         Cal

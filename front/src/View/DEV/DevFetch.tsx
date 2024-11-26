@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   useFetchQuery, //get을 위한 Hook
   useFetchMutation, //post를 위한 Hook
-} from '../../global/Hooks/uesFetchSingleAPI';
+} from "../../global/Hooks/uesFetchSingleAPI";
 
 const DevFetch = () => {
   const [postData, setPostData] = useState({
-    username: '',
-    nickname: '',
-    password: '',
+    username: "",
+    nickname: "",
+    password: "",
   });
 
-  const [loadingMessage, setLoadingMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
+  const [loadingMessage, setLoadingMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const [isData, setIsData] = useState(false);
 
   // GET 요청을 위한 훅 사용
@@ -23,7 +23,7 @@ const DevFetch = () => {
     isError: isGetError,
     isSuccess: isGetSuccess,
   } = useFetchQuery({
-    url: '/test/names',
+    url: "/test/names",
   });
 
   // POST 요청을 위한 훅 사용
@@ -32,8 +32,8 @@ const DevFetch = () => {
     isLoading: isPostLoading,
     isError: isPostError,
     isSuccess: isPostSuccess,
-  } = useFetchMutation('POST', {
-    url: '/user/signup',
+  } = useFetchMutation("POST", {
+    url: "/user/signup",
     postData,
   });
 
@@ -51,39 +51,39 @@ const DevFetch = () => {
   // GET 요청 상태 추적
   useEffect(() => {
     if (isGetLoading) {
-      setLoadingMessage('Loading data...');
-      setErrorMessage('');
-      setSuccessMessage('');
+      setLoadingMessage("Loading data...");
+      setErrorMessage("");
+      setSuccessMessage("");
       setIsData(false);
     } else if (isGetError) {
-      setLoadingMessage('');
-      setErrorMessage('Error occurred while fetching data.');
-      setSuccessMessage('');
+      setLoadingMessage("");
+      setErrorMessage("Error occurred while fetching data.");
+      setSuccessMessage("");
       setIsData(false);
     } else if (isGetSuccess && getData) {
-      setLoadingMessage('');
-      setErrorMessage('');
-      setSuccessMessage('Data fetched successfully!');
+      setLoadingMessage("");
+      setErrorMessage("");
+      setSuccessMessage("Data fetched successfully!");
       setIsData(true);
-      console.log('Fetched GET data:', getData);
+      console.log("Fetched GET data:", getData);
     }
   }, [isGetLoading, isGetError, isGetSuccess, getData]);
 
   // POST 요청 상태 추적
   useEffect(() => {
     if (isPostLoading) {
-      setLoadingMessage('Sending data...');
-      setErrorMessage('');
-      setSuccessMessage('');
+      setLoadingMessage("Sending data...");
+      setErrorMessage("");
+      setSuccessMessage("");
     } else if (isPostError) {
-      setLoadingMessage('');
-      setErrorMessage('Error occurred while sending data.');
-      setSuccessMessage('');
+      setLoadingMessage("");
+      setErrorMessage("Error occurred while sending data.");
+      setSuccessMessage("");
     } else if (isPostSuccess) {
-      setLoadingMessage('');
-      setErrorMessage('');
-      setSuccessMessage('POST 요청 성공!');
-      console.log('POST request successful with data:', postData);
+      setLoadingMessage("");
+      setErrorMessage("");
+      setSuccessMessage("POST 요청 성공!");
+      console.log("POST request successful with data:", postData);
     }
   }, [isPostLoading, isPostError, isPostSuccess, postData]);
 

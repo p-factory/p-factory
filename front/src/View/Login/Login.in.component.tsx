@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import Cookies from 'js-cookie';
-import loginBlackImage from '../DEV/img/login-black-logo.svg';
-import { useFetchMutation } from '../../global/Hooks/uesFetchSingleAPI';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import Cookies from "js-cookie";
+import loginBlackImage from "../DEV/img/login-black-logo.svg";
+import { useFetchMutation } from "../../global/Hooks/uesFetchSingleAPI";
+import { useNavigate } from "react-router-dom";
 const LoginIn = () => {
   const navigate = useNavigate();
 
   const [isPostData, setPostData] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   });
   // const [isValue, setValue] = useState('');
 
-  const [isLoadingMessage, setLoadingMessage] = useState('');
-  const [isErrorMessage, setErrorMessage] = useState('');
-  const [isSuccessMessage, setSuccessMessage] = useState('');
+  const [isLoadingMessage, setLoadingMessage] = useState("");
+  const [isErrorMessage, setErrorMessage] = useState("");
+  const [isSuccessMessage, setSuccessMessage] = useState("");
   const [isResponseData, setResponseData] = useState(null); // 응답 데이터를 저장할 상태
 
   const { mutation, isLoading, isError, isSuccess, responseData } =
-    useFetchMutation('POST', {
-      url: '/user/login',
+    useFetchMutation("POST", {
+      url: "/user/login",
       postData: isPostData,
     });
 
@@ -39,33 +39,33 @@ const LoginIn = () => {
   useEffect(() => {
     console.log(isPostData);
     if (isLoading) {
-      setLoadingMessage('Sending data...');
-      setErrorMessage('');
-      setSuccessMessage('');
+      setLoadingMessage("Sending data...");
+      setErrorMessage("");
+      setSuccessMessage("");
       console.log(isLoadingMessage);
     } else if (isError) {
-      setLoadingMessage('');
-      setErrorMessage('Error occurred while sending data.');
-      setSuccessMessage('');
+      setLoadingMessage("");
+      setErrorMessage("Error occurred while sending data.");
+      setSuccessMessage("");
       console.log(isErrorMessage);
     } else if (isSuccess) {
-      setLoadingMessage('');
-      setErrorMessage('');
-      setSuccessMessage('POST 요청 성공!');
+      setLoadingMessage("");
+      setErrorMessage("");
+      setSuccessMessage("POST 요청 성공!");
       setResponseData(responseData); // 응답 데이터를 상태로 설정
-      console.log('Response data:', isResponseData, responseData); // 응답 데이터를 콘솔에 출력
-      console.log('POST request successful with data:', isPostData);
+      console.log("Response data:", isResponseData, responseData); // 응답 데이터를 콘솔에 출력
+      console.log("POST request successful with data:", isPostData);
       console.log(isSuccessMessage);
     }
     if (isSuccess && responseData?.TOKEN) {
       // js-cookie를 사용하여 TOKEN 저장
-      Cookies.set('TOKEN', responseData.TOKEN, {
-        path: '/',
+      Cookies.set("TOKEN", responseData.TOKEN, {
+        path: "/",
         expires: 1, //만료일
         secure: true,
       });
-      console.log('TOKEN saved to cookie:'); //, responseData.TOKEN
-      navigate('/');
+      console.log("TOKEN saved to cookie:"); //, responseData.TOKEN
+      navigate("/");
     }
   }, [isLoading, isError, isSuccess, isPostData]);
 

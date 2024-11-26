@@ -1,8 +1,8 @@
-import React from 'react';
-import spannerIconWhite from '../../../global/Img/spannerIconWhite.svg';
-import trashCanIcon from '../../../global/Img/trashCanIcon.svg';
-import highlighterIcon from '../../../global/Img/highlighterIcon.svg';
-import VocabularyBookList from './VocabularyBookList.component';
+import React from "react";
+import spannerIconWhite from "../../../global/Img/spannerIconWhite.svg";
+import trashCanIcon from "../../../global/Img/trashCanIcon.svg";
+import highlighterIcon from "../../../global/Img/highlighterIcon.svg";
+import VocabularyBookList from "./VocabularyBookList.component";
 
 const VocabularyBook = ({ isUpdateList }: { isUpdateList: boolean }) => {
   return (
