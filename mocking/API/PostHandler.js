@@ -99,4 +99,50 @@ const LoginHandler = (router) => (req, res) => {
     .json({ message: 'Login successful', user: userWithoutPassword, TOKEN });
 };
 
-export { SignUpHandler, LoginHandler };
+const addWordHandler = (router) => (req, res) => {
+  const words = router.db.get('words');
+  const word = req.body;
+
+  // 유효성 검사: 단어 필수 입력
+  if (!word) {
+    return res
+      .status(400)
+      .json({ error: 'Word is required' });
+  }
+
+  // 단어 중복 검사: 해당 단어가 이미 존재하는지 확인
+   const existingWord = words
+   .find({ word: word.word })
+   .value();
+
+   if (existingWord) {
+    return res
+      .status(400)
+      .json({ error: 'Word is already in use' });
+  }
+
+  try {
+    // Word ID 자동 생성 (0부터 시작)
+    const lastWord = words.sortBy('wordId').last().value();
+    const newId = lastWord ? lastWord.wordId + 1 : 0;
+
+    // 새로운 word에 ID 추가
+    const newWord = { wordId: newId, ...word };
+    words.push(newWord).write();
+
+    // db.json 파일에 저장
+    const dbFilePath = path.join(__dirname, '..', 'db', 'db.words.json');
+    const currentData = router.db.getState(); // 현재 데이터 상태를 가져옵니다.
+    saveMergedDataToFile(currentData, dbFilePath); // 현재 데이터를 db.words.json에 저장합니다.
+
+    res
+      .status(200)
+      .json({ message: 'Successful Save Word', newWord });
+  } catch (error) {
+    console.error('Error adding word:', error);
+    res.status(500).json({ error: 'An error occurred while adding the word.' });
+  }
+
+};
+
+export { SignUpHandler, LoginHandler, addWordHandler };
