@@ -5,8 +5,11 @@ import ManualComponentBottom from './component/Manual.componentBottom';
 import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
 import toryTop from '../../global/Img/toryTop.svg';
 import toryLeft from '../../global/Img/toryLeft.svg';
+import { useNavigate } from 'react-router-dom';
 
 const ManualPage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="mt-[200px] mb-[200px]">
       {/* 제목 부분 */}
@@ -59,7 +62,12 @@ const ManualPage = () => {
       {/* 버튼 부분 */}
       <div className="flex flex-col items-center w-full">
         <div className="w-[clamp(0px,35.52%,682px)] h-[102px]">
-          <div className="--bold btn-secondary --Pretendard pt-[clamp(0px,3.33%,36px)] pb-[clamp(0px,3.61%,39px)] pl-[clamp(0px,10.83%,208px)] pr-[clamp(0px,13.59%,261px)]">
+          <div
+            className="--bold btn-secondary --Pretendard pt-[clamp(0px,3.33%,36px)] pb-[clamp(0px,3.61%,39px)] pl-[clamp(0px,10.83%,208px)] pr-[clamp(0px,13.59%,261px)] cursor-pointer"
+            onClick={() => {
+              navigate('/MyFactory');
+            }}
+          >
             <div className="flex items-center">
               <div className="--font-l whitespace-nowrap">
                 단어 공장 작업 시작하기
