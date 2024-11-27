@@ -40,14 +40,21 @@ export const useFetchMutation = (
 } => {
   const api = fetchInstance();
 
-  const fetchMutation = async () => {
+  const fetchMutation = async (params?: { url?: string; postData?: any }) => {
+    const finalUrl = params?.url || url;
+    const finalData = params?.postData || postData;
+
+    if (!finalUrl) throw new Error("URL is required for the API request.");
+    if (!method)
+      throw new Error("HTTP method is required for the API request.");
+
     switch (method) {
       case "POST":
-        return (await api.post(url, postData)).data;
+        return (await api.post(finalUrl, finalData)).data;
       case "PUT":
-        return (await api.put(url, postData)).data;
+        return (await api.put(finalUrl, finalData)).data;
       case "DELETE":
-        return (await api.delete(url, { data: postData })).data;
+        return (await api.delete(finalUrl, { data: finalData })).data;
       default:
         throw new Error(`Unsupported request method: ${method}`);
     }
