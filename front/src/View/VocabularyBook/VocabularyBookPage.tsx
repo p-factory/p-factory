@@ -28,7 +28,7 @@ const VocabularyBookPage = () => {
 
   const { mutation, isLoading, isError, isSuccess, responseData } =
     useFetchMutation("POST", {
-      url: "/vocabularyBook/words",
+      url: "/words",
       postData: isPostData,
     });
 
@@ -213,7 +213,9 @@ const VocabularyBookPage = () => {
             <div
               onClick={() => {
                 handleSubmit();
+                //왜 다시 가는가? get을 다시 하기 위해서?
                 navigate("/VocabularyBook");
+                closeModal();
               }}
               className="flex w-[50%] h-[65.9px] pt-[10px] justify-center outline-none cursor-pointer"
             >

@@ -111,11 +111,11 @@ const addWordHandler = (router) => (req, res) => {
   }
 
   // 단어 중복 검사: 해당 단어가 이미 존재하는지 확인
-   const existingWord = words
-   .find({ word: word.word })
-   .value();
+  const existingWord = words
+    .find({ word: word.word })
+    .value();
 
-   if (existingWord) {
+  if (existingWord) {
     return res
       .status(400)
       .json({ error: 'Word is already in use' });
@@ -123,11 +123,11 @@ const addWordHandler = (router) => (req, res) => {
 
   try {
     // Word ID 자동 생성 (0부터 시작)
-    const lastWord = words.sortBy('wordId').last().value();
-    const newId = lastWord ? lastWord.wordId + 1 : 0;
+    const lastWord = words.sortBy('id').last().value();
+    const newId = lastWord ? lastWord.id + 1 : 0;
 
     // 새로운 word에 ID 추가
-    const newWord = { wordId: newId, ...word };
+    const newWord = { id: newId, ...word };
     words.push(newWord).write();
 
     // db.json 파일에 저장
@@ -145,4 +145,29 @@ const addWordHandler = (router) => (req, res) => {
 
 };
 
-export { SignUpHandler, LoginHandler, addWordHandler };
+const deleteWordHandler = (router) => async (req, res) => {
+  const { id } = req.params; // URL에서 id 가져오기
+  if (!id) {
+    return res.status(400).json({ error: 'ID is required' });
+  }
+
+  // JSON Server 라우터에서 삭제 처리
+  try {
+    const db = router.db; // JSON Server의 데이터베이스 접근
+    const collection = db.get('words');
+    const wordToDelete = collection.find({ id: Number(id) }).value();
+
+    if (!wordToDelete) {
+      return res.status(404).json({ error: 'Word not found' });
+    }
+
+    collection.remove({ id: Number(id) }).write();
+    return res.status(200).json({ message: `Word with ID ${id} deleted successfully` });
+  } catch (error) {
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+
+
+export { SignUpHandler, LoginHandler, addWordHandler, deleteWordHandler };

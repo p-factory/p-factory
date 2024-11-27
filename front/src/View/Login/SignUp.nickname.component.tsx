@@ -26,7 +26,7 @@ const SignUpNickName = () => {
   // const [isData, setIsData] = useState(false);
 
   const { mutation, isLoading, isError, isSuccess } = useFetchMutation("POST", {
-    url: "/user/signup",
+    url: "/api/user/signup",
     postData: isUser,
   });
 

@@ -19,7 +19,7 @@ const LoginIn = () => {
 
   const { mutation, isLoading, isError, isSuccess, responseData } =
     useFetchMutation("POST", {
-      url: "/user/login",
+      url: "/api/user/login",
       postData: isPostData,
     });
 

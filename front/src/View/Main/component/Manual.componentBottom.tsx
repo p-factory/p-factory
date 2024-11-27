@@ -1,6 +1,6 @@
-import React from 'react';
-import sparkleIcon from '../../../global/Img/sparkleIcon.svg';
-import circleIcon from '../../../global/Img/circleIcon.svg';
+import React from "react";
+import sparkleIcon from "../../../global/Img/sparkleIcon.svg";
+import circleIcon from "../../../global/Img/circleIcon.svg";
 
 const Manual = () => {
   return (

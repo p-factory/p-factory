@@ -9,7 +9,7 @@
     "coach": "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser",
     "dev": "nodemon json.mocking.server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "mocking": "json-server --watch test/db/temp/db.multi.json --port 3001"
+    "mocking": "json-server --watch test/db/temp/db.words.json --port 3001"
   },
   "keywords": [],
   "author": "",

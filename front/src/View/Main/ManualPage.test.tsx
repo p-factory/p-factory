@@ -1,7 +1,7 @@
-import React from 'react';
-import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
-import sparkleIcon from '../../global/Img/sparkleIcon.svg';
-import closeIcon from '../../global/Img/closeIcon.svg';
+import React from "react";
+import spannerIconWhite from "../../global/Img/spannerIconWhite.svg";
+import sparkleIcon from "../../global/Img/sparkleIcon.svg";
+import closeIcon from "../../global/Img/closeIcon.svg";
 
 const ManualPageTest = () => {
   return (

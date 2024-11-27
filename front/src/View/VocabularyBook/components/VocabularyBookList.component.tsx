@@ -1,14 +1,30 @@
 import React, { useEffect, useState } from "react";
 import VocabularyBookWord from "./VocabularyBookWord.component";
-import { useFetchQuery } from "../../../global/Hooks/uesFetchSingleAPI";
+import {
+  useFetchQuery,
+  // useFetchMutation,
+} from "../../../global/Hooks/uesFetchSingleAPI";
 
 interface Word {
-  wordId: number;
+  id: number;
   word: string;
 }
 
+interface VocabularyBookListProps {
+  isUpdateList: boolean; // 단어장 리스트 갱신 여부
+  isDeleteMode: boolean; // 삭제 모드 활성화 여부
+  isSelectedWords: number[]; // 선택된 단어 ID 배열
+  handleSelectWord: (id: number) => void; // 단어 선택/해제 핸들러
+}
+
 // 전체 단어장 리스트
-const VocabularyBookList = ({ isUpdateList }: { isUpdateList: boolean }) => {
+// props의 타입을 인터페이스로 빼지 않은 이유는?
+const VocabularyBookList = ({
+  isUpdateList,
+  isDeleteMode,
+  isSelectedWords,
+  handleSelectWord,
+}: VocabularyBookListProps) => {
   // 서버에서 단어 리스트 가져오기
   const {
     data: words,
@@ -16,9 +32,20 @@ const VocabularyBookList = ({ isUpdateList }: { isUpdateList: boolean }) => {
     isLoading,
     isError,
     refetch,
-  } = useFetchQuery({ url: "/vocabularyBook/words" });
+  } = useFetchQuery({ url: "/words" });
 
-  //Fetch 상태를 가지고 오지 않은 이유는?
+  // // 삭제 버튼 클릭 핸들러
+  // const handleDeleteSelected = () => {
+  //   if (isSelectedWords.length > 0) {
+  //     deleteMutation.mutate(isSelectedWords); // DELETE 요청 실행
+  //   } else {
+  //     alert("선택된 단어가 없습니다.");
+  //   }
+  // };
+
+  const isWordDeleted = (id: number): boolean => {
+    return isSelectedWords.includes(id); // 항상 boolean 반환
+  };
 
   const [isLoadingMessage, setLoadingMessage] = useState("");
   const [isErrorMessage, setErrorMessage] = useState("");
@@ -26,27 +53,53 @@ const VocabularyBookList = ({ isUpdateList }: { isUpdateList: boolean }) => {
   const [isResponseData, setResponseData] = useState(null); // 응답 데이터를 저장할 상태
 
   useEffect(() => {
-    // console.log(isPostData);
+    // 데이터 요청 상태 점검
     if (isLoading) {
-      setLoadingMessage("Sending data...");
+      setLoadingMessage("Fetching data...");
       setErrorMessage("");
       setSuccessMessage("");
       console.log(isLoadingMessage);
     } else if (isError) {
       setLoadingMessage("");
-      setErrorMessage("Error occurred while sending data.");
+      setErrorMessage("Error occurred while fetching data.");
       setSuccessMessage("");
       console.log(isErrorMessage);
     } else if (isSuccess) {
       setLoadingMessage("");
       setErrorMessage("");
-      setSuccessMessage("POST 요청 성공!");
+      setSuccessMessage("Data fetched successfully!");
       setResponseData(words); // 응답 데이터를 상태로 설정
       console.log("Response data:", isResponseData, words); // 응답 데이터를 콘솔에 출력
-      // console.log("POST request successful with data:", isPostData);
       console.log(isSuccessMessage);
     }
-  }, [isLoading, isError, isSuccess]);
+
+    // // 삭제 요청 상태 점검
+    // if (isDeleting) {
+    //   setLoadingMessage("Deleting selected words...");
+    //   setErrorMessage("");
+    //   setSuccessMessage("");
+    //   console.log("Deleting...");
+    // } else if (isDeleteError) {
+    //   setLoadingMessage("");
+    //   setErrorMessage("Error occurred while deleting words.");
+    //   setSuccessMessage("");
+    //   console.log("Delete error:", isDeleteError);
+    // } else if (isDeleteSuccess) {
+    //   setLoadingMessage("");
+    //   setErrorMessage("");
+    //   setSuccessMessage("Selected words deleted successfully!");
+    //   console.log("Delete success:", isDeleteSuccess);
+    // }
+  }, [
+    isLoading,
+    isError,
+    isSuccess,
+    // isDeleting,
+    // isDeleteError,
+    // isDeleteSuccess,
+    words,
+    isLoadingMessage,
+  ]);
 
   useEffect(() => {
     if (isUpdateList) {
@@ -68,11 +121,14 @@ const VocabularyBookList = ({ isUpdateList }: { isUpdateList: boolean }) => {
         <div className="flex flex-col w-full gap-[38px]">
           {leftWords?.map((word: Word, index: number) => (
             <VocabularyBookWord
-              key={`left-${index}`}
+              // key={`left-${index}`}
+              key={`${index}`}
               word={word.word}
               wordLine={1}
               wordHighlight={false}
-              wordDelete={false}
+              isDeleteMode={isDeleteMode}
+              wordDelete={isDeleteMode && isWordDeleted(word.id)}
+              onToggleSelect={() => handleSelectWord(word.id)} // 선택/해제 핸들러
             />
           ))}
         </div>
@@ -80,11 +136,14 @@ const VocabularyBookList = ({ isUpdateList }: { isUpdateList: boolean }) => {
         <div className="flex flex-col w-full gap-[38px]">
           {rightWords.map((word: Word, index: number) => (
             <VocabularyBookWord
-              key={`right-${index}`}
+              // key={`right-${index}`}
+              key={`${index}`}
               word={word.word}
               wordLine={1}
               wordHighlight={false}
-              wordDelete={false}
+              isDeleteMode={isDeleteMode}
+              wordDelete={isDeleteMode && isWordDeleted(word.id)}
+              onToggleSelect={() => handleSelectWord(word.id)} // 선택/해제 핸들러
             />
           ))}
         </div>
