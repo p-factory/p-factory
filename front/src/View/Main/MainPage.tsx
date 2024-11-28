@@ -2,16 +2,16 @@ import React from "react";
 import spannerIconBlack from "../../global/Img/spannerIconBlack.svg";
 import spannerIconWhite from "../../global/Img/spannerIconWhite.svg";
 import { useNavigate } from "react-router-dom";
-import DevTool from "../../DEV/Dev";
+// import DevTool from "../../DEV/Dev";
 
-const DEV = DevTool.ToolButton;
+// const DEV = DevTool.ToolButton;
 
 const MainPage = () => {
   const navigate = useNavigate();
 
   return (
     <div className="flex flex-col w-full h-screen">
-      <DEV />
+      {/* <DEV /> */}
       <div className="flex flex-col bg-white pt-[clamp(0px,29vh,316px)] pl-[clamp(0px,15.05%,289px)] pb-[clamp(0px,30vh,334px)]">
         <div className="flex items-center --bold text-[83px] --JejuDoldam pb-[clamp(0px,2.5%,27px)] pl-[clamp(0px,0.83%,16px)]">
           ㅍ토리
