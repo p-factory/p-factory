@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import { modalState } from "../../../Model/atom";
 import spannerIconWhite from "../../../global/Img/spannerIconWhite.svg";
 import trashCanIcon from "../../../global/Img/trashCanIcon.svg";
 import trashCanIconWhite from "../../../global/Img/trashCanIconWhite.svg";
@@ -12,9 +14,12 @@ import circleSingleIcon from "../../../global/Img/circleSingleIcon.svg";
 // import { useNavigate } from "react-router-dom";
 const VocabularyBook = ({ isUpdateList }: { isUpdateList: boolean }) => {
   // const navigate = useNavigate();
+  const [, setModalOpen] = useRecoilState(modalState);
   const [isDeleteMode, setDeleteMode] = useState(false); // 삭제 모드 상태
   const [isHighLightMode, setHighLightMode] = useState(false);
   const [isSelectedWords, setSelectedWords] = useState<number[]>([]); // 선택된 단어 ID 관리
+  const [isHiddenWordState, setHiddenWordState] = useState(false);
+  const [isHiddenMeaningState, setHiddenMeaningState] = useState(false);
   // Modal
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);
@@ -162,7 +167,7 @@ const VocabularyBook = ({ isUpdateList }: { isUpdateList: boolean }) => {
             <div className="flex gap-[25px]">
               {/* 삭제 버튼 */}
               <div
-                className={`--primary-flex ${isDeleteMode ? "bg-black" : "bg-white"} w-[57px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)]`}
+                className={`--primary-flex ${isDeleteMode ? "bg-black" : "bg-white"} w-[57px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)] cursor-pointer`}
                 onClick={() => {
                   if (!isDeleteMode) {
                     setDeleteMode(true); // 삭제 모드 활성화
@@ -194,7 +199,7 @@ const VocabularyBook = ({ isUpdateList }: { isUpdateList: boolean }) => {
               </div>
               {/* 하이라이트 버튼 */}
               <div
-                className={`--primary-flex ${isHighLightMode ? "--status-bg-Color-01" : "--primary-bg-Color"} w-[57px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)]`}
+                className={`--primary-flex ${isHighLightMode ? "--status-bg-Color-01" : "--primary-bg-Color"} w-[57px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)] cursor-pointer`}
                 onClick={() => {
                   setDeleteMode(false);
                   setHighLightMode(!isHighLightMode);
@@ -212,7 +217,12 @@ const VocabularyBook = ({ isUpdateList }: { isUpdateList: boolean }) => {
                 />
               </div>
               {/* 생성 버튼 */}
-              <div className="--primary-flex bg-black w-[58px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)]">
+              <div
+                className="--primary-flex bg-black w-[58px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)] cursor-pointer"
+                onClick={() => {
+                  setModalOpen(true);
+                }}
+              >
                 <img
                   src={spannerIconWhite}
                   alt="Spanner Icon"
@@ -305,6 +315,8 @@ const VocabularyBook = ({ isUpdateList }: { isUpdateList: boolean }) => {
             isUpdateList={isUpdateList}
             isDeleteMode={isDeleteMode}
             isHighLightMode={isHighLightMode}
+            isHiddenWordState={isHiddenWordState}
+            isHiddenMeaningState={isHiddenMeaningState}
             selectedWordsForDelete={isDeleteMode ? isSelectedWords : []}
             selectedWordsForHighlight={isHighLightMode ? isSelectedWords : []} //
             handleSelectWordForDelete={(id) => handleSelectWord(id, "delete")}
@@ -314,10 +326,20 @@ const VocabularyBook = ({ isUpdateList }: { isUpdateList: boolean }) => {
           />
           {/* 단어장 footer */}
           <div className="flex justify-center w-[clamp(0px,60.8%,971px)] h-[82px] gap-[95px] --Pretendard --semi-bold --font-l mt-[66px]">
-            <div className="flex items-center justify-center w-full relative bg-white border-[0.9px] border-black border-solid rounded-[18px] shadow-[0_3.58px_3.58px_0_rgba(0,0,0,0.25)]">
+            <div
+              className="flex items-center justify-center w-full relative bg-white border-[0.9px] border-black border-solid rounded-[18px] shadow-[0_3.58px_3.58px_0_rgba(0,0,0,0.25)] cursor-pointer"
+              onClick={() => {
+                setHiddenWordState(!isHiddenWordState);
+              }}
+            >
               <div className="flex">전체 단어 숨김</div>
             </div>
-            <div className="flex items-center justify-center w-full relative bg-white border-[0.9px] border-black border-solid rounded-[18px] shadow-[0_3.58px_3.58px_0_rgba(0,0,0,0.25)]">
+            <div
+              className="flex items-center justify-center w-full relative bg-white border-[0.9px] border-black border-solid rounded-[18px] shadow-[0_3.58px_3.58px_0_rgba(0,0,0,0.25)] cursor-pointer"
+              onClick={() => {
+                setHiddenMeaningState(!isHiddenMeaningState);
+              }}
+            >
               <div className="flex">전체 뜻 숨김</div>
             </div>
           </div>

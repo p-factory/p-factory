@@ -16,7 +16,9 @@ interface VocabularyBookWordProps {
   meaning: string;
   wordLine?: number;
   isHighlightMode?: boolean;
-  wordHidden?: boolean;
+  isHiddenWordState: boolean;
+  isHiddenMeaningState: boolean;
+  // wordHidden?: boolean;
   wordHighlight?: boolean;
   isDeleteMode?: boolean;
   wordDelete?: boolean;
@@ -29,6 +31,8 @@ const VocabularyBookWord = ({
   meaning: initialMeaning,
   wordLine,
   isHighlightMode = false,
+  isHiddenWordState,
+  isHiddenMeaningState,
   // wordHidden,
   isDeleteMode,
   wordDelete,
@@ -167,7 +171,7 @@ const VocabularyBookWord = ({
             // onInput={(e) => setWord((e.target as HTMLElement).innerText)} // word 상태 업데이트
             onBlur={handleUnEditable} // 포커스를 잃으면 수정 완료
           >
-            {word ? word : "단어를 적어주세요."}
+            {isHiddenWordState ? "" : word ? word : "word?"}
           </div>
         </div>
       </div>
@@ -190,7 +194,7 @@ const VocabularyBookWord = ({
           // onInput={() => handleInput(meaningRef, setMeaning)} // meaning 상태 업데이트
           onBlur={handleUnEditable} // 포커스를 잃으면 수정 완료
         >
-          {meaning ? meaning : "meaning?"}
+          {isHiddenMeaningState ? "" : meaning ? meaning : "meaning?"}
         </div>
         <img
           src={`${wordDelete ? pencilIconGrey : pencilIcon}`}

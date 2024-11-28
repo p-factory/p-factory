@@ -8,3 +8,9 @@ export const userState = atom({
     password: "",
   },
 });
+
+//모달 활성화
+export const modalState = atom({
+  key: "modalState",
+  default: false,
+});

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { modalState } from "../../Model/atom";
 import spannerIconWhite from "../../global/Img/spannerIconWhite.svg";
 import spannerIconBlack from "../../global/Img/spannerIconBlack.svg";
 import circleSingleIcon from "../../global/Img/circleSingleIcon.svg";
@@ -16,7 +18,7 @@ const VocabularyBookPage = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isUpdateList, setUpdateList] = useState(false); // 리스트 업데이트 상태
-
+  const [isModalOpen, setModalOpen] = useRecoilState(modalState);
   const [isPostData, setPostData] = useState({
     word: "",
     meaning: "",
@@ -146,8 +148,11 @@ const VocabularyBookPage = () => {
         </div>
       </div>
       <Modal
-        isOpen={isOpen}
-        onRequestClose={closeModal}
+        isOpen={isOpen || isModalOpen}
+        onRequestClose={() => {
+          closeModal();
+          setModalOpen(false);
+        }}
         contentLabel="Modal"
         // 스크롤 활성화 이벤트
         onAfterOpen={() => {
@@ -220,7 +225,10 @@ const VocabularyBookPage = () => {
           </div>
           <div className="flex w-[100%] justify-between border-t border-black">
             <div
-              onClick={closeModal}
+              onClick={() => {
+                closeModal();
+                setModalOpen(false);
+              }}
               className="flex w-[50%] h-[65.9px] pt-[10px] border-r border-black justify-center outline-none cursor-pointer"
             >
               취소
@@ -231,6 +239,7 @@ const VocabularyBookPage = () => {
                 //왜 다시 가는가? get을 다시 하기 위해서?
                 navigate("/VocabularyBook");
                 closeModal();
+                setModalOpen(false);
               }}
               className="flex w-[50%] h-[65.9px] pt-[10px] justify-center outline-none cursor-pointer"
             >
