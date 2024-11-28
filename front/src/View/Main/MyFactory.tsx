@@ -43,7 +43,8 @@ const MyFactory = () => {
           component={MyFactoryComponent}
           containerWidth="w-[clamp(0px,59.74%,1142px)]"
           width="w-[clamp(0px, 86.66%, 994px)]"
-          height="h-[1069px]"
+          // height="h-[1069px]"
+          height="h-[800px]"
           shadow={false}
         />
         {/* 인덱스 부분 */}
