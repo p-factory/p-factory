@@ -22,8 +22,7 @@ const MyFactory = () => {
                 navigate("/VocabularyBook");
               }}
             >
-              하루 10분 투자 / <br />
-              불어
+              하루 10분 투자
             </div>
             <div
               className="flex w-full items-center pl-[46px] rounded-[36px] border shadow-[0_0_16px_rgba(0,0,0,0.25)] leading-[175%] cursor-pointer hover:--primary-bg-Color hover:shadow-[0_0_24px_rgba(99,160,0,0.8)]"
@@ -31,7 +30,7 @@ const MyFactory = () => {
                 navigate("/VocabularyBook");
               }}
             >
-              아 뭐라적지
+              생활 영어
             </div>
           </div>
         </div>
