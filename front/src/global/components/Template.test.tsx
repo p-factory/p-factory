@@ -1,7 +1,7 @@
 import React, { ComponentType } from "react";
 import Z from "zod";
-import Dev from "../../DEV/Dev";
-const DEV = Dev.ToolButton;
+// import Dev from "../../DEV/Dev";
+// const DEV = Dev.ToolButton;
 
 // Zod 스키마 정의
 const ComponentSchema = Z.object({
@@ -51,7 +51,7 @@ const Template = ({
 
   return (
     <div className={`flex items-center justify-center ${hScreen}`}>
-      <DEV />
+      {/* <DEV /> */}
       <div className={`relative flex ${containerWidth} h-[calc(100% + 20px)]`}>
         {/* 컨탠츠 영역 */}
         <div className="flex flex-col justify-end w-full">
