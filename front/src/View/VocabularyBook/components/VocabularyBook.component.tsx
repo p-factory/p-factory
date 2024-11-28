@@ -12,6 +12,7 @@ import circleSingleIcon from "../../../global/Img/circleSingleIcon.svg";
 const VocabularyBook = ({ isUpdateList }: { isUpdateList: boolean }) => {
   // const navigate = useNavigate();
   const [isDeleteMode, setDeleteMode] = useState(false); // 삭제 모드 상태
+  const [isHighLightMode, setHighLightMode] = useState(false);
   const [isSelectedWords, setSelectedWords] = useState<number[]>([]); // 선택된 단어 ID 관리
   // Modal
   const [isOpen, setIsOpen] = useState(false);
@@ -165,7 +166,13 @@ const VocabularyBook = ({ isUpdateList }: { isUpdateList: boolean }) => {
                 />
               </div>
               {/* 하이라이트 버튼 */}
-              <div className="--primary-flex --primary-bg-Color w-[57px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)]">
+              <div
+                className="--primary-flex --primary-bg-Color w-[57px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)]"
+                onClick={() => {
+                  setDeleteMode(false);
+                  setHighLightMode(!isHighLightMode);
+                }}
+              >
                 <img
                   src={highlighterIcon}
                   alt="Highlighter Icon"
@@ -266,6 +273,7 @@ const VocabularyBook = ({ isUpdateList }: { isUpdateList: boolean }) => {
             isUpdateList={isUpdateList}
             isSelectedWords={isSelectedWords}
             isDeleteMode={isDeleteMode}
+            isHighLightMode={isHighLightMode}
             handleSelectWord={handleSelectWord}
           />
           {/* 단어장 footer */}

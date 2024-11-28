@@ -27,7 +27,7 @@ const VocabularyBookWord = ({
   word: initialWord,
   meaning: initialMeaning,
   wordLine,
-  wordHighlight,
+  wordHighlight: initialHighlight = false,
   // wordHidden,
   isDeleteMode,
   wordDelete,
@@ -37,6 +37,7 @@ const VocabularyBookWord = ({
   const [meaning] = useState(initialMeaning); // 상태 변수 'meaning' 초기화
   const [isEditable, setIsEditable] = useState(false); // 상태로 editable 여부 관리
   const [isCheckAble, setIsCheckAble] = useState(false); // checkbox 상태 관리
+  const [isHighLight, setIsHighLight] = useState(initialHighlight); // Highlight 상태 관리
   const containerRef = useRef<HTMLDivElement>(null); // div 영역을 참조
   const wordRef = useRef<HTMLDivElement>(null);
   const meaningRef = useRef<HTMLDivElement>(null);
@@ -52,6 +53,11 @@ const VocabularyBookWord = ({
   const toggleCheck = () => {
     setIsCheckAble((prev) => !prev); // checkbox 클릭 시 상태 토글
     setIsEditable(false); // checkbox 클릭 시 editable 비활성화
+  };
+
+  // Highlight 토글 핸들러
+  const toggleHighlight = () => {
+    setIsHighLight((prev) => !prev); // Highlight 상태 변경
   };
 
   // 정규 문자 방식으로 완벽하게 공백을 제거하는 코드 trim으로는 인지하지 못하는 여백 제거
@@ -93,6 +99,8 @@ const VocabularyBookWord = ({
     handlePutData();
   };
 
+  // useEffect로 put 데이터 요청 상태 점검
+
   //외부클릭 방지
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -124,7 +132,10 @@ const VocabularyBookWord = ({
               ? "text-[#e8e8e8] border-[#e8e8e8]"
               : "border-[#959595]"
       }`}
-      onClick={onToggleSelect} // 클릭 시 부모 상태 업데이트
+      onClick={() => {
+        onToggleSelect();
+        toggleHighlight();
+      }} // 클릭 시 부모 상태 업데이트
     >
       <div
         // pl-[clamp(0px,28.97%,84px)] pt-[23px]
@@ -147,7 +158,7 @@ const VocabularyBookWord = ({
             ref={wordRef}
             contentEditable={isEditable} // 상태에 따라 contentEditable 속성 변경
             suppressContentEditableWarning
-            className={`flex items-center justify-center align-middle ${wordHighlight ? "--primary-bg-Color" : ""} ${isCheckAble ? "line-through" : ""}`}
+            className={`flex items-center justify-center align-middle ${isHighLight ? "--primary-bg-Color" : ""} ${isCheckAble ? "line-through" : ""}`}
             // onInput={(e) => setWord((e.target as HTMLElement).innerText)} // word 상태 업데이트
             onBlur={handleUnEditable} // 포커스를 잃으면 수정 완료
           >

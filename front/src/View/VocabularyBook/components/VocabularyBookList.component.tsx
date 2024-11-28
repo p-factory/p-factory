@@ -14,6 +14,7 @@ interface Word {
 interface VocabularyBookListProps {
   isUpdateList: boolean; // 단어장 리스트 갱신 여부
   isDeleteMode: boolean; // 삭제 모드 활성화 여부
+  isHighLightMode: boolean; // 하이라이트 모드 활성화 여부
   isSelectedWords: number[]; // 선택된 단어 ID 배열
   handleSelectWord: (id: number) => void; // 단어 선택/해제 핸들러
 }
@@ -23,6 +24,7 @@ interface VocabularyBookListProps {
 const VocabularyBookList = ({
   isUpdateList,
   isDeleteMode,
+  isHighLightMode,
   isSelectedWords,
   handleSelectWord,
 }: VocabularyBookListProps) => {
@@ -101,7 +103,7 @@ const VocabularyBookList = ({
               word={word.word}
               meaning={word.meaning}
               wordLine={1}
-              wordHighlight={false}
+              wordHighlight={isHighLightMode}
               isDeleteMode={isDeleteMode}
               wordDelete={isDeleteMode && isWordDeleted(word.id)}
               onToggleSelect={() => handleSelectWord(word.id)} // 선택/해제 핸들러
@@ -118,7 +120,7 @@ const VocabularyBookList = ({
               word={word.word}
               meaning={word.meaning}
               wordLine={1}
-              wordHighlight={false}
+              wordHighlight={isHighLightMode}
               isDeleteMode={isDeleteMode}
               wordDelete={isDeleteMode && isWordDeleted(word.id)}
               onToggleSelect={() => handleSelectWord(word.id)} // 선택/해제 핸들러
