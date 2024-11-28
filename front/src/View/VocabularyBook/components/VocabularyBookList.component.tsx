@@ -15,8 +15,12 @@ interface VocabularyBookListProps {
   isUpdateList: boolean; // 단어장 리스트 갱신 여부
   isDeleteMode: boolean; // 삭제 모드 활성화 여부
   isHighLightMode: boolean; // 하이라이트 모드 활성화 여부
-  isSelectedWords: number[]; // 선택된 단어 ID 배열
-  handleSelectWord: (id: number) => void; // 단어 선택/해제 핸들러
+  // isSelectedWords: number[]; // 선택된 단어 ID 배열
+  // handleSelectWord: (id: number) => void; // 단어 선택/해제 핸들러
+  selectedWordsForDelete: number[]; // 삭제 모드에서 선택된 단어 ID 배열
+  selectedWordsForHighlight: number[]; // 하이라이트 모드에서 선택된 단어 ID 배열
+  handleSelectWordForDelete: (id: number) => void; // 삭제 모드 단어 선택/해제 핸들러
+  handleSelectWordForHighlight: (id: number) => void; // 하이라이트 모드 단어 선택/해제 핸들러
 }
 
 // 전체 단어장 리스트
@@ -25,8 +29,12 @@ const VocabularyBookList = ({
   isUpdateList,
   isDeleteMode,
   isHighLightMode,
-  isSelectedWords,
-  handleSelectWord,
+  // isSelectedWords,
+  // handleSelectWord,
+  selectedWordsForDelete,
+  selectedWordsForHighlight,
+  handleSelectWordForDelete,
+  handleSelectWordForHighlight,
 }: VocabularyBookListProps) => {
   // 서버에서 단어 리스트 가져오기
   const {
@@ -37,9 +45,11 @@ const VocabularyBookList = ({
     refetch,
   } = useFetchQuery({ url: "/words" });
 
-  const isWordDeleted = (id: number): boolean => {
-    return isSelectedWords.includes(id); // 항상 boolean 반환
-  };
+  // const [isSelectedHighlight, setSelectedHighlight] = useState<number[]>([]); // 하이라이트 모드 선택
+
+  // const isWordDeleted = (id: number): boolean => {
+  //   return isSelectedWords.includes(id); // 항상 boolean 반환
+  // };
 
   const [isLoadingMessage, setLoadingMessage] = useState("");
   const [isErrorMessage, setErrorMessage] = useState("");
@@ -103,10 +113,22 @@ const VocabularyBookList = ({
               word={word.word}
               meaning={word.meaning}
               wordLine={1}
-              wordHighlight={isHighLightMode}
+              isHighlightMode={isHighLightMode}
               isDeleteMode={isDeleteMode}
-              wordDelete={isDeleteMode && isWordDeleted(word.id)}
-              onToggleSelect={() => handleSelectWord(word.id)} // 선택/해제 핸들러
+              wordHighlight={
+                isHighLightMode && selectedWordsForHighlight.includes(word.id)
+              } // 하이라이트 상태
+              // wordDelete={isDeleteMode && isWordDeleted(word.id)}
+              wordDelete={
+                isDeleteMode && selectedWordsForDelete.includes(word.id)
+              } // 삭제 상태
+              onToggleSelect={() =>
+                isDeleteMode
+                  ? handleSelectWordForDelete(word.id) // 삭제 모드 선택
+                  : isHighLightMode
+                    ? handleSelectWordForHighlight(word.id) // 하이라이트 모드 선택
+                    : null
+              } // 선택/해제 핸들러
             />
           ))}
         </div>
@@ -120,10 +142,22 @@ const VocabularyBookList = ({
               word={word.word}
               meaning={word.meaning}
               wordLine={1}
-              wordHighlight={isHighLightMode}
+              isHighlightMode={isHighLightMode}
               isDeleteMode={isDeleteMode}
-              wordDelete={isDeleteMode && isWordDeleted(word.id)}
-              onToggleSelect={() => handleSelectWord(word.id)} // 선택/해제 핸들러
+              wordHighlight={
+                isHighLightMode && selectedWordsForHighlight.includes(word.id)
+              } // 하이라이트 상태
+              // wordDelete={isDeleteMode && isWordDeleted(word.id)}
+              wordDelete={
+                isDeleteMode && selectedWordsForDelete.includes(word.id)
+              } // 삭제 상태
+              onToggleSelect={() =>
+                isDeleteMode
+                  ? handleSelectWordForDelete(word.id) // 삭제 모드 선택
+                  : isHighLightMode
+                    ? handleSelectWordForHighlight(word.id) // 하이라이트 모드 선택
+                    : null
+              } // 선택/해제 핸들러
             />
           ))}
         </div>

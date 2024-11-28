@@ -3,6 +3,7 @@ import spannerIconWhite from "../../../global/Img/spannerIconWhite.svg";
 import trashCanIcon from "../../../global/Img/trashCanIcon.svg";
 import trashCanIconWhite from "../../../global/Img/trashCanIconWhite.svg";
 import highlighterIcon from "../../../global/Img/highlighterIcon.svg";
+import highlighterIconWhite from "../../../global/Img/highlighterIconWhite.svg";
 import VocabularyBookList from "./VocabularyBookList.component";
 import { useFetchMutation } from "../../../global/Hooks/uesFetchSingleAPI";
 import Modal from "react-modal";
@@ -27,14 +28,38 @@ const VocabularyBook = ({ isUpdateList }: { isUpdateList: boolean }) => {
   };
 
   // 단어 선택/해제 핸들러
-  const handleSelectWord = (id: number) => {
-    if (isDeleteMode) {
+  // const handleSelectWord = (id: number) => {
+  //   if (isDeleteMode) {
+  //     setSelectedWords(
+  //       (prevSelected) =>
+  //         prevSelected.includes(id)
+  //           ? prevSelected.filter((id) => id !== id) // 이미 선택된 단어는 해제
+  //           : // eslint-disable-next-line prettier/prettier
+  //             [...prevSelected, id] // 새로운 단어 추가
+  //     );
+  //   }
+  // };
+
+  const handleSelectWord = (id: number, mode: "delete" | "highlight") => {
+    if (mode === "delete" && isDeleteMode) {
+      // 삭제 모드에서 선택 처리
       setSelectedWords(
         (prevSelected) =>
           prevSelected.includes(id)
-            ? prevSelected.filter((id) => id !== id) // 이미 선택된 단어는 해제
+            ? prevSelected.filter((wordId) => wordId !== id) // 이미 선택된 단어 해제
             : // eslint-disable-next-line prettier/prettier
-              [...prevSelected, id] // 새로운 단어 추가
+              [...prevSelected, id] // 새로운 단어 선택
+      );
+    }
+
+    if (mode === "highlight" && isHighLightMode) {
+      // 하이라이트 모드에서 선택 처리
+      setSelectedWords(
+        (prevSelected) =>
+          prevSelected.includes(id)
+            ? prevSelected.filter((wordId) => wordId !== id) // 이미 선택된 단어 해제
+            : // eslint-disable-next-line prettier/prettier
+              [...prevSelected, id] // 새로운 단어 선택
       );
     }
   };
@@ -141,6 +166,7 @@ const VocabularyBook = ({ isUpdateList }: { isUpdateList: boolean }) => {
                 onClick={() => {
                   if (!isDeleteMode) {
                     setDeleteMode(true); // 삭제 모드 활성화
+                    setHighLightMode(false);
                   } else if (isSelectedWords.length > 0) {
                     openModal(); // 선택된 단어가 있을 때 모달 열기
                   } else {
@@ -156,6 +182,7 @@ const VocabularyBook = ({ isUpdateList }: { isUpdateList: boolean }) => {
                     e.stopPropagation(); // 부모의 onClick 이벤트와 중복 방지
                     // handleDeleteMode(); // 이미지 클릭 시에도 삭제 모드 동작
                     setDeleteMode(!isDeleteMode);
+                    setHighLightMode(false);
                     if (isDeleteMode !== false) {
                       if (isSelectedWords.length > 0) {
                         // 선택된 단어가 있는 경우에만 모달 활성화
@@ -167,16 +194,21 @@ const VocabularyBook = ({ isUpdateList }: { isUpdateList: boolean }) => {
               </div>
               {/* 하이라이트 버튼 */}
               <div
-                className="--primary-flex --primary-bg-Color w-[57px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)]"
+                className={`--primary-flex ${isHighLightMode ? "--status-bg-Color-01" : "--primary-bg-Color"} w-[57px] h-[57px] border-[1px] border-black border-solid rounded-[14px] shadow-[0_3px_3px_rgba(0,0,0,0.25)]`}
                 onClick={() => {
                   setDeleteMode(false);
                   setHighLightMode(!isHighLightMode);
                 }}
               >
                 <img
-                  src={highlighterIcon}
+                  src={isHighLightMode ? highlighterIconWhite : highlighterIcon}
                   alt="Highlighter Icon"
                   className="w-[40px] h-[40px]"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setDeleteMode(false);
+                    setHighLightMode(!isHighLightMode);
+                  }}
                 />
               </div>
               {/* 생성 버튼 */}
@@ -271,10 +303,14 @@ const VocabularyBook = ({ isUpdateList }: { isUpdateList: boolean }) => {
           {/* 전체 단어장 리스트 */}
           <VocabularyBookList
             isUpdateList={isUpdateList}
-            isSelectedWords={isSelectedWords}
             isDeleteMode={isDeleteMode}
             isHighLightMode={isHighLightMode}
-            handleSelectWord={handleSelectWord}
+            selectedWordsForDelete={isDeleteMode ? isSelectedWords : []}
+            selectedWordsForHighlight={isHighLightMode ? isSelectedWords : []} //
+            handleSelectWordForDelete={(id) => handleSelectWord(id, "delete")}
+            handleSelectWordForHighlight={(id) =>
+              handleSelectWord(id, "highlight")
+            } //
           />
           {/* 단어장 footer */}
           <div className="flex justify-center w-[clamp(0px,60.8%,971px)] h-[82px] gap-[95px] --Pretendard --semi-bold --font-l mt-[66px]">

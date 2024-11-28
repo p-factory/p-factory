@@ -15,8 +15,9 @@ interface VocabularyBookWordProps {
   word: string;
   meaning: string;
   wordLine?: number;
-  wordHighlight?: boolean;
+  isHighlightMode?: boolean;
   wordHidden?: boolean;
+  wordHighlight?: boolean;
   isDeleteMode?: boolean;
   wordDelete?: boolean;
   onToggleSelect: () => void; // 단어 선택/해제 핸들러
@@ -27,7 +28,7 @@ const VocabularyBookWord = ({
   word: initialWord,
   meaning: initialMeaning,
   wordLine,
-  wordHighlight: initialHighlight = false,
+  isHighlightMode = false,
   // wordHidden,
   isDeleteMode,
   wordDelete,
@@ -37,7 +38,7 @@ const VocabularyBookWord = ({
   const [meaning] = useState(initialMeaning); // 상태 변수 'meaning' 초기화
   const [isEditable, setIsEditable] = useState(false); // 상태로 editable 여부 관리
   const [isCheckAble, setIsCheckAble] = useState(false); // checkbox 상태 관리
-  const [isHighLight, setIsHighLight] = useState(initialHighlight); // Highlight 상태 관리
+  const [isHighLight, setIsHighLight] = useState(isHighlightMode); // Highlight 상태 관리
   const containerRef = useRef<HTMLDivElement>(null); // div 영역을 참조
   const wordRef = useRef<HTMLDivElement>(null);
   const meaningRef = useRef<HTMLDivElement>(null);
@@ -133,8 +134,12 @@ const VocabularyBookWord = ({
               : "border-[#959595]"
       }`}
       onClick={() => {
-        onToggleSelect();
-        toggleHighlight();
+        if (isDeleteMode) {
+          onToggleSelect(); // 삭제 모드 동작
+        } else if (isHighlightMode) {
+          toggleHighlight(); // 하이라이트 모드 동작
+          onToggleSelect(); // 선택 처리
+        }
       }} // 클릭 시 부모 상태 업데이트
     >
       <div
