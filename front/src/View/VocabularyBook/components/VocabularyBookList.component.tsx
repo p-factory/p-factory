@@ -8,6 +8,7 @@ import {
 interface Word {
   id: number;
   word: string;
+  meaning: string;
 }
 
 interface VocabularyBookListProps {
@@ -33,15 +34,6 @@ const VocabularyBookList = ({
     isError,
     refetch,
   } = useFetchQuery({ url: "/words" });
-
-  // // 삭제 버튼 클릭 핸들러
-  // const handleDeleteSelected = () => {
-  //   if (isSelectedWords.length > 0) {
-  //     deleteMutation.mutate(isSelectedWords); // DELETE 요청 실행
-  //   } else {
-  //     alert("선택된 단어가 없습니다.");
-  //   }
-  // };
 
   const isWordDeleted = (id: number): boolean => {
     return isSelectedWords.includes(id); // 항상 boolean 반환
@@ -72,24 +64,6 @@ const VocabularyBookList = ({
       console.log("Response data:", isResponseData, words); // 응답 데이터를 콘솔에 출력
       console.log(isSuccessMessage);
     }
-
-    // // 삭제 요청 상태 점검
-    // if (isDeleting) {
-    //   setLoadingMessage("Deleting selected words...");
-    //   setErrorMessage("");
-    //   setSuccessMessage("");
-    //   console.log("Deleting...");
-    // } else if (isDeleteError) {
-    //   setLoadingMessage("");
-    //   setErrorMessage("Error occurred while deleting words.");
-    //   setSuccessMessage("");
-    //   console.log("Delete error:", isDeleteError);
-    // } else if (isDeleteSuccess) {
-    //   setLoadingMessage("");
-    //   setErrorMessage("");
-    //   setSuccessMessage("Selected words deleted successfully!");
-    //   console.log("Delete success:", isDeleteSuccess);
-    // }
   }, [
     isLoading,
     isError,
@@ -123,7 +97,9 @@ const VocabularyBookList = ({
             <VocabularyBookWord
               // key={`left-${index}`}
               key={`${index}`}
+              id={word.id}
               word={word.word}
+              meaning={word.meaning}
               wordLine={1}
               wordHighlight={false}
               isDeleteMode={isDeleteMode}
@@ -138,7 +114,9 @@ const VocabularyBookList = ({
             <VocabularyBookWord
               // key={`right-${index}`}
               key={`${index}`}
+              id={word.id}
               word={word.word}
+              meaning={word.meaning}
               wordLine={1}
               wordHighlight={false}
               isDeleteMode={isDeleteMode}

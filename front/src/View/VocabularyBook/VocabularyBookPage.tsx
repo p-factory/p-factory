@@ -19,6 +19,7 @@ const VocabularyBookPage = () => {
 
   const [isPostData, setPostData] = useState({
     word: "",
+    meaning: "",
   });
 
   const [isLoadingMessage, setLoadingMessage] = useState("");
@@ -167,7 +168,7 @@ const VocabularyBookPage = () => {
             // padding: '36px 46px', // 여기에 padding 값 설정
             padding: 0,
             width: "821.5px",
-            height: "338px",
+            height: "493px",
             borderRadius: "49px", // rounded-lg에 해당하는 radius 값
             fontFamily: "Pretendard",
             fontWeight: "SemiBold",
@@ -190,13 +191,27 @@ const VocabularyBookPage = () => {
               <img src={circleSingleIcon} alt="" />
             </div>
           </div>
+
           <div className="w-[100%] px-[46px] mt-[30px] mb-[63px]">
+            <span>단어</span>
             <div className="w-[100%] border border-black py-[20px] px-[30px]">
               <input
                 type="text"
                 name="word"
                 className="w-[100%]"
                 value={isPostData.word}
+                onChange={(e) => {
+                  handleInputChange(e);
+                }}
+              />
+            </div>
+            <span>뜻</span>
+            <div className="w-[100%] border border-black py-[20px] px-[30px]">
+              <input
+                type="text"
+                name="meaning"
+                className="w-[100%]"
+                value={isPostData.meaning}
                 onChange={(e) => {
                   handleInputChange(e);
                 }}

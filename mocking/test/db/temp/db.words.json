@@ -1,3 +1,14 @@
 {
-  "words": []
+  "words": [
+    {
+      "id": 1,
+      "word": "apple",
+      "meaning": "사과"
+    },
+    {
+      "id": 3,
+      "word": "Little",
+      "meaning": "조금"
+    }
+  ]
 }
