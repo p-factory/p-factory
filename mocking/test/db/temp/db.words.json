@@ -1,0 +1,24 @@
+{
+  "words": [
+    {
+      "id": 1,
+      "word": "apple",
+      "meaning": "사과"
+    },
+    {
+      "id": 3,
+      "word": "Little",
+      "meaning": "조금"
+    },
+    {
+      "word": "test",
+      "meaning": "시험",
+      "id": 4
+    },
+    {
+      "word": "my",
+      "meaning": "나의",
+      "id": 5
+    }
+  ]
+}

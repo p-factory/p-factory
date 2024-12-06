@@ -1,0 +1,22 @@
+{
+  "name": "ptory_front",
+  "private": true,
+  "packageManager": "npm@10.8.1",
+  "workspaces": [
+    "front/*"
+  ],
+  "version": "0.0.1",
+  "description": "ptory-front project",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
+    "@typescript-eslint/eslint-plugin": "^8.7.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3"
+  }
+}
