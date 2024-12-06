@@ -128,7 +128,8 @@ module.exports = {
       'error',
       {
         endOfLine: 'auto', // Prettier의 endOfLine 옵션을 LF로 설정
-        singleQuote: true,  // Prettier 설정: singleQuote 적용
+        // singleQuote: true,  // Prettier 설정: singleQuote 적용
+        singleQuote: false,  // (임시)Prettier 설정: singleQuote 적용
         semi: true,  // Prettier 설정: 세미콜론 필수
         trailingComma: 'all',  // Prettier 설정: 모든 곳에 trailing comma 추가
         printWidth: 80,  // Prettier 설정: 한 줄의 길이를 80자로 제한
@@ -136,7 +137,7 @@ module.exports = {
     ],
 
     // 모든 문자열을 작은따옴표로 강제
-    'quotes': ['error', 'single', { 'avoidEscape': true }],
+    // 'quotes': ['error', 'single', { 'avoidEscape': true }],
 
     // 세미콜론을 항상 추가하도록 강제
     'semi': ['error', 'always'],

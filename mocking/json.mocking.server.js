@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { mergeJSONLoader } from './db/mergeJSONLoader.js';
 import createRoutes from './Routes/createRoutes.js';
-import { SignUpHandler, LoginHandler, addWordHandler } from './API/PostHandler.js';
+import { SignUpHandler, LoginHandler, addWordHandler, deleteWordHandler } from './API/PostHandler.js';
 import { getTestNameHandler, getWordListHandler } from './API/GetHandler.js';
 // ESM에서 __dirname을 설정하는 방법
 const __filename = fileURLToPath(import.meta.url);
@@ -43,6 +43,7 @@ server.use(rewriter);
 createRoutes(server, 'post', '/api/user/signup', SignUpHandler(userRouter));
 createRoutes(server, 'post', '/api/user/login', LoginHandler(userRouter));
 createRoutes(server, 'post', '/api/vocabularyBook/words', addWordHandler(wordRouter));
+createRoutes(server, 'delete', '/words/:id', deleteWordHandler(wordRouter));
 createRoutes(server, 'get', '/api/test/name', getTestNameHandler(router));
 createRoutes(server, 'get', '/api/vocabularyBook/words', getWordListHandler(wordRouter));
 

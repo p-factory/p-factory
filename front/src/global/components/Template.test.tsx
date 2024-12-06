@@ -1,7 +1,7 @@
-import React, { ComponentType } from 'react';
-import Z from 'zod';
-import Dev from '../../DEV/Dev';
-const DEV = Dev.ToolButton;
+import React, { ComponentType } from "react";
+import Z from "zod";
+// import Dev from "../../DEV/Dev";
+// const DEV = Dev.ToolButton;
 
 // Zod 스키마 정의
 const ComponentSchema = Z.object({
@@ -21,15 +21,15 @@ type ComponentProps = Z.infer<typeof ComponentSchema>;
 
 const Template = ({
   component: Component,
-  containerWidth = 'w-[clamp(0px,41.25%,792px)]',
-  width = 'w-[clamp(0px,95.71%,758px)]',
-  height = 'h-[clamp(0px,89.49%,847px)]',
-  shadowWidth = 'w-[clamp(0px,95.71%,758px)]',
-  shadowHeight = 'h-[clamp(0px,89.49%,847px)]',
+  containerWidth = "w-[clamp(0px,41.25%,792px)]",
+  width = "w-[clamp(0px,95.71%,758px)]",
+  height = "h-[clamp(0px,89.49%,847px)]",
+  shadowWidth = "w-[clamp(0px,95.71%,758px)]",
+  shadowHeight = "h-[clamp(0px,89.49%,847px)]",
   shadow = true, // 기본값 true
-  hScreen = 'min-h-screen',
-  shadowTop = 'top-[10px]',
-  shadowLeft = 'left-[25px]',
+  hScreen = "min-h-screen",
+  shadowTop = "top-[10px]",
+  shadowLeft = "left-[25px]",
 }: ComponentProps) => {
   // const { component: Component, width = 'w-[clamp(0px,95.71%,758px)]', height = 'h-[clamp(0px,89.49%,758px)]' } = props;
   try {
@@ -46,12 +46,12 @@ const Template = ({
       shadowLeft,
     });
   } catch (error) {
-    console.error('Props validation failed', error);
+    console.error("Props validation failed", error);
   }
 
   return (
     <div className={`flex items-center justify-center ${hScreen}`}>
-      <DEV />
+      {/* <DEV /> */}
       <div className={`relative flex ${containerWidth} h-[calc(100% + 20px)]`}>
         {/* 컨탠츠 영역 */}
         <div className="flex flex-col justify-end w-full">

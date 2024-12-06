@@ -1,26 +1,26 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'; // QueryClient 관련 추가
-import MainPage from './View/Main/MainPage';
-import Manual from './View/Main/ManualPage';
-import MyFactory from './View/Main/MyFactory';
-import VocabularyBookPage from './View/VocabularyBook/VocabularyBookPage';
-import DevStylesPreview from './View/DEV/DevStylesPreview';
-import DevDesignSystem from './View/DEV/DevDesignSystem';
-import DevDesignSystemWH from './View/DEV/DevDesignSystem-wh.test';
-import DevPositionLogin from './View/DEV/Position/DevPositionLogin.test';
-import DevPositionViewport from './View/DEV/Position/DevPositionViewport.test';
-import DevPositionPx from './View/DEV/Position/DevPositionPx.test';
-import DevTerminal from './View/DEV/DevTerminal';
-import Login from './View/Login/Login';
-import LoginIn from './View/Login/Login.in';
-import SignUpId from './View/Login/SignUp.id';
-import SignUpNickName from './View/Login/SignUp.nickname';
-import SignUpPassWord from './View/Login/SignUp.password';
-import SignUp from './View/Login/SignUp';
-import DevFetch from './View/DEV/DevFetch';
-import { RecoilRoot } from 'recoil';
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"; // QueryClient 관련 추가
+import MainPage from "./View/Main/MainPage";
+import Manual from "./View/Main/ManualPage";
+import MyFactory from "./View/Main/MyFactory";
+import VocabularyBookPage from "./View/VocabularyBook/VocabularyBookPage";
+import DevStylesPreview from "./View/DEV/DevStylesPreview";
+import DevDesignSystem from "./View/DEV/DevDesignSystem";
+import DevDesignSystemWH from "./View/DEV/DevDesignSystem-wh.test";
+import DevPositionLogin from "./View/DEV/Position/DevPositionLogin.test";
+import DevPositionViewport from "./View/DEV/Position/DevPositionViewport.test";
+import DevPositionPx from "./View/DEV/Position/DevPositionPx.test";
+import DevTerminal from "./View/DEV/DevTerminal";
+import Login from "./View/Login/Login";
+import LoginIn from "./View/Login/Login.in";
+import SignUpId from "./View/Login/SignUp.id";
+import SignUpNickName from "./View/Login/SignUp.nickname";
+import SignUpPassWord from "./View/Login/SignUp.password";
+import SignUp from "./View/Login/SignUp";
+import DevFetch from "./View/DEV/DevFetch";
+import { RecoilRoot } from "recoil";
 
 // queryClient 생성
 const queryClient = new QueryClient();

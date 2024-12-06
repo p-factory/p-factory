@@ -1,11 +1,11 @@
-import React from 'react';
-import Template from '../../global/components/Template.test';
-import ManualComponentTop from './component/Manual.componentTop';
-import ManualComponentBottom from './component/Manual.componentBottom';
-import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
-import toryTop from '../../global/Img/toryTop.svg';
-import toryLeft from '../../global/Img/toryLeft.svg';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import Template from "../../global/components/Template.test";
+import ManualComponentTop from "./component/Manual.componentTop";
+import ManualComponentBottom from "./component/Manual.componentBottom";
+import spannerIconWhite from "../../global/Img/spannerIconWhite.svg";
+import toryTop from "../../global/Img/toryTop.svg";
+import toryLeft from "../../global/Img/toryLeft.svg";
+import { useNavigate } from "react-router-dom";
 
 const ManualPage = () => {
   const navigate = useNavigate();
@@ -65,7 +65,7 @@ const ManualPage = () => {
           <div
             className="--bold btn-secondary --Pretendard pt-[clamp(0px,3.33%,36px)] pb-[clamp(0px,3.61%,39px)] pl-[clamp(0px,10.83%,208px)] pr-[clamp(0px,13.59%,261px)] cursor-pointer"
             onClick={() => {
-              navigate('/MyFactory');
+              navigate("/MyFactory");
             }}
           >
             <div className="flex items-center">

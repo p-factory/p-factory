@@ -1,5 +1,5 @@
-import React, { ComponentType } from 'react';
-import Z from 'zod';
+import React, { ComponentType } from "react";
+import Z from "zod";
 // import Dev from '../../DEV/Dev';
 // const DEV = Dev.ToolButton;
 
@@ -18,12 +18,12 @@ type ComponentProps = Z.infer<typeof ComponentSchema>;
 
 const Template = ({
   component: Component,
-  width = 'w-[clamp(0px,95.71%,758px)]',
-  height = 'h-[clamp(0px,89.49%,758px)]',
-  backgroundWidth = 'w-[clamp(0px,95.71%,758px)]',
-  backgroundHeight = 'h-[clamp(0px,89.49%,847px)]',
-  shadowTop = 'top-[10px]',
-  shadowLeft = 'left-[25px]',
+  width = "w-[clamp(0px,95.71%,758px)]",
+  height = "h-[clamp(0px,89.49%,758px)]",
+  backgroundWidth = "w-[clamp(0px,95.71%,758px)]",
+  backgroundHeight = "h-[clamp(0px,89.49%,847px)]",
+  shadowTop = "top-[10px]",
+  shadowLeft = "left-[25px]",
 }: ComponentProps) => {
   // h-[clamp(0px,89.49%,847px)]
   // const { component: Component, width = 'w-[clamp(0px,95.71%,758px)]', height = 'h-[clamp(0px,89.49%,758px)]' } = props;
@@ -39,7 +39,7 @@ const Template = ({
       shadowLeft,
     });
   } catch (error) {
-    console.error('Props validation failed', error);
+    console.error("Props validation failed", error);
   }
 
   return (
@@ -54,7 +54,7 @@ const Template = ({
             className={`flex ${width} bg-white pr-[clamp(0px,5.54%,42px)] pl-[clamp(0px,10.03%,76px)] rounded-tr-[36px] rounded-br-[36px] rounded-bl-[36px]`}
             style={{
               maxHeight: `${height}px`,
-              height: 'calc(100dvh - 40.58px)',
+              height: "calc(100dvh - 40.58px)",
             }}
           >
             {/* w-[clamp(0px,95.71%,758px)] h-[clamp(0px,89.49%,758px)] */}

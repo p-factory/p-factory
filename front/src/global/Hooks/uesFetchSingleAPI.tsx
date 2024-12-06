@@ -3,8 +3,8 @@ import {
   useMutation,
   UseMutationResult,
   UseQueryResult,
-} from '@tanstack/react-query';
-import fetchInstance from './fetch.instance';
+} from "@tanstack/react-query";
+import fetchInstance from "./fetch.instance";
 
 interface UseFetchQueryAPIProps {
   url: string;
@@ -28,8 +28,9 @@ export const useFetchQuery = ({
 
 // POST, PUT, DELETE 요청을 처리하는 함수
 export const useFetchMutation = (
-  method: 'POST' | 'PUT' | 'DELETE',
-  { url, postData }: UseFetchQueryAPIProps,
+  method: "POST" | "PUT" | "DELETE",
+  // eslint-disable-next-line prettier/prettier
+  { url, postData }: UseFetchQueryAPIProps
 ): {
   mutation: UseMutationResult<any, Error, any>;
   isLoading: boolean;
@@ -39,14 +40,21 @@ export const useFetchMutation = (
 } => {
   const api = fetchInstance();
 
-  const fetchMutation = async () => {
+  const fetchMutation = async (params?: { url?: string; postData?: any }) => {
+    const finalUrl = params?.url || url;
+    const finalData = params?.postData || postData;
+
+    if (!finalUrl) throw new Error("URL is required for the API request.");
+    if (!method)
+      throw new Error("HTTP method is required for the API request.");
+
     switch (method) {
-      case 'POST':
-        return (await api.post(url, postData)).data;
-      case 'PUT':
-        return (await api.put(url, postData)).data;
-      case 'DELETE':
-        return (await api.delete(url, { data: postData })).data;
+      case "POST":
+        return (await api.post(finalUrl, finalData)).data;
+      case "PUT":
+        return (await api.put(finalUrl, finalData)).data;
+      case "DELETE":
+        return (await api.delete(finalUrl, { data: finalData })).data;
       default:
         throw new Error(`Unsupported request method: ${method}`);
     }
@@ -57,9 +65,9 @@ export const useFetchMutation = (
   });
 
   // status에 따른 상태 정의
-  const isLoading = mutation.status === 'pending';
-  const isError = mutation.status === 'error';
-  const isSuccess = mutation.status === 'success';
+  const isLoading = mutation.status === "pending";
+  const isError = mutation.status === "error";
+  const isSuccess = mutation.status === "success";
   const responseData = mutation.data;
   // mutation 객체와 상태 변수들을 함께 반환
   return {

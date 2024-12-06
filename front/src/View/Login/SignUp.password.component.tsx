@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useRecoilState } from 'recoil';
-import loginBlackImage from '../DEV/img/login-black-logo.svg';
-import { useNavigate } from 'react-router-dom';
-import { userState } from '../../Model/atom';
+import React, { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import loginBlackImage from "../DEV/img/login-black-logo.svg";
+import { useNavigate } from "react-router-dom";
+import { userState } from "../../Model/atom";
 // import loginWhiteImage from '../DEV/img/login-white-logo.svg';
 const SignUpPassWord = () => {
   const [isState, setState] = useState(false);
   const [isCheckedState, setCheckedState] = useState(false);
   const [isButton, setButton] = useState(false);
-  const [isPassword, setPassword] = useState('');
-  const [isCheckedPassword, setCheckedPassword] = useState('');
+  const [isPassword, setPassword] = useState("");
+  const [isCheckedPassword, setCheckedPassword] = useState("");
   const navigate = useNavigate();
   const [isUser, setUser] = useRecoilState(userState);
 
@@ -24,7 +24,7 @@ const SignUpPassWord = () => {
   const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setPassword(value);
-    if (value !== '') {
+    if (value !== "") {
       setState(false);
     } else {
       setState(true);
@@ -40,15 +40,15 @@ const SignUpPassWord = () => {
   useEffect(() => {
     // Recoil 확인을 위한 log
     console.log(isUser);
-    if (isPassword !== '' && isPassword !== isCheckedPassword) {
+    if (isPassword !== "" && isPassword !== isCheckedPassword) {
       setCheckedState(true);
       setButton(false);
-      console.log('일치하지 않습니다.');
+      console.log("일치하지 않습니다.");
       console.log(isButton);
-    } else if (isPassword !== '' && isPassword === isCheckedPassword) {
+    } else if (isPassword !== "" && isPassword === isCheckedPassword) {
       setCheckedState(false);
       setButton(true);
-      console.log('일치합니다.');
+      console.log("일치합니다.");
       console.log(isButton);
     }
   }, [isPassword, isCheckedPassword]);
@@ -128,12 +128,12 @@ const SignUpPassWord = () => {
         className="flex flex-col items-center justify-center w-full cursor-pointer"
         onClick={() => {
           if (isButton) {
-            navigate('/SignUpNickName');
+            navigate("/SignUpNickName");
           }
         }}
       >
         <div
-          className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isButton ? '--primary-bg-Color' : '--status-bg-Color-07'} py-[clamp(0px,3.3%,25px)] rounded-[30px]`}
+          className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isButton ? "--primary-bg-Color" : "--status-bg-Color-07"} py-[clamp(0px,3.3%,25px)] rounded-[30px]`}
         >
           가입 하기
           <img

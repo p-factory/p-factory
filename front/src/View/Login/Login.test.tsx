@@ -1,6 +1,6 @@
-import React from 'react';
-import Dev from '../../DEV/Dev';
-import testIMG from '../../View/DEV/img/Vector.svg';
+import React from "react";
+import Dev from "../../DEV/Dev";
+import testIMG from "../../View/DEV/img/Vector.svg";
 const DEV = Dev.ToolButton;
 const Login = () => {
   return (
@@ -12,7 +12,7 @@ const Login = () => {
           &apos;나만의 단어공장&apos;
         </div>
         <div className="--font-xxl JejuDoldam mb-[54px]">ㅍ토리</div>
-        <div className="flex flex-col" style={{ display: 'contents' }}>
+        <div className="flex flex-col" style={{ display: "contents" }}>
           {/* "flex flex-col" style={{ display: 'contents' }} */}
           <div className="--font-xl Pretendard semibold bg-primaryColor --primary-flex w-[84.43%] h-[11.23%] rounded-[30px] mb-[15px]">
             {/* w-[84.43%] h-[11.23%] rounded-[30px] */}

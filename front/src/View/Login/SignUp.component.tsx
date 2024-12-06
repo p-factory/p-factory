@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import check from '../../global/Img/check.svg';
-import uncheck from '../../global/Img/unCheck.svg';
-import about from '../../global/Img/details.svg';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import check from "../../global/Img/check.svg";
+import uncheck from "../../global/Img/unCheck.svg";
+import about from "../../global/Img/details.svg";
+import { useNavigate } from "react-router-dom";
 const SignUp = () => {
   const [isChecked, setIsChecked] = useState({
     all: false,
@@ -42,7 +42,7 @@ const SignUp = () => {
   const handleCheckboxChange = (checked: keyof typeof isChecked) => {
     setIsChecked((prev) => {
       // 'all'이 클릭되었을 때 모든 체크박스를 동일하게 설정
-      if (checked === 'all') {
+      if (checked === "all") {
         const newState = !prev.all;
         return {
           all: newState,
@@ -104,7 +104,7 @@ const SignUp = () => {
               className="hidden"
               checked={isChecked.all}
               onChange={() => {
-                handleCheckboxChange('all');
+                handleCheckboxChange("all");
               }}
             />
             <label
@@ -128,7 +128,7 @@ const SignUp = () => {
                   className="hidden"
                   checked={isChecked.service}
                   onChange={() => {
-                    handleCheckboxChange('service');
+                    handleCheckboxChange("service");
                   }}
                 />
                 <label
@@ -144,7 +144,7 @@ const SignUp = () => {
               <div
                 className="flex items-center justify-center cursor-pointer"
                 onClick={() => {
-                  alert('준비 중입니다.');
+                  alert("준비 중입니다.");
                 }}
               >
                 <img src={about} alt="" />
@@ -159,7 +159,7 @@ const SignUp = () => {
                   className="hidden"
                   checked={isChecked.private}
                   onChange={() => {
-                    handleCheckboxChange('private');
+                    handleCheckboxChange("private");
                   }}
                 />
                 <label
@@ -175,7 +175,7 @@ const SignUp = () => {
               <div
                 className="flex items-center justify-center cursor-pointer"
                 onClick={() => {
-                  alert('준비 중입니다.');
+                  alert("준비 중입니다.");
                 }}
               >
                 <img src={about} alt="" />
@@ -190,7 +190,7 @@ const SignUp = () => {
                   className="hidden"
                   checked={isChecked.position}
                   onChange={() => {
-                    handleCheckboxChange('position');
+                    handleCheckboxChange("position");
                   }}
                 />
                 <label
@@ -206,7 +206,7 @@ const SignUp = () => {
               <div
                 className="flex items-center justify-center cursor-pointer"
                 onClick={() => {
-                  alert('준비 중입니다.');
+                  alert("준비 중입니다.");
                 }}
               >
                 <img src={about} alt="" />
@@ -221,7 +221,7 @@ const SignUp = () => {
                   className="hidden"
                   checked={isChecked.marketing}
                   onChange={() => {
-                    handleCheckboxChange('marketing');
+                    handleCheckboxChange("marketing");
                   }}
                 />
                 <label
@@ -237,7 +237,7 @@ const SignUp = () => {
               <div
                 className="flex items-center justify-center cursor-pointer"
                 onClick={() => {
-                  alert('준비 중입니다.');
+                  alert("준비 중입니다.");
                 }}
               >
                 <img src={about} alt="" />
@@ -248,12 +248,12 @@ const SignUp = () => {
       </div>
       <div className="flex flex-col items-center justify-center w-full">
         <div
-          className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isButtonState ? '--primary-bg-Color' : '--status-bg-Color-07'} py-[clamp(0px,3.3%,25px)] rounded-[30px] mb-[clamp(0px,1.98%,15px)] cursor-pointer`}
+          className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isButtonState ? "--primary-bg-Color" : "--status-bg-Color-07"} py-[clamp(0px,3.3%,25px)] rounded-[30px] mb-[clamp(0px,1.98%,15px)] cursor-pointer`}
           onClick={() => {
             if (isButtonState) {
-              navigate('/LoginId');
+              navigate("/LoginId");
             } else {
-              console.log('필수 조건을 승인해주세요.');
+              console.log("필수 조건을 승인해주세요.");
             }
           }}
         >
@@ -262,7 +262,7 @@ const SignUp = () => {
         <div
           className="--status-font-Color-04 border-[--status-font-Color-04] border-b-[1px] --Pretendard --medium --font-xs cursor-pointer"
           onClick={() => {
-            navigate('/Login');
+            navigate("/Login");
           }}
         >
           이미 만들어진 공장이 있어요?

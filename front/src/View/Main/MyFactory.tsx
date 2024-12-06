@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import spannerIconBlack from '../../global/Img/spannerIconBlack.svg';
-import circleSingleIcon from '../../global/Img/circleSingleIcon.svg';
-import Template from '../../global/components/Template.test';
-import MyFactoryComponent from './component/MyFactory.component';
-import toryTop from '../../global/Img/toryTop.svg';
-import Modal from 'react-modal';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import spannerIconBlack from "../../global/Img/spannerIconBlack.svg";
+import circleSingleIcon from "../../global/Img/circleSingleIcon.svg";
+import Template from "../../global/components/Template.test";
+import MyFactoryComponent from "./component/MyFactory.component";
+import toryTop from "../../global/Img/toryTop.svg";
+import Modal from "react-modal";
+import { useNavigate } from "react-router-dom";
 // 모달의 root 엘리먼트를 설정합니다 (접근성 요구사항에 필요).
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 const MyFactory = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +43,8 @@ const MyFactory = () => {
           component={MyFactoryComponent}
           containerWidth="w-[clamp(0px,59.74%,1142px)]"
           width="w-[clamp(0px, 86.66%, 994px)]"
-          height="h-[1069px]"
+          // height="h-[1069px]"
+          height="h-[800px]"
           shadow={false}
         />
         {/* 인덱스 부분 */}
@@ -66,7 +67,7 @@ const MyFactory = () => {
           <div
             className="--bold btn-secondary --Pretendard pt-[clamp(0px,3.33%,36px)] pb-[clamp(0px,3.61%,39px)] pl-[clamp(0px,10.83%,208px)] pr-[clamp(0px,13.59%,261px)] cursor-pointer"
             onClick={() => {
-              console.log('click');
+              console.log("click");
               openModal();
             }}
           >
@@ -80,33 +81,33 @@ const MyFactory = () => {
             contentLabel="Modal"
             // 스크롤 활성화 이벤트
             onAfterOpen={() => {
-              document.body.style.overflow = 'hidden'; // 모달 열릴 때 스크롤 비활성화
+              document.body.style.overflow = "hidden"; // 모달 열릴 때 스크롤 비활성화
             }}
             onAfterClose={() => {
-              document.body.style.overflow = 'auto'; // 모달 닫힐 때 스크롤 활성화
+              document.body.style.overflow = "auto"; // 모달 닫힐 때 스크롤 활성화
             }}
             style={{
               overlay: {
-                backgroundColor: 'rgba(0, 0, 0, 0.6)', // #000000 배경색에 60% 불투명도
+                backgroundColor: "rgba(0, 0, 0, 0.6)", // #000000 배경색에 60% 불투명도
               },
               // 모달 기본 설정을 위한 매개변수
               // React-Modal은 content를 통해서 설정 할 수 있다.
               content: {
-                display: 'flex',
-                justifyContent: 'center',
+                display: "flex",
+                justifyContent: "center",
                 // padding: '36px 46px', // 여기에 padding 값 설정
                 padding: 0,
-                width: '821.5px',
-                height: '338px',
-                borderRadius: '49px', // rounded-lg에 해당하는 radius 값
-                fontFamily: 'Pretendard',
-                fontWeight: 'SemiBold',
-                outline: 'none',
+                width: "821.5px",
+                height: "338px",
+                borderRadius: "49px", // rounded-lg에 해당하는 radius 값
+                fontFamily: "Pretendard",
+                fontWeight: "SemiBold",
+                outline: "none",
                 margin: 0,
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)', // 중앙 정렬을 위한 transform
-                fontSize: '25px',
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)", // 중앙 정렬을 위한 transform
+                fontSize: "25px",
               },
             }}
           >
@@ -138,8 +139,8 @@ const MyFactory = () => {
                 </div>
                 <div
                   onClick={() => {
-                    console.log('단어장 생성: POST');
-                    navigate('/VocabularyBook');
+                    console.log("단어장 생성: POST");
+                    navigate("/VocabularyBook");
                   }}
                   className="flex w-[50%] h-[65.9px] pt-[10px] justify-center outline-none cursor-pointer"
                 >

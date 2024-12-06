@@ -1,6 +1,6 @@
-import React from 'react';
-import DevTool from '../../DEV/Dev';
-import test from './img/img.jpg';
+import React from "react";
+import DevTool from "../../DEV/Dev";
+import test from "./img/img.jpg";
 const DEV = DevTool.ToolButton;
 
 const DevDesignSystem = () => {

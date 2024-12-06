@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
-import spannerIconBlack from '../../global/Img/spannerIconBlack.svg';
-import circleSingleIcon from '../../global/Img/circleSingleIcon.svg';
-import speechBubbleBg from '../../global/Img/speechBubbleBg.svg';
-import toryTop from '../../global/Img/toryTop.svg';
+import React, { useState, useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { modalState } from "../../Model/atom";
+import spannerIconWhite from "../../global/Img/spannerIconWhite.svg";
+import spannerIconBlack from "../../global/Img/spannerIconBlack.svg";
+import circleSingleIcon from "../../global/Img/circleSingleIcon.svg";
+import speechBubbleBg from "../../global/Img/speechBubbleBg.svg";
+import toryTop from "../../global/Img/toryTop.svg";
 // import DevTool from '../../DEV/Dev';
-import VocabularyBook from './components/VocabularyBook.component';
-import { useFetchMutation } from '../../global/Hooks/uesFetchSingleAPI';
-import { useNavigate } from 'react-router-dom';
-import Modal from 'react-modal';
+import VocabularyBook from "./components/VocabularyBook.component";
+import { useFetchMutation } from "../../global/Hooks/uesFetchSingleAPI";
+import { useNavigate } from "react-router-dom";
+import Modal from "react-modal";
 
 // const DEV = DevTool.ToolButton;
 
@@ -16,19 +18,20 @@ const VocabularyBookPage = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isUpdateList, setUpdateList] = useState(false); // 리스트 업데이트 상태
-
+  const [isModalOpen, setModalOpen] = useRecoilState(modalState);
   const [isPostData, setPostData] = useState({
-    word: '',
+    word: "",
+    meaning: "",
   });
 
-  const [isLoadingMessage, setLoadingMessage] = useState('');
-  const [isErrorMessage, setErrorMessage] = useState('');
-  const [isSuccessMessage, setSuccessMessage] = useState('');
+  const [isLoadingMessage, setLoadingMessage] = useState("");
+  const [isErrorMessage, setErrorMessage] = useState("");
+  const [isSuccessMessage, setSuccessMessage] = useState("");
   const [isResponseData, setResponseData] = useState(null); // 응답 데이터를 저장할 상태
 
   const { mutation, isLoading, isError, isSuccess, responseData } =
-    useFetchMutation('POST', {
-      url: '/vocabularyBook/words',
+    useFetchMutation("POST", {
+      url: "/words",
       postData: isPostData,
     });
 
@@ -49,22 +52,22 @@ const VocabularyBookPage = () => {
   useEffect(() => {
     console.log(isPostData);
     if (isLoading) {
-      setLoadingMessage('Sending data...');
-      setErrorMessage('');
-      setSuccessMessage('');
+      setLoadingMessage("Sending data...");
+      setErrorMessage("");
+      setSuccessMessage("");
       console.log(isLoadingMessage);
     } else if (isError) {
-      setLoadingMessage('');
-      setErrorMessage('Error occurred while sending data.');
-      setSuccessMessage('');
+      setLoadingMessage("");
+      setErrorMessage("Error occurred while sending data.");
+      setSuccessMessage("");
       console.log(isErrorMessage);
     } else if (isSuccess) {
-      setLoadingMessage('');
-      setErrorMessage('');
-      setSuccessMessage('POST 요청 성공!');
+      setLoadingMessage("");
+      setErrorMessage("");
+      setSuccessMessage("POST 요청 성공!");
       setResponseData(responseData); // 응답 데이터를 상태로 설정
-      console.log('Response data:', isResponseData, responseData); // 응답 데이터를 콘솔에 출력
-      console.log('POST request successful with data:', isPostData);
+      console.log("Response data:", isResponseData, responseData); // 응답 데이터를 콘솔에 출력
+      console.log("POST request successful with data:", isPostData);
       console.log(isSuccessMessage);
     }
   }, [isLoading, isError, isSuccess, isPostData]);
@@ -137,7 +140,7 @@ const VocabularyBookPage = () => {
           <div
             className="--Pretendard flex flex-col items-center --status-font-Color-05 --medium --font-xs pt-[clamp(0px,2.59%,28px)] pl-[clamp(0px,8.44%,162px)] pr-[clamp(0px,7.4%,142px)] underline cursor-pointer"
             onClick={() => {
-              navigate('/Manual');
+              navigate("/Manual");
             }}
           >
             설명이 필요하신가요?
@@ -145,38 +148,41 @@ const VocabularyBookPage = () => {
         </div>
       </div>
       <Modal
-        isOpen={isOpen}
-        onRequestClose={closeModal}
+        isOpen={isOpen || isModalOpen}
+        onRequestClose={() => {
+          closeModal();
+          setModalOpen(false);
+        }}
         contentLabel="Modal"
         // 스크롤 활성화 이벤트
         onAfterOpen={() => {
-          document.body.style.overflow = 'hidden'; // 모달 열릴 때 스크롤 비활성화
+          document.body.style.overflow = "hidden"; // 모달 열릴 때 스크롤 비활성화
         }}
         onAfterClose={() => {
-          document.body.style.overflow = 'auto'; // 모달 닫힐 때 스크롤 활성화
+          document.body.style.overflow = "auto"; // 모달 닫힐 때 스크롤 활성화
         }}
         style={{
           overlay: {
-            backgroundColor: 'rgba(0, 0, 0, 0.6)', // #000000 배경색에 60% 불투명도
+            backgroundColor: "rgba(0, 0, 0, 0.6)", // #000000 배경색에 60% 불투명도
           },
           // 모달 기본 설정을 위한 매개변수
           // React-Modal은 content를 통해서 설정 할 수 있다.
           content: {
-            display: 'flex',
-            justifyContent: 'center',
+            display: "flex",
+            justifyContent: "center",
             // padding: '36px 46px', // 여기에 padding 값 설정
             padding: 0,
-            width: '821.5px',
-            height: '338px',
-            borderRadius: '49px', // rounded-lg에 해당하는 radius 값
-            fontFamily: 'Pretendard',
-            fontWeight: 'SemiBold',
-            outline: 'none',
+            width: "821.5px",
+            height: "493px",
+            borderRadius: "49px", // rounded-lg에 해당하는 radius 값
+            fontFamily: "Pretendard",
+            fontWeight: "SemiBold",
+            outline: "none",
             margin: 0,
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)', // 중앙 정렬을 위한 transform
-            fontSize: '25px',
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)", // 중앙 정렬을 위한 transform
+            fontSize: "25px",
           },
         }}
       >
@@ -190,7 +196,9 @@ const VocabularyBookPage = () => {
               <img src={circleSingleIcon} alt="" />
             </div>
           </div>
+
           <div className="w-[100%] px-[46px] mt-[30px] mb-[63px]">
+            <span>단어</span>
             <div className="w-[100%] border border-black py-[20px] px-[30px]">
               <input
                 type="text"
@@ -202,10 +210,25 @@ const VocabularyBookPage = () => {
                 }}
               />
             </div>
+            <span>뜻</span>
+            <div className="w-[100%] border border-black py-[20px] px-[30px]">
+              <input
+                type="text"
+                name="meaning"
+                className="w-[100%]"
+                value={isPostData.meaning}
+                onChange={(e) => {
+                  handleInputChange(e);
+                }}
+              />
+            </div>
           </div>
           <div className="flex w-[100%] justify-between border-t border-black">
             <div
-              onClick={closeModal}
+              onClick={() => {
+                closeModal();
+                setModalOpen(false);
+              }}
               className="flex w-[50%] h-[65.9px] pt-[10px] border-r border-black justify-center outline-none cursor-pointer"
             >
               취소
@@ -213,7 +236,10 @@ const VocabularyBookPage = () => {
             <div
               onClick={() => {
                 handleSubmit();
-                navigate('/VocabularyBook');
+                //왜 다시 가는가? get을 다시 하기 위해서?
+                navigate("/VocabularyBook");
+                closeModal();
+                setModalOpen(false);
               }}
               className="flex w-[50%] h-[65.9px] pt-[10px] justify-center outline-none cursor-pointer"
             >

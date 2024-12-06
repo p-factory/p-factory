@@ -1,17 +1,17 @@
-import React from 'react';
-import spannerIconBlack from '../../global/Img/spannerIconBlack.svg';
-import spannerIconWhite from '../../global/Img/spannerIconWhite.svg';
-import { useNavigate } from 'react-router-dom';
-import DevTool from '../../DEV/Dev';
+import React from "react";
+import spannerIconBlack from "../../global/Img/spannerIconBlack.svg";
+import spannerIconWhite from "../../global/Img/spannerIconWhite.svg";
+import { useNavigate } from "react-router-dom";
+// import DevTool from "../../DEV/Dev";
 
-const DEV = DevTool.ToolButton;
+// const DEV = DevTool.ToolButton;
 
 const MainPage = () => {
   const navigate = useNavigate();
 
   return (
     <div className="flex flex-col w-full h-screen">
-      <DEV />
+      {/* <DEV /> */}
       <div className="flex flex-col bg-white pt-[clamp(0px,29vh,316px)] pl-[clamp(0px,15.05%,289px)] pb-[clamp(0px,30vh,334px)]">
         <div className="flex items-center --bold text-[83px] --JejuDoldam pb-[clamp(0px,2.5%,27px)] pl-[clamp(0px,0.83%,16px)]">
           ㅍ토리
@@ -30,7 +30,7 @@ const MainPage = () => {
           <div
             className="flex items-center justify-center --font-m --bold --Pretendard btn-secondary h-[61px] pl-[clamp(0px,5.94%,114px)] pr-[clamp(0px,4.79%,92px)] cursor-pointer"
             onClick={() => {
-              navigate('/Manual');
+              navigate("/Manual");
             }}
           >
             ㅍ토리 사용법
@@ -44,7 +44,7 @@ const MainPage = () => {
           <div
             className="flex items-center justify-center --font-m --bold --Pretendard btn-primary h-[61px] pl-[clamp(0px,3.85%,74px)] pr-[clamp(0px,2.81%,54px)] cursor-pointer"
             onClick={() => {
-              navigate('/MyFactory');
+              navigate("/MyFactory");
             }}
           >
             단어 공장 작업 시작하기

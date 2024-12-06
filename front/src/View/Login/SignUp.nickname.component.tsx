@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import Modal from 'react-modal';
-import { useRecoilState } from 'recoil';
-import loginBlackImage from '../DEV/img/login-black-logo.svg';
-import { useNavigate } from 'react-router-dom';
-import { userState } from '../../Model/atom';
-import { useFetchMutation } from '../../global/Hooks/uesFetchSingleAPI';
-import closedIcon from '../../global/Img/closed.svg';
+import React, { useState, useEffect } from "react";
+import Modal from "react-modal";
+import { useRecoilState } from "recoil";
+import loginBlackImage from "../DEV/img/login-black-logo.svg";
+import { useNavigate } from "react-router-dom";
+import { userState } from "../../Model/atom";
+import { useFetchMutation } from "../../global/Hooks/uesFetchSingleAPI";
+import closedIcon from "../../global/Img/closed.svg";
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 const SignUpNickName = () => {
   const [isState, setState] = useState(false);
   const [isButton, setButton] = useState(false);
-  const [isValue, setValue] = useState('');
+  const [isValue, setValue] = useState("");
   const [isUser, setUser] = useRecoilState(userState);
   const navigate = useNavigate();
 
@@ -20,13 +20,13 @@ const SignUpNickName = () => {
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
-  const [isLoadingMessage, setLoadingMessage] = useState('');
-  const [isErrorMessage, setErrorMessage] = useState('');
-  const [isSuccessMessage, setSuccessMessage] = useState('');
+  const [isLoadingMessage, setLoadingMessage] = useState("");
+  const [isErrorMessage, setErrorMessage] = useState("");
+  const [isSuccessMessage, setSuccessMessage] = useState("");
   // const [isData, setIsData] = useState(false);
 
-  const { mutation, isLoading, isError, isSuccess } = useFetchMutation('POST', {
-    url: '/user/signup',
+  const { mutation, isLoading, isError, isSuccess } = useFetchMutation("POST", {
+    url: "/api/user/signup",
     postData: isUser,
   });
 
@@ -62,20 +62,20 @@ const SignUpNickName = () => {
   useEffect(() => {
     console.log(isUser);
     if (isLoading) {
-      setLoadingMessage('Sending data...');
-      setErrorMessage('');
-      setSuccessMessage('');
+      setLoadingMessage("Sending data...");
+      setErrorMessage("");
+      setSuccessMessage("");
       console.log(isLoadingMessage);
     } else if (isError) {
-      setLoadingMessage('');
-      setErrorMessage('Error occurred while sending data.');
-      setSuccessMessage('');
+      setLoadingMessage("");
+      setErrorMessage("Error occurred while sending data.");
+      setSuccessMessage("");
       console.log(isErrorMessage);
     } else if (isSuccess) {
-      setLoadingMessage('');
-      setErrorMessage('');
-      setSuccessMessage('POST 요청 성공!');
-      console.log('POST request successful with data:', isUser);
+      setLoadingMessage("");
+      setErrorMessage("");
+      setSuccessMessage("POST 요청 성공!");
+      console.log("POST request successful with data:", isUser);
       console.log(isSuccessMessage);
       openModal();
     }
@@ -130,7 +130,7 @@ const SignUpNickName = () => {
       </div>
       <div className="flex flex-col items-center justify-center w-full">
         <div
-          className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isButton ? '--primary-bg-Color' : '--status-bg-Color-07'} py-[clamp(0px,3.3%,25px)] rounded-[30px] ${isButton ? 'cursor-pointer' : ''}`}
+          className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isButton ? "--primary-bg-Color" : "--status-bg-Color-07"} py-[clamp(0px,3.3%,25px)] rounded-[30px] ${isButton ? "cursor-pointer" : ""}`}
           onClick={() => {
             handleSubmit();
           }}
@@ -144,33 +144,33 @@ const SignUpNickName = () => {
           contentLabel="Modal"
           // 스크롤 활성화 이벤트
           onAfterOpen={() => {
-            document.body.style.overflow = 'hidden'; // 모달 열릴 때 스크롤 비활성화
+            document.body.style.overflow = "hidden"; // 모달 열릴 때 스크롤 비활성화
           }}
           onAfterClose={() => {
-            document.body.style.overflow = 'auto'; // 모달 닫힐 때 스크롤 활성화
+            document.body.style.overflow = "auto"; // 모달 닫힐 때 스크롤 활성화
           }}
           style={{
             overlay: {
-              backgroundColor: 'rgba(0, 0, 0, 0.6)', // #000000 배경색에 60% 불투명도
+              backgroundColor: "rgba(0, 0, 0, 0.6)", // #000000 배경색에 60% 불투명도
             },
             // 모달 기본 설정을 위한 매개변수
             // React-Modal은 content를 통해서 설정 할 수 있다.
             content: {
-              display: 'flex',
-              justifyContent: 'center',
+              display: "flex",
+              justifyContent: "center",
               // padding: '36px 46px', // 여기에 padding 값 설정
               padding: 0,
-              width: '821.5px',
-              height: '338px',
-              borderRadius: '12px', // rounded-lg에 해당하는 radius 값
-              fontFamily: 'Pretendard',
-              fontWeight: 'SemiBold',
-              outline: 'none',
+              width: "821.5px",
+              height: "338px",
+              borderRadius: "12px", // rounded-lg에 해당하는 radius 값
+              fontFamily: "Pretendard",
+              fontWeight: "SemiBold",
+              outline: "none",
               margin: 0,
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)', // 중앙 정렬을 위한 transform
-              fontSize: '25px',
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)", // 중앙 정렬을 위한 transform
+              fontSize: "25px",
             },
           }}
         >
@@ -183,7 +183,7 @@ const SignUpNickName = () => {
                 className="flex justify-center"
                 onClick={() => {
                   closeModal();
-                  navigate('/LoginIn');
+                  navigate("/LoginIn");
                 }}
               >
                 <img src={closedIcon} alt="" />
@@ -197,7 +197,7 @@ const SignUpNickName = () => {
         <div
           className="--status-font-Color-04 border-[--status-font-Color-04] border-b-[1px] --Pretendard --medium --font-xs mt-[clamp(0px,1.98%,15px)] cursor-pointer"
           onClick={() => {
-            navigate('/LoginIn');
+            navigate("/LoginIn");
           }}
         >
           이미 만들어진 공장이 있어요!
