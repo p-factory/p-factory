@@ -73,7 +73,7 @@
 ## 로그인 페이지(Login Page)
 
 <div id="login-page">
-  <img src="" alrt="Login" width="600" />
+  <img src="https://github.com/user-attachments/assets/4597b21d-4212-4f08-a695-2bb634a7113f" alrt="Login" width="600" />
 </div>
 
 ## 회원가입 페이지(SignUp Page)
@@ -99,11 +99,18 @@
   <img src="https://github.com/user-attachments/assets/dc2ecf0e-e4d6-453b-8748-e2690a273e92" alrt="SignUp" width="600" />
 </div>
 
-- 공장 생성 페이지 / 회원가입 완료 모달
+- 공장 생성 페이지 / 회원가입 완료 모달 (mocking 결과 포함)
 
-<div id="signup-modal-page">
-  <img src="https://github.com/user-attachments/assets/86f9114e-ec12-4e93-bbbe-d75572b41f58" alrt="SignUp" width="600" />
-</div>
+<table>
+  <tr>
+    <td>
+        <img id="signup-modal-page" src="https://github.com/user-attachments/assets/86f9114e-ec12-4e93-bbbe-d75572b41f58" alt="Vocabulary" width="400" />
+    </td>
+    <td>
+        <img id="signup-modal-page-mocking" src="https://github.com/user-attachments/assets/f7e4ec9f-55b9-465d-a443-650592b17f09" alt="Vocabulary" width="400" />
+    </td>
+  </tr>
+</table>
 
 ## 매뉴얼 페이지(Manual Page)
 
@@ -143,7 +150,7 @@
 
 <br>
 
-- ## 나의 단어장 생성하기
+- ## 나의 단어장 생성하기 (mocking 결과 포함)
 
 <table>
   <tr>
@@ -156,7 +163,7 @@
   </tr>
 </table>
 
-- ## 나의 단어장 수정하기
+- ## 나의 단어장 수정하기 (mocking 결과 포함)
 
 <table>
   <tr>
@@ -169,7 +176,7 @@
   </tr>
 </table>
 
-- ## 나의 단어장 삭제하기
+- ## 나의 단어장 삭제하기 (mocking 결과 포함)
 
 <table>
   <tr>
