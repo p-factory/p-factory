@@ -193,28 +193,8 @@
 
 # Project Contributors
 
-### [Project Manager](https://www.instagram.com/)
-
-|                                                                                                         |
-| ------------------------------------------------------------------------------------------------------- |
-| <img src="https://github.com/user-attachments/assets/b08bf8a3-f903-4a7b-be47-298d5476b9fc" width="120"> |
-| Project Manager                                                                                         |
-
-[김아현]()
-
-### [Designer]()
-
-|                                                                                                         |
-| ------------------------------------------------------------------------------------------------------- |
-| <img src="https://github.com/user-attachments/assets/b08bf8a3-f903-4a7b-be47-298d5476b9fc" width="120"> |
-| Designer                                                                                                |
-
-[황정원]()
-
-### [Frontend](https://github.com/p-factory/p-factory)
-
-|                                                                               |                                                                               |     |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | --- |
+|                                                                               |                                                                               |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | <img src="https://avatars.githubusercontent.com/u/109135643?v=4" width="120"> | <img src="https://avatars.githubusercontent.com/u/138736197?v=4" width="120"> |
 | Frontend                                                                      | Frontend                                                                      |
 | [4Bee/김동우](https://github.com/4BFC)                                        | [윤예진](https://github.com/nyun-nye)                                         |
