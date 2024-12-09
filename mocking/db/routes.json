@@ -1,4 +1,0 @@
-{
-  "/api/user/signup": "/users",
-  "/api/user/login": "/users"
-}
