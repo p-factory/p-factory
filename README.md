@@ -78,10 +78,6 @@
 
 ## 회원가입 페이지(SignUp Page)
 
-<div id="signup-page">
-  <img src="" alrt="SignUp" width="600" />
-</div>
-
 - 약관 동의 페이지
 <div id="signup-check-page">
   <img src="https://github.com/user-attachments/assets/a8e65edf-447a-45e4-8701-df29b67d34ac" alrt="SignUp" width="600" />
