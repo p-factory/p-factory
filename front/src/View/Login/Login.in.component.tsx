@@ -97,9 +97,9 @@ const LoginIn = () => {
           </div>
           <div className="mb-[clamp(0px,4.49%,34px)] mt-[clamp(0px,2.24%,17px)]">
             {/* API 메세지에 따라 다르게 구현할 예정 */}
-            <span className="--error-font-Color --Pretendard --medium text-[14px]">
+            {/* <span className="--error-font-Color --Pretendard --medium text-[14px]">
               *아이디 & 비밀번호가 올바르지 않습니다. 다시 입력해 주세요.
-            </span>
+            </span> */}
           </div>
         </div>
         <div className="flex flex-col w-full">
@@ -117,9 +117,9 @@ const LoginIn = () => {
           </div>
           <div className="mt-[clamp(0px,2.24%,17px)]">
             {/* API 메세지에 따라 다르게 구현할 예정 */}
-            <span className="--error-font-Color --Pretendard --medium text-[14px]">
+            {/* <span className="--error-font-Color --Pretendard --medium text-[14px]">
               *아이디 & 비밀번호가 올바르지 않습니다. 다시 입력해 주세요.
-            </span>
+            </span> */}
           </div>
         </div>
       </div>
