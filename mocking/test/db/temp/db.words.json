@@ -1,19 +1,69 @@
 {
   "words": [
     {
-      "id": 6,
-      "word": "p-Tory",
-      "meaning": "ㅍ토리"
+      "id": 3,
+      "word": "executive",
+      "meaning": "경영진"
     },
     {
-      "id": 7,
-      "word": "word?",
-      "meaning": "놀자"
+      "word": "inventory",
+      "meaning": "재고, 재고 목록",
+      "id": 4
     },
     {
-      "word": "test5",
-      "meaning": "테스트5",
+      "word": "feature",
+      "meaning": "특징, 특색",
+      "id": 5
+    },
+    {
+      "word": "voucher",
+      "meaning": "상품권, 영수증",
+      "id": 6
+    },
+    {
+      "word": "property",
+      "meaning": "소유물, 재산",
+      "id": 7
+    },
+    {
+      "word": "eligible",
+      "meaning": "자격이 있는",
+      "id": 8
+    },
+    {
+      "word": "extensive",
+      "meaning": "폭넓은, 광범위한",
       "id": 9
+    },
+    {
+      "word": "retail",
+      "meaning": "상품을 소비자에게 직접 판매",
+      "id": 10
+    },
+    {
+      "word": "affordable",
+      "meaning": "비용이 적당한",
+      "id": 11
+    },
+    {
+      "word": "grant",
+      "meaning": "승인하다",
+      "id": 12
+    },
+    {
+      "word": "significantly",
+      "meaning": "상당히, 중요하게",
+      "id": 13
+    },
+    {
+      "word": "reserve",
+      "meaning": "예약하다, 보유하다",
+      "id": 14
+    },
+    {
+      "word": "suppose",
+      "meaning": "추정하다, 생각하다",
+      "id": 15
     }
   ]
 }

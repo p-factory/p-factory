@@ -251,7 +251,7 @@ const SignUp = () => {
           className={`flex items-center justify-center w-full --Pretendard --semi-bold --font-xl ${isButtonState ? "--primary-bg-Color" : "--status-bg-Color-07"} py-[clamp(0px,3.3%,25px)] rounded-[30px] mb-[clamp(0px,1.98%,15px)] cursor-pointer`}
           onClick={() => {
             if (isButtonState) {
-              navigate("/LoginId");
+              navigate("/SignUpId");
             } else {
               console.log("필수 조건을 승인해주세요.");
             }
